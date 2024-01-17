@@ -23,10 +23,10 @@ const Contact = () => {
     console.log("formData>>",formData)
     try{
       
-      const response = await axios.post(`${process.env.APP_URL}/api/users`, formData)
+      const response = await axios.post(`api/users`, formData)
       console.log("FormData-response>>", response)
 
-      await handleSendEmails()
+      // await handleSendEmails()
 
       if(response.status == "200"){
 
@@ -53,6 +53,7 @@ const Contact = () => {
   }
 
   const handleSendEmails = async () => {
+    console.log("formData>>>",formData)
     try {
       const response = await axios.post(`${process.env.APP_URL}/api/sendmail`,formData);
       console.log("Respuesta del servidor:", response.data);
@@ -125,7 +126,7 @@ const Contact = () => {
                   </div>
                   <div className="p-2 w-full">
                     <button
-                      onClick={handleSubmit}
+                      onClick={handleSendEmails}
                       type="submit"
                       className="flex mx-auto text-white bg-gray-800 border-0 py-2 px-8 focus:outline-none hover:bg-gray-700 rounded text-lg"
                     >
