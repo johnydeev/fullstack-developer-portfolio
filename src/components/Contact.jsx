@@ -23,7 +23,7 @@ const Contact = () => {
     console.log("formData>>",formData)
     try{
       
-      const response = await axios.post(`api/users`, formData)
+      const response = await axios.post(`/api/users`, formData)
       console.log("FormData-response>>", response)
 
       // await handleSendEmails()
@@ -126,7 +126,7 @@ const Contact = () => {
                   </div>
                   <div className="p-2 w-full">
                     <button
-                      onClick={handleSendEmails}
+                      onClick={handleSubmit}
                       type="submit"
                       className="flex mx-auto text-white bg-gray-800 border-0 py-2 px-8 focus:outline-none hover:bg-gray-700 rounded text-lg"
                     >

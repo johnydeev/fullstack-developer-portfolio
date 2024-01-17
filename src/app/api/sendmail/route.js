@@ -41,7 +41,7 @@ export async function POST(request){
         return NextResponse.json('successful shipment')
         
     } catch (error) {
-        console.log("errorRoute>>>",error)
+        console.log("errorRouteSendEmail>>>",error)
         return NextResponse.json(error)
     }
 }
