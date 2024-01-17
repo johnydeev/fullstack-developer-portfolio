@@ -23,7 +23,7 @@ const Contact = () => {
     console.log("formData>>",formData)
     try{
       
-      const response = await axios.post('https://api/users', formData)
+      const response = await axios.post(`${process.env.APP_URL}/api/users`, formData)
       console.log("FormData-response>>", response)
 
       await handleSendEmails()
@@ -54,7 +54,7 @@ const Contact = () => {
 
   const handleSendEmails = async () => {
     try {
-      const response = await axios.post("/api/sendmail", formData);
+      const response = await axios.post(`${process.env.APP_URL}/api/sendmail`,formData);
       console.log("Respuesta del servidor:", response.data);
     } catch (error) {
       console.error("Hubo un error al enviar el mail:", error);
