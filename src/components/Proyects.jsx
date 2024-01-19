@@ -15,7 +15,7 @@ const Proyects = () => {
                       height={100}
                       alt="Project INFINIT-Ecommerce image"
                       className="object-cover object-center "
-                      src="/infinit.png"
+                      src="/infinit.jpeg"
                     />
                   </picture>
                 </div>
@@ -44,7 +44,7 @@ const Proyects = () => {
                       height={100}
                       alt="Project Dentist Card image"
                       className="object-cover object-center min-h-fit"
-                      src="/dentist2.png"
+                      src="/dentist2.jpeg"
                     />
                   </picture>
                 </div>
