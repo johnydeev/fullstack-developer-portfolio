@@ -15,7 +15,7 @@ const Proyects = () => {
                       width={600}
                       height={100}
                       alt="Project INFINIT-Ecommerce image"
-                      className="object-cover object-center w-full"
+                      className="object-cover object-center"
                       src="/infinit.jpeg"
                     />
                   </picture>
@@ -30,23 +30,25 @@ const Proyects = () => {
                 <div className="flex justify-center">
                   <picture className="w-20 p-2">
                     <a href="https://infinit-ecommerce.vercel.app/">
-                      <img
+                      <Image
                         className="rounded-full w-15 h-15"
                         src="/github-mark.svg"
                         alt="Github"
+                        width={100}
+                        height={100}
                       />
                     </a>
                   </picture>
                 </div>
               </div>
               <div className="sm:w-1/2 mb-10 px-4">
-                <div className="border-2 h-[216px]">
+                <div className="border-2">
                   <picture>
                     <Image
-                      width={700}
+                      width={600}
                       height={213}
                       alt="Project Dentist Card image"
-                      className="object-cover object-center w-full h-[211px]"
+                      className="object-cover object-center w-full"
                       src="/dentist2.jpeg"
                     />
                   </picture>
@@ -62,10 +64,12 @@ const Proyects = () => {
                 <div className="flex justify-center">
                   <picture className="w-20 p-2">
                     <a href="https://aws-reactjs-castro-jonathan.s3.amazonaws.com/index.html">
-                      <img
+                      <Image
                         className="rounded-full w-15 h-15"
                         src="/github-mark.svg"
                         alt="Github"
+                        width={100}
+                        height={100}
                       />
                     </a>
                   </picture>
