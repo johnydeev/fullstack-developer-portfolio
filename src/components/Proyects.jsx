@@ -10,9 +10,9 @@ const Proyects = () => {
               <div className="sm:w-1/2 mb-10 px-4">
                 <div className="border-2">
                   <picture>
-                    <img
-                      width="auto"
-                      height="auto"
+                    <Image
+                      width={600}
+                      height={100}
                       alt="Project INFINIT-Ecommerce image"
                       className="object-cover object-center "
                       src="/infinit.png"
@@ -39,9 +39,9 @@ const Proyects = () => {
               <div className="sm:w-1/2 mb-10 px-4">
                 <div className="border-2">
                   <picture>
-                    <img
-                      width="auto"
-                      height="auto"
+                    <Image
+                      width={600}
+                      height={100}
                       alt="Project Dentist Card image"
                       className="object-cover object-center min-h-fit"
                       src="/dentist2.png"

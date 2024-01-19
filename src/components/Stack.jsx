@@ -33,7 +33,7 @@ const Stack = () => {
               </div>
               <div className="flex flex-col items-center">
                 <Image width={120} height={100} src="/react.svg" alt="react" />
-                <span className="mt-2">Reactjs</span>
+                <span className="mt-2">React js</span>
               </div>
             </div>
 
@@ -98,15 +98,15 @@ const Stack = () => {
             <span className="block w-full h-px bg-gray-600 my-8"></span>
             <h2 className="text-2xl font-bold mb-8 text-center">Frameworks</h2>
             <div className="flex flex-wrap:wrap justify-evenly items-center min-w-full gap-4">
-              <div className="flex flex-col items-center">
+              <div className="flex flex-col items-center pt-3">
                 <Image
-                  className="my-6"
+                  className="my-5"
                   width={130}
                   height={50}
                   src="/next.svg"
                   alt="nextjs"
                 />
-                <span className="mt-4">NEXT js</span>
+                <span className="mt-5">NEXT js</span>
               </div>
 
               <div className="flex flex-col items-center">
@@ -119,9 +119,9 @@ const Stack = () => {
                 <span className="mt-2">Express</span>
               </div>
 
-              <div className="flex flex-col items-center pt-4">
+              <div className="flex flex-col items-center pt-3">
                 <Image
-                  width={115}
+                  width={110}
                   height={115}
                   src="/tailwindcss.svg"
                   alt="tailwindcss"
