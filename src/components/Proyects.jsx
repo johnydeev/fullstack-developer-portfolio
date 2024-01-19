@@ -37,13 +37,13 @@ const Proyects = () => {
                 </div>
               </div>
               <div className="sm:w-1/2 mb-10 px-4">
-                <div className="border-2">
-                  <picture>
+                <div className="border-2 h-[216px]">
+                  <picture >
                     <Image
                       width={700}
-                      height={100}
+                      height={213}
                       alt="Project Dentist Card image"
-                      className="object-cover object-center w-full"
+                      className="object-cover object-center w-full h-[211px]"
                       src="/dentist2.jpeg"
                     />
                   </picture>
@@ -53,7 +53,8 @@ const Proyects = () => {
                 </h2>
                 <p className="leading-relaxed text-base">
                   App que consume una API con la informacion de 10 dentistas los
-                  cuales se renderizan en Cards con un estilo personalizado y adaptativo
+                  cuales se renderizan en Cards con un estilo personalizado y
+                  adaptativo
                 </p>
                 <div className="flex justify-center">
                   <picture className="w-20 p-2">
