@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Image from 'next/image'
 import React from 'react'
 
@@ -28,17 +29,19 @@ const Proyects = () => {
                 </p>
                 <div className="flex justify-center">
                   <picture className="w-20 p-2">
-                    <img
-                      className="rounded-full w-15 h-15"
-                      src="/github-mark.svg"
-                      alt="Github"
-                    />
+                    <a href="https://infinit-ecommerce.vercel.app/">
+                      <img
+                        className="rounded-full w-15 h-15"
+                        src="/github-mark.svg"
+                        alt="Github"
+                      />
+                    </a>
                   </picture>
                 </div>
               </div>
               <div className="sm:w-1/2 mb-10 px-4">
                 <div className="border-2 h-[216px]">
-                  <picture >
+                  <picture>
                     <Image
                       width={700}
                       height={213}
@@ -58,11 +61,13 @@ const Proyects = () => {
                 </p>
                 <div className="flex justify-center">
                   <picture className="w-20 p-2">
-                    <img
-                      className="rounded-full w-15 h-15"
-                      src="/github-mark.svg"
-                      alt="Github"
-                    />
+                    <a href="https://aws-reactjs-castro-jonathan.s3.amazonaws.com/index.html">
+                      <img
+                        className="rounded-full w-15 h-15"
+                        src="/github-mark.svg"
+                        alt="Github"
+                      />
+                    </a>
                   </picture>
                 </div>
               </div>
