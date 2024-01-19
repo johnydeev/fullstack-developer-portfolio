@@ -14,7 +14,7 @@ const Proyects = () => {
                       width={600}
                       height={100}
                       alt="Project INFINIT-Ecommerce image"
-                      className="object-cover object-center "
+                      className="object-cover object-center w-full"
                       src="/infinit.jpeg"
                     />
                   </picture>
@@ -40,10 +40,10 @@ const Proyects = () => {
                 <div className="border-2">
                   <picture>
                     <Image
-                      width={600}
+                      width={700}
                       height={100}
                       alt="Project Dentist Card image"
-                      className="object-cover object-center min-h-fit"
+                      className="object-cover object-center w-full"
                       src="/dentist2.jpeg"
                     />
                   </picture>
