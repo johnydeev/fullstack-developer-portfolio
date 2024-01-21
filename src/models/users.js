@@ -21,6 +21,6 @@ const contactsSchema = new Schema({
     timestamps: true,
 });
 
-const Contact = models.Contact || model('Contact', contactsSchema);
+const Contact = models.contact || model('contact', contactsSchema);
 
 export default Contact;

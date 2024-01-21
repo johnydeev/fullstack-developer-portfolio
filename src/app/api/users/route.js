@@ -2,7 +2,6 @@ import {NextResponse} from 'next/server'
 import usersModel from '@/models/users'
 import {connectDB} from '@/utils/connectDB'
 
-connectDB()
 
 export async function GET(){
     console.log("Obteniendo todos los Contactos...")
@@ -11,7 +10,8 @@ export async function GET(){
 }
 
 export async function POST(request){
-
+    
+    await connectDB()
     try {                
         console.log("Entro al try POST")
         const data = await request.json()
