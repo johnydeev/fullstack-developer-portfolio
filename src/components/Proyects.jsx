@@ -5,8 +5,11 @@ import React from 'react'
 const Proyects = () => {
     return (
       <div id="proyectos">
+        <h1 className="container px-5 pt-24 mx-auto text-3xl font-bold m-2 text-center">
+          Proyectos
+        </h1>
         <section className="text-gray-600 body-font">
-          <div className="container px-5 pt-24 mx-auto">
+          <div className="container px-5 pt-8 mx-auto">
             <div className="flex flex-wrap -mx-4 -mb-10 text-center">
               <div className="sm:w-1/2 mb-10 px-4">
                 <div className="border-2">
@@ -15,7 +18,7 @@ const Proyects = () => {
                       width={600}
                       height={100}
                       alt="Project INFINIT-Ecommerce image"
-                      className="object-cover object-center"
+                      className="object-cover object-center w-full"
                       src="/infinit.jpeg"
                     />
                   </picture>

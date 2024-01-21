@@ -5,10 +5,10 @@ const Stack = () => {
   return (
     <>
       <div id="stack">
-        <h2 className="text-3xl font-bold m-2 px-5 pt-8 text-center ">
+        <h2 className="text-3xl font-bold m-2 px-5 pt-24 text-center ">
           Stack Tecnológico
         </h2>
-        <section className="p-4 bg-gray-200 text-center">
+        <section className="p-5 mt-8 bg-gray-200 text-center">
           <div className="container mx-auto">
             <span className="block w-full h-px bg-gray-600 my-8"></span>
             <h2 className="text-2xl font-bold mb-8 text-center">Frontend</h2>

@@ -10,8 +10,8 @@ const Home = () => {
   return (
     <div className='lg:w-3/4 mx-auto'>
       <Hero />
-      <Stack />
       <Proyects />
+      <Stack />
       <Contact />
     </div>
     
