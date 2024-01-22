@@ -1,16 +1,7 @@
 
-import { connectDB } from '@/utils/connectDB'
 import axios from 'axios'
 import React, { useState } from 'react'
 import Swal from 'sweetalert2'
-
-const sendEmail = async (formData) => {
-
-  await connectDB()
-  const send = await axios.post(`/api/sendmail`, formData); 
-  return send
-}
-
 
 const Contact = () => {
     
@@ -32,8 +23,7 @@ const Contact = () => {
     console.log("formData>>",formData)
     try{
       
-      const response = await sendEmail(formData)
-      // const response = await axios.post(`/api/users`, formData)
+      const response = await axios.post(`/api/users`, formData)
       console.log("FormData-response>>", response)
 
       // await handleSendEmails()
