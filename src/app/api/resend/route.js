@@ -10,7 +10,7 @@ export async function POST() {
             from: 'onboarding@resend.dev',
             to: 'castrojonathand1989@gmail.com',
             subject: 'Waitlist',
-            html: '<h1>Hi</h1>',
+            html: EmailTemplate,
             text: '',
             
         });
