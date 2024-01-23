@@ -27,7 +27,7 @@ export async function POST(request){
             return NextResponse.error("Ya existe el email",{status: 400})
         }
 
-        const newUser = new usersModel(data)
+        const newUser = new contactModel(data);
         console.log("newContact>>>",newUser)  
     
         const saveUser = await newUser.save()
