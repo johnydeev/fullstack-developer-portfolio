@@ -8,7 +8,7 @@ import React from 'react';
 
 const Home = () => {
   return (
-    <div className='lg:w-3/4 mx-auto'>
+    <div className='lg:w-2/3 mx-auto'>
       <Hero />
       <Proyects />
       <Stack />

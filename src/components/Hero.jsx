@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import React from 'react'
+import AboutMe from './AboutMe';
 
 const Hero = () => {
     return (
@@ -10,18 +11,9 @@ const Hero = () => {
             </h1>
             <h1 className="text-xl pb-8">Bienvenid@ a mi portfolio</h1>
 
-            <div className=" 2xl:px-36 container mx-auto flex sm:px-16 md:px-2 lg:px-20 md:flex-row flex-col items-center gap-4">
-                <div className=" 2xl:mr-52 lg:flex-grow md:w-2/3 lg:pr-10 md:pr-10 flex flex-col md:items-start md:text-left mb-6 md:mb-0 items-center text-center">
-                <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-600">
-                    Full Stack Developer...
-                    <br className="hidden lg:inline-block" />
-                </h1>
-                <p className="mb-6 leading-relaxed">
-                    Me considero un amante de la tecnologia e innovacion... siento
-                    que tengo mucho para dar en el campo IT gracias a mi creatividad
-                    y dedicacion. Espero algun dia ser ejemplo o referente en este
-                    mundo tan basto de la programacion.
-                </p>
+            <div className="container mx-auto flex justify-between sm:px-16 md:px-10 lg:px-0 md:flex-row flex-col items-center gap-4 max-w-5xl">
+                <div className=" 2xl:mr-54 lg:flex-grow md:w-2/3 lg:pr-8 flex flex-col md:items-start md:text-left mb-6 md:mb-0 items-center text-center">
+                <AboutMe/>
                 <div className="flex justify-center">
                     <picture className="w-20 p-2">
                     <a href="https://github.com/johnydeev">

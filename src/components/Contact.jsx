@@ -25,7 +25,7 @@ const Contact = () => {
     console.log("resSendMail>>>", resSendMail);
     console.log("resSaveData>>>", resSaveData);
     
-    if (resSendMail.status === "200") {
+    if (resSendMail.status === 200) {
       Swal.fire({
         title: "Send succefull!",
         text: "Do you want to continue",
@@ -34,7 +34,7 @@ const Contact = () => {
       });
     } else {
       Swal.fire({
-        title: `Error! \n${resSendMail.message}`,
+        title: `Error! \n ${resSendMail.data}`,
         text: "Do you want to continue",
         icon: "error",
         confirmButtonText: "OK",

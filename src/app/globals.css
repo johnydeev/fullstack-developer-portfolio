@@ -6,7 +6,9 @@
     display: none;
     
 }
-
+#desktop{
+     
+}
 
 @media (max-width: 1024px) {
     #desktop{

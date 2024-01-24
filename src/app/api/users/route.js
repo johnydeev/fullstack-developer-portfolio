@@ -1,11 +1,11 @@
 import {NextResponse} from 'next/server'
-import contactModel from '@/models/contact'
+import usersModel from '@/models/users'
 import {connectDB} from '@/utils/connectDB'
 
 
 export async function GET(){
     console.log("Obteniendo todos los Contactos...")
-    const allUsers = await contactModel.find();
+    const allUsers = await usersModel.find()
     return NextResponse.json(allUsers)
 }
 
@@ -19,7 +19,7 @@ export async function POST(request){
         const {email} = data
         
         console.log("Linea25>>")
-        const existingUser = await contactModel.findOne({ email: email });
+        const existingUser = await usersModel.findOne({ email: email });
         console.log("existingUser>>", existingUser)
 
         if (existingUser) {
@@ -27,7 +27,7 @@ export async function POST(request){
             return NextResponse.error("Ya existe el email",{status: 400})
         }
 
-        const newUser = new contactModel(data);
+        const newUser = new usersModel(data)
         console.log("newContact>>>",newUser)  
     
         const saveUser = await newUser.save()
