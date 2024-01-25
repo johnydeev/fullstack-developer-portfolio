@@ -11,8 +11,8 @@ const Hero = () => {
           </h1>
           <h1 className="text-xl pb-8">Bienvenid@ a mi portfolio</h1>
 
-          <div className="container mx-auto flex justify-between sm:px-16 md:px-8 md:flex-row lg:px-4 xl:px-12 flex-col items-center gap-4 max-w-5xl">
-            <div className=" 2xl:mr-54 lg:flex-grow md:w-2/3 md:items-start md:text-left mb-6 md:mb-0 flex flex-col items-center text-center">
+          <div className="container mx-auto flex justify-between sm:px-16 md:px-8 md:flex-row lg:px-4 xl:px-14 flex-col items-center gap-4 max-w-5xl">
+            <div className="xl:pr-14 lg:flex-grow lg:pr-0 md:w-2/3 md:items-start md:text-left md:pr-5 mb-6 md:mb-0 flex flex-col items-center text-center">
               <AboutMe />
               <div className="flex justify-center">
                 <picture className="w-20 p-2">
