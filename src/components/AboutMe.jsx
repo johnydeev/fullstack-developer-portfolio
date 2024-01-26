@@ -8,9 +8,7 @@ const AboutMe = () => {
         </h1>
         <div className="mb-6 leading-relaxed">
           <p>
-            Me considero un amante de la tecnologia e innovacion... siento que
-            tengo mucho para dar en el campo IT gracias a mi creatividad y
-            dedicacion.
+            Ademas de gustarme la programacion, soy diseñador de calzado y tuve mi propio negocio alimenticio el cual me dio estabilidad economica pero no emocional, en esta instancia de mi vida voy por todo y quiero hacer lo que me gusta dando el 100% en lo que me apasiona.
           </p>
           <p>
             Espero algun dia ser ejemplo o referente en este mundo tan basto de
