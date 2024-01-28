@@ -16,7 +16,11 @@ const Hero = () => {
               <AboutMe />
               <div className="flex justify-center">
                 <picture className="w-20 p-2">
-                  <a href="https://github.com/johnydeev">
+                  <a
+                    href="https://github.com/johnydeev"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <img
                       className="rounded-full w-15 h-15"
                       src="/github-mark.svg"
@@ -25,7 +29,11 @@ const Hero = () => {
                   </a>
                 </picture>
                 <picture className="w-20">
-                  <a href="https://www.linkedin.com/in/johnydeev/">
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://www.linkedin.com/in/johnydeev/"
+                  >
                     <img
                       className="rounded-full w-15 h-15"
                       src="/linkedin.svg"
