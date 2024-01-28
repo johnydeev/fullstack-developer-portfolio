@@ -8,10 +8,22 @@ const AboutMe = () => {
         </h1>
         <div className="mb-6 leading-relaxed">
           <p>
-            Ademas de gustarme la programacion, soy diseñador de calzado y tuve mi propio negocio alimenticio el cual me dio estabilidad economica pero no emocional, en esta instancia de mi vida voy por todo y quiero hacer lo que me gusta dando el 100% en lo que me apasiona.
+            Ademas de gustarme la programacion, soy diseñador de calzado y tuve
+            mi propio negocio alimenticio el cual me dio estabilidad economica.
+            En esta instancia de mi vida voy por todo y por eso vendi mi negocio
+            para trabajar en lo que me apasiona.
           </p>
           <p>
-            Espero algun dia ser ejemplo o referente en este mundo tan basto de
+            Me gradue en el 2023 como <i>Professional Developer</i> y participe de un proyecto del cual me llevo muchisima experiencia en habilidades blandas y tecnicas, podes verlo{" "}
+            <a
+              href="https://infinit-ecommerce.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <strong>aqui.</strong>{" "}
+            </a>            
+            Trabajo dia a dia para ser un mejor profesional y sinceramente
+            espero algun dia ser ejemplo o referente en este mundo tan basto de
             la programacion.
           </p>
         </div>
