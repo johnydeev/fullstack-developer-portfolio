@@ -1,4 +1,4 @@
-import Navbar from '@/components/navbar'
+import Navbar from '@/components/Navbar'
 import './globals.css'
 import Footer from '@/components/footer'
 import Cv from '@/components/Cv'
