@@ -27,7 +27,7 @@ const Cv = () => {
       <div
         className={`transition-all duration-300  ${
             isFixed
-            ? "fixed top-24 left-2"
+            ? "fixed top-28 left-2"
             : "fixed bottom-0 right-0 mr-2 mb-2 sm:mb-24 sm:mr-5 lg:mr-8"
         }`}
         >
