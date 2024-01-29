@@ -8,8 +8,6 @@ const Navbar = () => {
   const changeTheme=()=>{
     setTheme(!theme)
   }  
-
-
   return (
     <nav id="nav" className="bg-gray-800 text-white px-4 h-16">
       <div
@@ -47,28 +45,28 @@ const Navbar = () => {
         </div>
 
       </div>      
+      {/* <button
+        id="theme"
+        onClick={changeTheme}
+        className={`mr-4 text-lg rounded-full p-3 bg-gray-500 
+          ${theme ? "" : "!bg-white"}`}
+      >
+        <picture>
+          <img
+            width={30}
+            height={30}
+            src={
+              theme
+                ? "/moon-stars-svgrepo-com2.svg"
+                : "/sun-black.svg"
+            }
+            alt={theme ? "Dark" : "Light"}
+          />
+        </picture>
+      </button> */}
 
     </nav>
   );
 }
 
 export default Navbar
-{/* <button
-  id="theme"
-  onClick={changeTheme}
-  className={`mr-4 text-lg rounded-full p-3 bg-gray-500 
-    ${theme ? "" : "!bg-white"}`}
->
-  <picture>
-    <img
-      width={30}
-      height={30}
-      src={
-        theme
-          ? "/moon-stars-svgrepo-com2.svg"
-          : "/sun-black.svg"
-      }
-      alt={theme ? "Dark" : "Light"}
-    />
-  </picture>
-</button> */}
