@@ -11,6 +11,7 @@ const Cv = () => {
         window.scrollY || document.documentElement.scrollTop;
       const stopPosition = 2700;
 
+      console.log("scroll>>",scrollPosition)
       setIsFixed(scrollPosition > stopPosition);
     };
 
@@ -26,8 +27,8 @@ const Cv = () => {
       <div
         className={`transition-all duration-300  ${
             isFixed
-            ? "fixed top-16 left-5"
-            : "fixed bottom-0 right-0 mr-4 mb-4 lg:mr-8 lg:mb-24"
+            ? "fixed top-28 left-2"
+            : "fixed bottom-0 right-0 mr-4 mb-24 lg:mr-8"
         }`}
         >
           <p id="desktop" className="font-bold">Descargar CV</p>
