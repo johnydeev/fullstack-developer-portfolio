@@ -12,10 +12,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning={true}>
       <body className="" suppressHydrationWarning={true}>
-        <Navbar />
+        <Navbar/>
         <Cv/>
         {children}
-        <Footer />
+        <Footer/>
       </body>
     </html>
   );

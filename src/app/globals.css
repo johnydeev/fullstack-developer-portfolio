@@ -6,12 +6,6 @@
     display: none;
     
 }
-/* #desktop{
-    position: fixed;
-    width: 100%;
-        top: 0;
-} */
-
 @media (max-width: 1024px) {
     #desktop {
         display: none;
