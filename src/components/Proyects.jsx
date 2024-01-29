@@ -5,7 +5,7 @@ import React from 'react'
 const Proyects = () => {
     return (
       <div id="proyectos">
-        <h1 className="container px-5 pt-24 mx-auto text-3xl font-bold m-2 text-center">
+        <h1 className="container px-5 pt-16 mx-auto text-3xl font-bold m-2 text-center">
           Proyectos
         </h1>
         <section className="text-gray-600 body-font">

@@ -5,7 +5,7 @@ import AboutMe from "./AboutMe";
 const Hero = () => {
 		return (
       <div>
-        <section className="text-gray-600 body-font text-center p-5">
+        <section className="text-gray-600 body-font text-center p-5 mt-5">
           <h1 className="text-4xl font-bold sm:px-20 py-2">
             ¡Hola! Mi nombre es Jonathan
           </h1>

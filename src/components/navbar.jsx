@@ -21,20 +21,36 @@ const Navbar = () => {
             isOpen ? "open" : "close"
           } text-center flex space-x-4`}
         >
-          <Link href="#inicio" className="hover:text-gray-300">
+          <Link
+            onClick={() => setIsOpen(!isOpen)}
+            href="#inicio"
+            className="hover:text-gray-300"
+          >
             Inicio
           </Link>
-          <Link href="#stack" className="hover:text-gray-300">
+          <Link
+            onClick={() => setIsOpen(!isOpen)}
+            href="#stack"
+            className="hover:text-gray-300"
+          >
             Stack
           </Link>
-          <Link href="#proyectos" className="hover:text-gray-300">
+          <Link
+            onClick={() => setIsOpen(!isOpen)}
+            href="#proyectos"
+            className="hover:text-gray-300"
+          >
             Proyectos
           </Link>
-          <Link href="#contacto" className="hover:text-gray-300">
+          <Link
+            onClick={() => setIsOpen(!isOpen)}
+            href="#contacto"
+            className="hover:text-gray-300"
+          >
             Contacto
           </Link>
         </div>
-        
+
         <div
           className={`hamburg ${isOpen && "open h-[35px]"}`}
           onClick={() => setIsOpen(!isOpen)}
@@ -43,8 +59,7 @@ const Navbar = () => {
           <span></span>
           <span></span>
         </div>
-
-      </div>      
+      </div>
       {/* <button
         id="theme"
         onClick={changeTheme}
@@ -64,7 +79,6 @@ const Navbar = () => {
           />
         </picture>
       </button> */}
-
     </nav>
   );
 }

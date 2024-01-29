@@ -5,7 +5,7 @@ const Stack = () => {
   return (
     <>
       <div id="stack">
-        <h2 className="text-3xl font-bold m-2 px-5 pt-24 text-center ">
+        <h2 className="text-3xl font-bold m-2 px-5 pt-16 text-center ">
           Stack Tecnológico
         </h2>
         <section className="p-5 mt-8 bg-gray-200 text-center">
