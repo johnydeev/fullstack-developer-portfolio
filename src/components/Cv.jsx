@@ -28,7 +28,7 @@ const Cv = () => {
         className={`transition-all duration-300  ${
             isFixed
             ? "fixed top-28 left-2"
-            : "fixed bottom-0 right-0 mr-4 mb-24 lg:mr-8"
+            : "fixed bottom-0 right-0 mr-4 sm:mb-24 lg:mr-8"
         }`}
         >
           <p id="desktop" className="font-bold">Descargar CV</p>
