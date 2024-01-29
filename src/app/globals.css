@@ -13,9 +13,9 @@
 } */
 
 @media (max-width: 1024px) {
-    /* #desktop {
+    #desktop {
         display: none;
-    } */
+    }
     #mobile{
         display: flex;
     }

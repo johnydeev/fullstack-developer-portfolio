@@ -11,7 +11,7 @@ const Navbar = () => {
   return (
     <nav id="nav" className="bg-gray-800 text-white px-4 h-16">
       <div
-        id="desktop"
+        
         className="container mx-auto flex justify-between items-center p-4"
       >
         <span className="text-xl font-bold">Castro Jonathan</span>
