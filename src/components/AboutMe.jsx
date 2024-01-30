@@ -10,7 +10,7 @@ const AboutMe = () => {
           <p>
             Ademas de gustarme la programacion, soy diseñador de calzado y tuve
             mi propio negocio alimenticio el cual me dio estabilidad economica.
-            En esta instancia de mi vida voy por todo y por eso vendí mi negocio
+            En esta instancia de mi vida voy por todo y es por eso que vendí mi negocio
             para trabajar en lo que me apasiona.
           </p>
           <p>
@@ -20,7 +20,7 @@ const AboutMe = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <strong>aqui.</strong>{" "}
+              <strong><i className=" text-blue-600">aqui.</i></strong>{" "}
             </a>            
             Trabajo día a día para ser un mejor profesional y sinceramente
             espero algun dia ser ejemplo o referente en este mundo tan basto de
