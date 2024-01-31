@@ -27,8 +27,8 @@ const Contact = () => {
     
     if (resSendMail.status === 200) {
       Swal.fire({
-        title: "Send succefull!",
-        text: "Do you want to continue",
+        title: "Envio Exitoso!",
+        text: "Gracias por contactarte estare en respondiendo tu email en breve.",
         icon: "success",
         confirmButtonText: "OK",
       });
