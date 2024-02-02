@@ -8,8 +8,8 @@ const transporter = createTransport(
     port: 465,
     secure: true,
     auth: {
-      user: process.env.RESEND_USER,
-      pass: process.env.RESEND_API_KEY,
+        user: process.env.RESEND_USER,
+        pass: process.env.RESEND_API_KEY,
     },
   })
 );

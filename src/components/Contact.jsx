@@ -17,11 +17,11 @@ const Contact = () => {
   };
 
   const handleSubmit = async () => {
-    console.log("formData>>", formData)
+    console.log("formDataEnSubmit>>", formData)
 
     const resSendMail = await handleSendEmails()
     const resSaveData = await handleSaveData()
-
+    
     console.log("resSendMail>>>", resSendMail);
     console.log("resSaveData>>>", resSaveData);
     
