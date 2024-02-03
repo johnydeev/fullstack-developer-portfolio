@@ -31,7 +31,7 @@ const Cv = () => {
               : "fixed bottom-0 right-0 mr-2 mb-2 sm:mb-24 sm:mr-5 lg:mr-8"
           } ${
             isFixed && window.scrollY > 2700
-              ? "translate-y-10"
+              ? "translate-y-40"
               : "transition-transform hover:-translate-y-1"
           }`}
         >
