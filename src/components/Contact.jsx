@@ -47,14 +47,10 @@ const Contact = () => {
         confirmButtonText: "OK",
       });
     }        
-  }; 
-
-  useEffect(() => {    
-    console.log("FormDataFINAL>>", formData);
-  }, [formData]);
+  };
 
   const handleSaveData = async () => {
-    console.log("formData>>>", formData);
+    
     try {
       const response = await axios.post(`/api/users`, formData);
       console.log("Response save data>>", response);
@@ -66,8 +62,7 @@ const Contact = () => {
     }
   };
 
-  const handleSendEmails = async () => {
-    console.log("formData>>>", formData);
+  const handleSendEmails = async () => {   
 
     try {
       const response = await axios.post(`/api/sendmail`, formData);
