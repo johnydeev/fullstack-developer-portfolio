@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
 import AboutMe from "./AboutMe";
+import Image from "next/image";
 
 const Hero = () => {
 		return (
@@ -15,7 +16,7 @@ const Hero = () => {
             <div className="xl:pr-14 lg:flex-grow lg:pr-0 md:w-2/3 md:items-start md:text-left md:pr-5 mb-6 md:mb-0 flex flex-col items-center text-center">
               <AboutMe />
               <div className="flex justify-center">
-                <picture className="w-20 p-2">
+                <picture className="transition-all duration-300 hover:-translate-y-2 w-20 p-2">
                   <a
                     href="https://github.com/johnydeev"
                     target="_blank"
@@ -28,7 +29,7 @@ const Hero = () => {
                     />
                   </a>
                 </picture>
-                <picture className="w-20">
+                <picture className="transition-all duration-300 hover:-translate-y-2 w-20">
                   <a
                     target="_blank"
                     rel="noopener noreferrer"
@@ -45,11 +46,13 @@ const Hero = () => {
             </div>
             <div className="lg:max-w-xs lg:w-full md:w-1/2 w-3/4">
               <picture>
-                <img
+                <Image
+                  width={900}
+                  height={900}
                   className="rounded-full"
                   src="/Jonathan-pic.jpg"
                   alt="Castro-Jonathan"
-                />
+                ></Image>
               </picture>
             </div>
           </div>
