@@ -2,7 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-#mobile {
+
+.hamburg {
   display: none;
 }
 @media (max-width: 1024px) {

@@ -10,10 +10,7 @@ const Navbar = () => {
   }  
   return (
     <nav id="nav" className="bg-gray-800 text-white px-4 h-16">
-      <div
-        
-        className="container mx-auto flex justify-between items-center p-4"
-      >
+      <div className="container mx-auto flex justify-between items-center p-4">
         <span className="text-xl font-bold">Castro Jonathan</span>
 
         <div
@@ -59,26 +56,24 @@ const Navbar = () => {
           <span></span>
           <span></span>
         </div>
-      </div>
-      {/* <button
-        id="theme"
-        onClick={changeTheme}
-        className={`mr-4 text-lg rounded-full p-3 bg-gray-500 
+
+
+        <button
+          id="theme"
+          onClick={changeTheme}
+          className={`mr-4 text-lg rounded-full p-3 bg-gray-500 
           ${theme ? "" : "!bg-white"}`}
-      >
-        <picture>
-          <img
-            width={30}
-            height={30}
-            src={
-              theme
-                ? "/moon-stars-svgrepo-com2.svg"
-                : "/sun-black.svg"
-            }
-            alt={theme ? "Dark" : "Light"}
-          />
-        </picture>
-      </button> */}
+        >
+          {/* <picture>
+            <img
+              width={30}
+              height={30}
+              src={theme ? "/moon-stars-svgrepo-com2.svg" : "/sun-black.svg"}
+              alt={theme ? "Dark" : "Light"}
+            />
+          </picture> */}
+        </button>
+      </div>
     </nav>
   );
 }
