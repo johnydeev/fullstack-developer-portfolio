@@ -31,7 +31,7 @@ const Proyects = () => {
                   un automovil segun las necesidades y ubicacion del usuario
                 </p>
                 <div className="flex justify-center">
-                  <picture className="w-20 p-2">
+                  <picture className="transition-all duration-300 hover:-translate-y-2 w-20 p-2">
                     <a
                       href="https://infinit-ecommerce.vercel.app/"
                       target="_blank"
@@ -69,7 +69,7 @@ const Proyects = () => {
                   adaptativo
                 </p>
                 <div className="flex justify-center">
-                  <picture className="w-20 p-2">
+                  <picture className="transition-all duration-300 hover:-translate-y-2 w-20 p-2">
                     <a
                       href="https://aws-reactjs-castro-jonathan.s3.amazonaws.com/index.html"
                       target="_blank"
