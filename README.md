@@ -10,6 +10,6 @@
 
 - [x] Responsive **Nodemailer**
 - [x] Dark Mode **Nodemailer**
-- [x] Send email with **Nodemailer**
+- [x] Menu hamburger personalized **Nodemailer**
 - [x] Database on **MongoDB**
 - [ ] Send email with **Nodemailer**
