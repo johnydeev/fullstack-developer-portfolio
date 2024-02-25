@@ -8,8 +8,8 @@
 
 ## Features to be implemented 
 
-- [x] Responsive **Nodemailer**
-- [x] Dark Mode **Nodemailer**
-- [x] Menu hamburger personalized **Nodemailer**
+- [x] Responsive 
+- [x] Dark Mode 
+- [x] Menu hamburger personalized
 - [x] Database on **MongoDB**
 - [ ] Send email with **Nodemailer**
