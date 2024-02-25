@@ -64,14 +64,14 @@ const Navbar = () => {
           className={`mr-4 text-lg rounded-full p-3 bg-gray-500 
           ${theme ? "" : "!bg-white"}`}
         >
-          {/* <picture>
+          <picture>
             <img
               width={30}
               height={30}
               src={theme ? "/moon-stars-svgrepo-com2.svg" : "/sun-black.svg"}
               alt={theme ? "Dark" : "Light"}
             />
-          </picture> */}
+          </picture>
         </button>
       </div>
     </nav>

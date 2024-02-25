@@ -14,6 +14,9 @@
     display: flex;
   }
 
+  .hamburg{
+    display: block;
+  }
   .hamburg span {
     display: flex;
     width: 30px;
