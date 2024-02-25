@@ -1,5 +1,3 @@
-# [INFINIT](https://infinit-ecommerce.vercel.app/)
-
 Ecommerce B2C donde puedes rentar un auto estes donde estes.
 
 [![INFINIT](./src/assets/images/infinit.PNG)](https://infinit-ecommerce.vercel.app/)
