@@ -9,14 +9,14 @@ const Navbar = () => {
     setTheme(!theme)
   }  
   return (
-    <nav id="nav" className="bg-gray-800 text-white px-4 h-16">
+    <nav id="nav" className="bg-gray-800 text-white px-4 h-auto">
       <div className="container mx-auto flex justify-between items-center p-4">
         <span className="text-xl font-bold">Castro Jonathan</span>
 
         <div
           className={`link ${
             isOpen ? "open" : "close"
-          } text-center flex space-x-4`}
+          } text-center flex space-x-7`}
         >
           <Link
             onClick={() => setIsOpen(!isOpen)}
