@@ -20,9 +20,9 @@ const AboutMe = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <strong><i className=" text-blue-600">aqui.</i></strong>{" "}
-            </a>            
-            Trabajo día a día para ser un mejor profesional y sinceramente
+              <strong><i className=" text-blue-600">aqui.</i></strong>
+            </a>{" "}
+            Trabajo día a día para ser un mejor profesional y
             espero algun dia ser ejemplo o referente en este mundo tan basto de
             la programacion.
           </p>
