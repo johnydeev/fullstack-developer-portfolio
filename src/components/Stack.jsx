@@ -12,14 +12,26 @@ const Stack = () => {
           <div className="container mx-auto">
             <span className="block w-full h-px bg-gray-600 my-8"></span>
             <h2 className="text-2xl font-bold mb-8 text-center">Frontend</h2>
-            <div className="flex justify-evenly items-center min-w-full gap-4">
+            <div className="flex justify-evenly items-center min-w-full gap-4 group">
               <div className="flex flex-col items-center">
-                <Image width={100} height={100} src="/html5.svg" alt="html5" />
+                <Image
+                  width={100}
+                  height={100}
+                  src="/html5.svg"
+                  alt="html5"
+                  className="transition-transform transform scale-100 hover:scale-110"
+                />
                 <span className="mt-2">HTML5</span>
               </div>
 
               <div className="flex flex-col items-center">
-                <Image width={100} height={100} src="/css.svg" alt="CSS" />
+                <Image
+                  width={100}
+                  height={100}
+                  src="/css.svg"
+                  alt="CSS"
+                  className="transition-transform transform scale-100 hover:scale-110"
+                />
                 <span className="mt-2">CSS3</span>
               </div>
               <div className="flex flex-col items-center h-15 sm:w-40">
@@ -28,11 +40,18 @@ const Stack = () => {
                   height={115}
                   src="/javascript.svg"
                   alt="javascript"
+                  className="transition-transform transform scale-100 hover:scale-110"
                 />
                 <span className="mt-2">JavaScript</span>
               </div>
               <div className="flex flex-col items-center">
-                <Image width={120} height={100} src="/react.svg" alt="react" />
+                <Image
+                  width={120}
+                  height={100}
+                  src="/react.svg"
+                  alt="react"
+                  className="transition-transform transform scale-100 hover:scale-110"
+                />
                 <span className="mt-2">React js</span>
               </div>
             </div>
@@ -48,11 +67,18 @@ const Stack = () => {
                       height={100}
                       src="/nodejs.svg"
                       alt="nodejs"
+                      className="transition-transform transform scale-100 hover:scale-110"
                     />
                     <span className="mt-2">Node js</span>
                   </div>
                   <div className="flex flex-col items-center">
-                    <Image width={85} height={100} src="/java.svg" alt="java" />
+                    <Image
+                      width={85}
+                      height={100}
+                      src="/java.svg"
+                      alt="java"
+                      className="transition-transform transform scale-100 hover:scale-110"
+                    />
                     <span className="mt-2">JAVA</span>
                   </div>
                   <div className="flex flex-col items-center pt-2">
@@ -60,7 +86,8 @@ const Stack = () => {
                       width={100}
                       height={100}
                       src="/spring-svgrepo-com.svg"
-                      alt="java"
+                      alt="spring"
+                      className="transition-transform transform scale-100 hover:scale-110"
                     />
                     <span className="mt-3">Spring</span>
                   </div>
@@ -79,6 +106,7 @@ const Stack = () => {
                       height={100}
                       src="/mongodb.svg"
                       alt="mongodb"
+                      className="transition-transform transform scale-100 hover:scale-110"
                     />
                     <span className="mt-2">Mongo DB</span>
                   </div>
@@ -88,6 +116,7 @@ const Stack = () => {
                       height={115}
                       src="/mysql.svg"
                       alt="mysql"
+                      className="transition-transform transform scale-100 hover:scale-110"
                     />
                     <span className="mt-2">MySQL</span>
                   </div>
@@ -100,7 +129,7 @@ const Stack = () => {
             <div className="flex flex-wrap:wrap justify-evenly items-center min-w-full gap-4">
               <div className="flex flex-col items-center pt-3">
                 <Image
-                  className="my-5"
+                  className="transition-transform transform scale-100 hover:scale-125 my-5"
                   width={130}
                   height={50}
                   src="/next.svg"
@@ -115,6 +144,7 @@ const Stack = () => {
                   height={100}
                   src="/expressjs.svg"
                   alt="express"
+                  className="transition-transform transform scale-100 hover:scale-110"
                 />
                 <span className="mt-2">Express</span>
               </div>
@@ -125,6 +155,7 @@ const Stack = () => {
                   height={115}
                   src="/tailwindcss.svg"
                   alt="tailwindcss"
+                  className="transition-transform transform scale-100 hover:scale-110"
                 />
                 <span className="mt-5">Tailwind CSS</span>
               </div>
