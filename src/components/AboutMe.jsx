@@ -8,7 +8,7 @@ const AboutMe = () => {
         </h1>
         <div className="mb-6 leading-relaxed">
           <p>
-            Ademas de gustarme la programacion, soy diseñador de calzado y tuve
+            Ademas de gustarme la programación, soy diseñador de calzado y tuve
             mi propio negocio alimenticio el cual me dio estabilidad economica.
             En esta instancia de mi vida voy por todo y es por eso que vendí mi negocio
             para trabajar en lo que me apasiona.
@@ -24,7 +24,7 @@ const AboutMe = () => {
             </a>{" "}
             Trabajo día a día para ser un mejor profesional y
             espero algun dia ser ejemplo o referente en este mundo tan basto de
-            la programacion.
+            la programación.
           </p>
         </div>
       </>
