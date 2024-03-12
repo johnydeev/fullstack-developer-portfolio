@@ -18,7 +18,7 @@ const Proyects = () => {
                       width={600}
                       height={100}
                       alt="Project INFINIT-Ecommerce image"
-                      className="object-cover object-center w-full"
+                      className="object-cover object-center w-full hover:scale-125"
                       src="/infinit.jpeg"
                     />
                   </picture>
