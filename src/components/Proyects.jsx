@@ -12,13 +12,13 @@ const Proyects = () => {
           <div className="container px-5 pt-8 mx-auto">
             <div className="flex flex-wrap -mx-4 -mb-10 text-center">
               <div className="sm:w-1/2 mb-10 px-4">
-                <div className="border-2">
+                <div className="border-2 transition inline-block hover:scale-110 h-auto">
                   <picture>
                     <Image
                       width={600}
                       height={100}
                       alt="Project INFINIT-Ecommerce image"
-                      className="object-cover object-center w-full hover:scale-125"
+                      className="object-cover object-center w-full"
                       src="/infinit.jpeg"
                     />
                   </picture>
@@ -39,7 +39,7 @@ const Proyects = () => {
                     >
                       <Image
                         className="rounded-full w-15 h-15"
-                        width={100}
+                        width={600}
                         height={100}
                         src="/github-mark.svg"
                         alt="Github"
@@ -49,10 +49,10 @@ const Proyects = () => {
                 </div>
               </div>
               <div className="sm:w-1/2 mb-10 px-4">
-                <div className="border-2">
+                <div className="border-2 transition inline-block hover:scale-110 h-auto">
                   <picture>
                     <Image
-                      className="object-cover object-center w-full"
+                      className="object-cover object-center w-full "
                       width={600}
                       height={213}
                       alt="Project Dentist Card image"

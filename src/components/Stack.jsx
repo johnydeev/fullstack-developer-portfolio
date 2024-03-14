@@ -19,7 +19,7 @@ const Stack = () => {
                   height={100}
                   src="/html5.svg"
                   alt="html5"
-                  className="transition-transform transform scale-100 hover:scale-110"
+                  className="transition hover:scale-110"
                 />
                 <span className="mt-2">HTML5</span>
               </div>
@@ -30,7 +30,7 @@ const Stack = () => {
                   height={100}
                   src="/css.svg"
                   alt="CSS"
-                  className="transition-transform transform scale-100 hover:scale-110"
+                  className="transition hover:scale-110"
                 />
                 <span className="mt-2">CSS3</span>
               </div>
@@ -40,7 +40,7 @@ const Stack = () => {
                   height={115}
                   src="/javascript.svg"
                   alt="javascript"
-                  className="transition-transform transform scale-100 hover:scale-110"
+                  className="transition hover:scale-110"
                 />
                 <span className="mt-2">JavaScript</span>
               </div>
@@ -50,7 +50,7 @@ const Stack = () => {
                   height={100}
                   src="/react.svg"
                   alt="react"
-                  className="transition-transform transform scale-100 hover:scale-110"
+                  className="transition hover:scale-110"
                 />
                 <span className="mt-2">React js</span>
               </div>
@@ -67,7 +67,7 @@ const Stack = () => {
                       height={100}
                       src="/nodejs.svg"
                       alt="nodejs"
-                      className="transition-transform transform scale-100 hover:scale-110"
+                      className="transition hover:scale-110"
                     />
                     <span className="mt-2">Node js</span>
                   </div>
@@ -77,7 +77,7 @@ const Stack = () => {
                       height={100}
                       src="/java.svg"
                       alt="java"
-                      className="transition-transform transform scale-100 hover:scale-110"
+                      className="transition hover:scale-110"
                     />
                     <span className="mt-2">JAVA</span>
                   </div>
@@ -87,7 +87,7 @@ const Stack = () => {
                       height={100}
                       src="/spring-svgrepo-com.svg"
                       alt="spring"
-                      className="transition-transform transform scale-100 hover:scale-110"
+                      className="transition hover:scale-110"
                     />
                     <span className="mt-3">Spring</span>
                   </div>
@@ -106,7 +106,7 @@ const Stack = () => {
                       height={100}
                       src="/mongodb.svg"
                       alt="mongodb"
-                      className="transition-transform transform scale-100 hover:scale-110"
+                      className="transition hover:scale-110"
                     />
                     <span className="mt-2">Mongo DB</span>
                   </div>
@@ -116,7 +116,7 @@ const Stack = () => {
                       height={115}
                       src="/mysql.svg"
                       alt="mysql"
-                      className="transition-transform transform scale-100 hover:scale-110"
+                      className="transition hover:scale-110"
                     />
                     <span className="mt-2">MySQL</span>
                   </div>
@@ -129,11 +129,11 @@ const Stack = () => {
             <div className="flex flex-wrap:wrap justify-evenly items-center min-w-full gap-4">
               <div className="flex flex-col items-center pt-3">
                 <Image
-                  className="transition-transform transform scale-100 hover:scale-125 my-5"
                   width={130}
                   height={50}
                   src="/next.svg"
                   alt="nextjs"
+                  className="transition hover:scale-125 my-5"
                 />
                 <span className="mt-5">NEXT js</span>
               </div>
@@ -144,7 +144,7 @@ const Stack = () => {
                   height={100}
                   src="/expressjs.svg"
                   alt="express"
-                  className="transition-transform transform scale-100 hover:scale-110"
+                  className="transition hover:scale-110"
                 />
                 <span className="mt-2">Express</span>
               </div>
@@ -155,7 +155,7 @@ const Stack = () => {
                   height={115}
                   src="/tailwindcss.svg"
                   alt="tailwindcss"
-                  className="transition-transform transform scale-100 hover:scale-110"
+                  className="transition hover:scale-110"
                 />
                 <span className="mt-5">Tailwind CSS</span>
               </div>
