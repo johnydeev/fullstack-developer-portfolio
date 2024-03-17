@@ -4,7 +4,7 @@ const AboutMe = () => {
     return (
       <>
         <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-600">
-          Full Stack Developer
+          Full Stack Developer 
         </h1>
         <div className="mb-6 leading-relaxed">
           <p>
