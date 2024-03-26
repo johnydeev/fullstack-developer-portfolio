@@ -23,7 +23,7 @@ const Cv = () => {
     }, []);
 
     return (
-      <div className="relative">
+      <div className="relative ">
         <div
           className={`transition-all duration-300 hover:-translate-y-1 ${
             isFixed
