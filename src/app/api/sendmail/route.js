@@ -23,7 +23,7 @@ export async function POST(request){
             from: "onboarding@resend.dev",
             to: email,
             subject: "Johnydeev",
-            text: `Hola ${name}! Espero que te encuentres bien, en primer lugar te agradezco enormemente por confiar en mi APP que hice con mucho esfuerzo y ❤, segundo.. en breve estare en contacto para charlar acerca de tu propuesta. Gracias!\n\nPD: Adjunto mi CV`,
+            text: `Hola ${name}! Espero que te encuentres bien, en primer lugar te agradezco por confiar en mi APP que hice con mucho esfuerzo y ❤, segundo.. en breve estare en contacto para charlar acerca de tu propuesta. Gracias!\n\nPD: Adjunto mi CV`,
             // attachments: {
             //     path: "C:/Users/jony/Desktop/Repos/castro-jonathan-portfolio/public/CV Jonathan Castro - Desarrollador Full Stack.pdf",
             //     contentType: "application/pdf",
