@@ -4,7 +4,7 @@ const AboutMe = () => {
     return (
       <>
         <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-600">
-          Full Stack Developer 
+          Full Stack Developer
         </h1>
         <div className="mb-6 leading-relaxed">
           <p>
@@ -14,7 +14,7 @@ const AboutMe = () => {
             para trabajar en lo que me apasiona.
           </p>
           <p>
-            Me gradue en el 2023 como <i>Professional Developer</i> y participe de un proyecto del cual me llevo muchisima experiencia en habilidades blandas y tecnicas, podes verlo{" "}
+            Me gradue en el 2023 como <i>Professional Developer</i> en Digital House y participe de un proyecto del cual me llevo muchisima experiencia en habilidades blandas y tecnicas, podes verlo{" "}
             <a
               href="https://infinit-ecommerce.vercel.app/"
               target="_blank"
