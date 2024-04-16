@@ -57,7 +57,7 @@ const Contact = () => {
       return response
 
     } catch(error) {
-      console.log("Error save data", error)
+      console.log("Error save data.", error)
       return error
     }
   };
