@@ -23,13 +23,13 @@ const Contact = () => {
     const resSendMail = await handleSendEmails()
     const resSaveData = await handleSaveData()
 
-    console.log("resSendMail>>>", resSendMail);
+    console.log("resSendMail>>>", resSendMail.data);
     console.log("resSaveData>>>", resSaveData);
     
     if (resSendMail.data === "successful shipment") {
       Swal.fire({
         title: "Envio Exitoso!",
-        text: "Gracias por contactarte, estare en respondiendo tu email en breve.",
+        text: "Gracias por contactarte, en breve estare respondiendo tu email.",
         icon: "success",
         confirmButtonText: "OK",
       });
