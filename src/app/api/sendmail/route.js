@@ -3,7 +3,7 @@ import { transporter } from '@/utils/sendEmail'
 // import { promises as fs } from 'fs';
 
 export async function POST(request){
-    const {name,email, message} = await request.json()  
+    const {name,email, message} = await request.json()
     console.log("name>>>",name)
     console.log("email>>>",email)
     console.log("message>>>",message)
@@ -23,11 +23,11 @@ export async function POST(request){
             from: "onboarding@resend.dev",
             to: email,
             subject: "Johnydeev",
-            text: `Hola ${name}! Espero que te encuentres bien, en primer lugar te agradezco por confiar en mi APP que hice con mucho esfuerzo y ❤, segundo.. en breve estare en contacto para charlar acerca de tu propuesta. Gracias!\n\nPD: Adjunto mi CV`,
-            // attachments: {
-            //     path: "C:/Users/jony/Desktop/Repos/castro-jonathan-portfolio/public/CV Jonathan Castro - Desarrollador Full Stack.pdf",
-            //     contentType: "application/pdf",
-            // },
+            text: `Hola ${name}! Espero que te encuentres bien, en primer lugar te agradezco por confiar en mi portfolio web que hice con mucho esfuerzo y ❤, segundo.. en breve estare en contacto para charlar acerca de tu propuesta. Gracias!\n\nPD: Adjunto mi CV`,
+            attachments: {
+                path: "C:/Users/jony/Desktop/Repos/castro-jonathan-portfolio/public/CV Jonathan Castro - Desarrollador Full Stack.pdf",
+                contentType: "application/pdf",
+            },
         });
         const avisoDeContacto = await transporter.sendMail({
             from: `onboarding@resend.dev`,

@@ -13,18 +13,17 @@ export async function POST(request){
     
     await connectDB()
     try {                
-        console.log("Entro al try POST")
+        console.log("POST /api/users")
         const data = await request.json()
         console.log("data>>>",data)
-        const {email} = data
+        const {email} = data        
         
-        console.log("Linea25>>")
         const existingUser = await usersModel.findOne({ email: email });
-        console.log("existingUser>>", existingUser)
+        console.log("Usuario a validar>>", existingUser)
 
         if (existingUser) {
-            console.log("Error en el IF existingUser>>>")
-            return NextResponse.error("Ya existe el email",{status: 400})
+            console.log("Mail existente>>>",existingUser.email)
+            return NextResponse.json("Ya existe el email en la base de datos",{status: 400})
         }
 
         const newUser = new usersModel(data)
