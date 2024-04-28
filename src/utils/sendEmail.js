@@ -2,19 +2,14 @@ import { createTransport } from 'nodemailer';
 import smtpTransport from'nodemailer-smtp-transport'
 
 const transporter = createTransport(
-  smtpTransport({
-    // service: "smtp.resend.com",
-    // host: "smtp.resend.com",
+  smtpTransport({    
     host: "smtp.gmail.com",
     port: 465,
     secure: true,
-    // auth: {
-    //   user: process.env.RESEND_USER,
-    //   pass: process.env.RESEND_API_KEY,
-    // },
+    
     auth: {
       user: process.env.USER,
-      pass: process.env.PASS2,
+      pass: process.env.PASS,
     },
   })
 );

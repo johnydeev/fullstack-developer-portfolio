@@ -26,27 +26,26 @@ const Contact = () => {
     console.log("resSendMail>>>", resSendMail);
     console.log("resSaveData>>>", resSaveData);
     
-    if (resSendMail.status === 200) {
+    if (resSendMail.data === "successful shipment") {
       Swal.fire({
         title: "Envio Exitoso!",
-        text: "Gracias por contactarte estare en respondiendo tu email en breve.",
+        text: "Gracias por contactarte, estare en respondiendo tu email en breve.",
         icon: "success",
         confirmButtonText: "OK",
       });
       setFormData({
-          name: " ",
-          email: " ",
-          message: " ",
-      });      
-
+        name: " ",
+        email: " ",
+        message: " ",
+      });
     } else {
       Swal.fire({
-        title: `Error! \n ${resSendMail.data}`,
-        text: "Do you want to continue",
+        title: `Error! \n ${resSendMail.data.response}`,
+        text: "¿Desea continuar?",
         icon: "error",
         confirmButtonText: "OK",
       });
-    }        
+    }
   };
 
   const handleSaveData = async () => {
