@@ -23,8 +23,8 @@ const Contact = () => {
     const resSendMail = await handleSendEmails()
     const resSaveData = await handleSaveData()
 
-    console.log("resSendMail>>>", resSendMail.data);
-    console.log("resSaveData>>>", resSaveData);
+    console.log("resSendMail>>>", resSendMail.data)
+    console.log("resSaveData>>>", resSaveData)
     
     if (resSendMail.data === "successful shipment") {
       Swal.fire({

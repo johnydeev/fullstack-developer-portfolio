@@ -5,8 +5,7 @@ const transporter = createTransport(
   smtpTransport({    
     host: "smtp.gmail.com",
     port: 465,
-    secure: true,
-    
+    secure: true,    
     auth: {
       user: process.env.USER,
       pass: process.env.PASS,
