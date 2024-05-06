@@ -1,7 +1,0 @@
-build:
-  commands:
-
-    - echo "USER=$USER" >> .env
-    - echo "PASS=$PASS" >> .env
-    - echo "DATABASE_URL=$DATABASE_URL" >> .env
-    - npm run build
