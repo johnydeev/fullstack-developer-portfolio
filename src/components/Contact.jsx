@@ -24,6 +24,7 @@ const Contact = () => {
 
     console.log("resSendMail>>>", resSendMail.data);
     console.log("resSaveData>>>", resSaveData);
+    
 
     if (resSendMail.data === "successful shipment") {
       Swal.fire({
@@ -44,6 +45,7 @@ const Contact = () => {
         icon: "error",
         confirmButtonText: "OK",
       });
+      
     }
   };
 
