@@ -49,16 +49,16 @@ const Contact = () => {
     }
   };
 
-  const handleSaveData = async () => {
-    try {
-      const response = await axios.post(`/api/users`, formData);
-      console.log("Response save data>>", response);
-      return response;
-    } catch (error) {
-      console.log("Error save data.", error);
-      return error;
-    }
-  };
+  // const handleSaveData = async () => {
+  //   try {
+  //     const response = await axios.post(`/api/users`, formData);
+  //     console.log("Response save data>>", response);
+  //     return response;
+  //   } catch (error) {
+  //     console.log("Error save data.", error);
+  //     return error;
+  //   }
+  // };
 
   const handleSendEmails = async () => {
     try {
