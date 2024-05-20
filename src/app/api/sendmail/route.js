@@ -19,20 +19,20 @@ export async function POST(request) {
         "CV Jonathan Castro - Desarrollador Full Stack.pdf"
         );
         const response = await transporter.sendMail({
-        from: process.env.USER,
-        to: email,
-        subject: "Johnydeev",
-        text: `Hola ${name}! Espero que te encuentres bien, en primer lugar te agradezco por confiar en mi portfolio web que hice con mucho esfuerzo y ❤, segundo.. en breve estare en contacto para charlar acerca de tu propuesta. Gracias!\n\nPD: Adjunto mi CV`,
-        attachments: {
+          from: process.env.NEXT_PUBLIC_USER,
+          to: email,
+          subject: "Johnydeev",
+          text: `Hola ${name}! Espero que te encuentres bien, en primer lugar te agradezco por confiar en mi portfolio web que hice con mucho esfuerzo y ❤, segundo.. en breve estare en contacto para charlar acerca de tu propuesta. Gracias!\n\nPD: Adjunto mi CV`,
+          attachments: {
             path: attachmentPath,
             contentType: "application/pdf",
-        },
+          },
         });
         const avisoDeContacto = await transporter.sendMail({
-        from: process.env.USER,
-        to: process.env.USER,
-        subject: email,
-        text: message,
+          from: process.env.NEXT_PUBLIC_USER,
+          to: process.env.NEXT_PUBLIC_USER,
+          subject: email,
+          text: message,
         });
         console.log("envio exitoso", response);
         console.log("AvisoDeContacto>>", avisoDeContacto);
