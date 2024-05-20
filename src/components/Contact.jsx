@@ -51,7 +51,8 @@ const Contact = () => {
 
   const handleSaveData = async () => {
     try {
-      const response = await axios.post(`/api/users`, formData);
+      const saveData = [formData.name,formData.email]
+      const response = await axios.post(`/api/users`, saveData);
       console.log("Response save data>>", response);
       return response;
     } catch (error) {
