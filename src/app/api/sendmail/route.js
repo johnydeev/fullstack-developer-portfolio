@@ -31,7 +31,7 @@ export async function POST(request) {
         const avisoDeContacto = await transporter.sendMail({
           from: process.env.NEXT_PUBLIC_USER,
           to: process.env.NEXT_PUBLIC_USER,
-          subject: email,
+          subject: `Te llego un mensaje de ${name} desde el mail:${email}`,
           text: message,
         });
         console.log("envio exitoso", response);
