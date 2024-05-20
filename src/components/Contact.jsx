@@ -20,10 +20,10 @@ const Contact = () => {
     console.log("formDataEnSubmit>>", formData);
 
     const resSendMail = await handleSendEmails();
-    const resSaveData = await handleSaveData();
+    // const resSaveData = await handleSaveData();
 
     console.log("resSendMail>>>", resSendMail.data);
-    console.log("resSaveData>>>", resSaveData);
+    // console.log("resSaveData>>>", resSaveData);
     
 
     if (resSendMail.data === "successful shipment") {
