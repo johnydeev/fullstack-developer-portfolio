@@ -16,7 +16,7 @@ export async function POST(request){
         console.log("POST /api/users")
         const data = await request.json()
         console.log("data>>>",data)
-        const {email} = data        
+        const {email} = data
         
         const existingUser = await usersModel.findOne({ email: email });
         console.log("Usuario a validar>>", existingUser)

@@ -12,13 +12,8 @@ const contactsSchema = new Schema(
         required: true,
         unique: true,
         trim: true,
-        },
-        message: {
-        type: String,
-        required: true,
-        unique: true,
-        trim: true,
-        },
+        }
+
     },
     {
         timestamps: true,
