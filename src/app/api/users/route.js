@@ -15,8 +15,9 @@ export async function POST(request){
     try {
         console.log("POST /api/users")
         const data = await request.json()
-        console.log("data>>>",data)
-        const {email} = data
+        const saveData = [data.name,data.email]
+        console.log("saveData>>>", saveData);
+        const { email } = saveData;
         
         const existingUser = await usersModel.findOne({ email: email });
         console.log("Usuario a validar>>", existingUser)
@@ -26,7 +27,7 @@ export async function POST(request){
             return NextResponse.json("Ya existe el email en la base de datos",{status: 400})
         }
 
-        const newUser = new usersModel(data)
+        const newUser = new usersModel(saveData);
         console.log("newContact>>>",newUser)  
     
         const saveUser = await newUser.save()
