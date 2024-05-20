@@ -13,17 +13,17 @@ export async function POST(request){
         }
         console.log("Mail a enviar>>", email)
         const response = await transporter.sendMail({
-          from: process.env.NEXT_PUBLIC_USER,
-          to: email,
-          subject: "Johnydeev",
-          text: `Hola ${name}! Espero que te encuentres bien, en primer lugar te agradezco por confiar en mi portfolio web que hice con mucho esfuerzo y ❤, segundo.. en breve estare en contacto para charlar acerca de tu propuesta. Gracias!\n\nPD: Adjunto mi CV`,
-          // attachments: {
-          //         path: "public/CV Jonathan Castro - Desarrollador Full Stack.pdf",
-          //     contentType: "application/pdf",
-          // },
+            from: process.env.NEXT_PUBLIC_USER,
+            to: email,
+            subject: "Johnydeev",
+            text: `Hola ${name}! Espero que te encuentres bien, en primer lugar te agradezco por confiar en mi portfolio web que hice con mucho esfuerzo y ❤, segundo.. en breve estare en contacto para charlar acerca de tu propuesta. Gracias!\n\nPD: Adjunto mi CV`,
+            // attachments: {
+            //         path: "public/CV Jonathan Castro - Desarrollador Full Stack.pdf",
+            //     contentType: "application/pdf",
+            // },
         });
         const avisoDeContacto = await transporter.sendMail({
-            from: `onboarding@resend.dev`,
+            from: process.env.NEXT_PUBLIC_USER,
             to: process.env.NEXT_PUBLIC_USER,
             subject: email,
             text: message,
