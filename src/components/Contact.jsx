@@ -2,30 +2,29 @@ import axios from "axios";
 import React, { useState } from "react";
 import Swal from "sweetalert2";
 
-const Contact = () => {  
-  
+const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    message: ""
-  })
+    message: "",
+  });
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
-    })
-  }
-  
+    });
+  };
+
   const handleSubmit = async () => {
-    console.log("formDataEnSubmit>>", formData)
+    console.log("formDataEnSubmit>>", formData);
 
-    const resSendMail = await handleSendEmails()
-    const resSaveData = await handleSaveData()
+    const resSendMail = await handleSendEmails();
+    const resSaveData = await handleSaveData();
 
-    console.log("resSendMail>>>", resSendMail.data)
-    console.log("resSaveData>>>", resSaveData)
-    
+    console.log("resSendMail>>>", resSendMail.data);
+    console.log("resSaveData>>>", resSaveData);
+
     if (resSendMail.data === "successful shipment") {
       Swal.fire({
         title: "Envio Exitoso!",
@@ -49,20 +48,17 @@ const Contact = () => {
   };
 
   const handleSaveData = async () => {
-    
     try {
       const response = await axios.post(`/api/users`, formData);
       console.log("Response save data>>", response);
-      return response
-
-    } catch(error) {
-      console.log("Error save data.", error)
-      return error
+      return response;
+    } catch (error) {
+      console.log("Error save data.", error);
+      return error;
     }
   };
 
-  const handleSendEmails = async () => {   
-
+  const handleSendEmails = async () => {
     try {
       const response = await axios.post(`/api/sendmail`, formData);
       console.log("Response send email>>>:", response);
@@ -75,80 +71,79 @@ const Contact = () => {
 
   return (
     <>
-      
-        <div id="contacto">
-          <section className="text-gray-600 body-font relative">
-            <div className="container px-5 py-16 my-4 mx-auto">
-              <div className="flex flex-col text-center w-full mb-12">
-                <h1 className="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">
-                  Contáctame!
-                </h1>
-              </div>
-              <div className="lg:w-1/2 md:w-2/3 mx-auto">
-                <div className="flex flex-wrap -m-2">
-                  <div className="p-2 w-1/2">
-                    <div className="relative">
-                      <label
-                        htmlFor="name"
-                        className="leading-7 text-sm text-gray-600"
-                      >
-                        Nombre
-                      </label>
-                      <input
-                        value={formData.name}
-                        onChange={handleChange}
-                        type="text"
-                        id="name"
-                        name="name"
-                        className="w-full rounded border border-gray-300 focus:border-blue-500 bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-                      />
-                    </div>
-                  </div>
-                  <div className="p-2 w-1/2">
-                    <div className="relative">
-                      <label
-                        htmlFor="email"
-                        className="leading-7 text-sm text-gray-600"
-                      >
-                        Email
-                      </label>
-                      <input
-                        value={formData.email}
-                        onChange={handleChange}
-                        type="email"
-                        id="email"
-                        name="email"
-                        className="w-full rounded border border-gray-300 focus:border-blue-500 bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-                      />
-                    </div>
-                  </div>
-                  <div className="p-2 w-full">
-                    <div className="relative">
-                      <label
-                        htmlFor="message"
-                        className="leading-7 text-sm text-gray-600"
-                      >
-                        Mensaje
-                      </label>
-                      <textarea
-                        value={formData.message}
-                        onChange={handleChange}
-                        id="message"
-                        name="message"
-                        className="w-full rounded border border-gray-300 focus:border-blue-500 bg-white focus:ring-2 focus:ring-blue-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
-                      ></textarea>
-                    </div>
-                  </div>
-                  <div className="p-2 w-full">
-                    <button
-                      onClick={handleSubmit}
-                      type="submit"
-                      className="flex mx-auto text-white bg-gray-800 border-0 py-2 px-8 focus:outline-none hover:bg-gray-700 rounded text-lg"
+      <div id="contacto">
+        <section className="text-gray-600 body-font relative">
+          <div className="container px-5 py-16 my-4 mx-auto">
+            <div className="flex flex-col text-center w-full mb-12">
+              <h1 className="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">
+                Contáctame!
+              </h1>
+            </div>
+            <div className="lg:w-1/2 md:w-2/3 mx-auto">
+              <div className="flex flex-wrap -m-2">
+                <div className="p-2 w-1/2">
+                  <div className="relative">
+                    <label
+                      htmlFor="name"
+                      className="leading-7 text-sm text-gray-600"
                     >
-                      Enviar
-                    </button>
+                      Nombre
+                    </label>
+                    <input
+                      value={formData.name}
+                      onChange={handleChange}
+                      type="text"
+                      id="name"
+                      name="name"
+                      className="w-full rounded border border-gray-300 focus:border-blue-500 bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                    />
                   </div>
-                  {/* <div className="p-2 w-full pt-8 mt-8 border-t border-gray-200 text-center">
+                </div>
+                <div className="p-2 w-1/2">
+                  <div className="relative">
+                    <label
+                      htmlFor="email"
+                      className="leading-7 text-sm text-gray-600"
+                    >
+                      Email
+                    </label>
+                    <input
+                      value={formData.email}
+                      onChange={handleChange}
+                      type="email"
+                      id="email"
+                      name="email"
+                      className="w-full rounded border border-gray-300 focus:border-blue-500 bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                    />
+                  </div>
+                </div>
+                <div className="p-2 w-full">
+                  <div className="relative">
+                    <label
+                      htmlFor="message"
+                      className="leading-7 text-sm text-gray-600"
+                    >
+                      Mensaje
+                    </label>
+                    <textarea
+                      value={formData.message}
+                      onChange={handleChange}
+                      id="message"
+                      name="message"
+                      className="w-full rounded border border-gray-300 focus:border-blue-500 bg-white focus:ring-2 focus:ring-blue-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
+                    ></textarea>
+                  </div>
+                </div>
+                <div className="p-2 w-full">
+                  <button
+                    onClick={handleSubmit}
+                    type="submit"
+                    className="flex mx-auto text-white bg-gray-800 border-0 py-2 px-8 focus:outline-none hover:bg-gray-700 rounded text-lg"
+                  >
+                    Enviar
+                  </button>
+                </div>
+                {/* <div className="p-2 w-full pt-8 mt-8 border-t border-gray-200 text-center">
                     <span className="inline-flex">
                       <a className="text-gray-500">
                         <svg
@@ -209,12 +204,11 @@ const Contact = () => {
                       </a>
                     </span>
                   </div> */}
-                </div>
               </div>
             </div>
-          </section>
-        </div>
-      
+          </div>
+        </section>
+      </div>
     </>
   );
 };

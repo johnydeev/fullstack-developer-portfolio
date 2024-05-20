@@ -1,6 +1,6 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import React from 'react'
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
 
 const Header = () => {
   return (
@@ -23,14 +23,18 @@ const Header = () => {
             <span className="ml-3 text-xl">Template</span>
           </a>
           <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center">
-            <Link href="#inicio" className="mr-5 hover:text-gray-900">Inicio</Link>
+            <Link href="#inicio" className="mr-5 hover:text-gray-900">
+              Inicio
+            </Link>
             <Link href="#stack" className="mr-5 hover:text-gray-900">
               Stack
             </Link>
             <Link href="#proyectos" className="mr-5 hover:text-gray-900">
               Proyectos
             </Link>
-            <Link href="#contacto" className="mr-5 hover:text-gray-900">Contacto</Link>
+            <Link href="#contacto" className="mr-5 hover:text-gray-900">
+              Contacto
+            </Link>
           </nav>
           <button className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">
             Dark
@@ -51,6 +55,6 @@ const Header = () => {
       </header>
     </div>
   );
-}
+};
 
-export default Header
+export default Header;
