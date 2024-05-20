@@ -62,7 +62,7 @@ const Contact = () => {
 
   const handleSendEmails = async () => {
     try {
-      const response = await axios.post(`${process.env.NEXT_PUBLIC}/api/sendmail`, formData);
+      const response = await axios.post(`/api/sendmail`, formData);
       console.log("Response send email>>>:", response);
       return response;
     } catch (error) {
