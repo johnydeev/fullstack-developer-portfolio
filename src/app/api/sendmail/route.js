@@ -24,7 +24,7 @@ export async function POST(request){
         });
         const avisoDeContacto = await transporter.sendMail({
             from: `onboarding@resend.dev`,
-            to: process.env.USER,
+            to: process.env.NEXT_PUBLIC_USER,
             subject: email,
             text: message,
         });
