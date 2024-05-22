@@ -26,27 +26,27 @@ const Contact = () => {
     console.log("resSaveData>>>", resSaveData);
     
 
-    // if (resSaveData.data === "successful shipment") {
-    //   Swal.fire({
-    //     title: "Envio Exitoso!",
-    //     text: "Gracias por contactarte, en breve estare respondiendo tu email.",
-    //     icon: "success",
-    //     confirmButtonText: "OK",
-    //   });
-    //   setFormData({
-    //     name: " ",
-    //     email: " ",
-    //     message: " ",
-    //   });
-    // } else {
-    //   Swal.fire({
-    //     title: `Error! \n ${resSendMail.data.response}`,
-    //     title: `Error!`,
-    //     text: "¿Desea continuar?",
-    //     icon: "error",
-    //     confirmButtonText: "OK",
-    //   });
-    // }
+    if (resSaveData.data === "successful shipment") {
+      Swal.fire({
+        title: "Envio Exitoso!",
+        text: "Gracias por contactarte, en breve estare respondiendo tu email.",
+        icon: "success",
+        confirmButtonText: "OK",
+      });
+      setFormData({
+        name: " ",
+        email: " ",
+        message: " ",
+      });
+    } else {
+      Swal.fire({
+        title: `Error! \n ${resSendMail.data.response}`,
+        title: `Error!`,
+        text: "¿Desea continuar?",
+        icon: "error",
+        confirmButtonText: "OK",
+      });
+    }
   };
 
   
@@ -73,16 +73,16 @@ const Contact = () => {
     }
   };
 
-  // const handleSendEmails = async () => {
-  //   try {
-  //     const response = await axios.post(`/api/sendmail`, formData);
-  //     console.log("Response send email>>>:", response);
-  //     return response;
-  //   } catch (error) {
-  //     console.error("Error sending email>>>:", error);
-  //     throw error;
-  //   }
-  // };
+  const handleSendEmails = async () => {
+    try {
+      const response = await axios.post(`/api/sendmail`, formData);
+      console.log("Response send email>>>:", response);
+      return response;
+    } catch (error) {
+      console.error("Error sending email>>>:", error);
+      throw error;
+    }
+  };
 
   return (
     <>
