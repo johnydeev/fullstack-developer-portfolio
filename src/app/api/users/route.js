@@ -3,10 +3,23 @@ import usersModel from '@/models/users'
 import {connectDB} from '@/utils/connectDB'
 
 
-export async function GET(){
-    console.log("Obteniendo todos los Contactos...")
-    const allUsers = await usersModel.find()
-    return NextResponse.json(allUsers)
+// export async function GET(){
+//     console.log("Obteniendo todos los Contactos...")
+//     const allUsers = await usersModel.find()
+//     return NextResponse.json(allUsers)
+// }
+export async function GET() {
+    try {
+        await connectDB();
+        return NextResponse.json({
+        message: "Conexión exitosa a la base de datos",
+        });
+    } catch (error) {
+        return NextResponse.json({
+        message: "Error de conexión a la base de datos",
+        error,
+        });
+    }
 }
 
 export async function POST(request){
