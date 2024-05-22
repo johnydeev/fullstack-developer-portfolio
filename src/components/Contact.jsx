@@ -26,50 +26,63 @@ const Contact = () => {
     console.log("resSaveData>>>", resSaveData);
     
 
-    if (resSaveData.data === "successful shipment") {
-      Swal.fire({
-        title: "Envio Exitoso!",
-        text: "Gracias por contactarte, en breve estare respondiendo tu email.",
-        icon: "success",
-        confirmButtonText: "OK",
-      });
-      setFormData({
-        name: " ",
-        email: " ",
-        message: " ",
-      });
-    } else {
-      Swal.fire({
-        title: `Error! \n ${resSendMail.data.response}`,
-        text: "¿Desea continuar?",
-        icon: "error",
-        confirmButtonText: "OK",
-      });
-    }
+    // if (resSaveData.data === "successful shipment") {
+    //   Swal.fire({
+    //     title: "Envio Exitoso!",
+    //     text: "Gracias por contactarte, en breve estare respondiendo tu email.",
+    //     icon: "success",
+    //     confirmButtonText: "OK",
+    //   });
+    //   setFormData({
+    //     name: " ",
+    //     email: " ",
+    //     message: " ",
+    //   });
+    // } else {
+    //   Swal.fire({
+    //     title: `Error! \n ${resSendMail.data.response}`,
+    //     title: `Error!`,
+    //     text: "¿Desea continuar?",
+    //     icon: "error",
+    //     confirmButtonText: "OK",
+    //   });
+    // }
   };
 
+  
   const handleSaveData = async () => {
     try {
-      
-      const response = await axios.post(`/api/users`, formData);
-      console.log("Response save data>>", response);
-      return response;
+      const response = await axios.post(`/api/users`, formData)
+      console.log("Response save data>>", response)
+      return response
     } catch (error) {
-      console.log("Error save data.", error);
-      return error;
+      console.log("Error save data.", error)
+      if (error.response) {
+        // El servidor respondió con un código de estado fuera del rango 2xx
+        console.log("Error response data:", error.response.data)
+        console.log("Error response status:", error.response.status)
+        console.log("Error response headers:", error.response.headers)
+      } else if (error.request) {
+        // La solicitud se hizo pero no se recibió ninguna respuesta
+        console.log("Error request:", error.request)
+      } else {
+        // Algo pasó al configurar la solicitud que provocó un error
+        console.log("Error message:", error.message)
+      }
+      return error
     }
   };
 
-  const handleSendEmails = async () => {
-    try {
-      const response = await axios.post(`/api/sendmail`, formData);
-      console.log("Response send email>>>:", response);
-      return response;
-    } catch (error) {
-      console.error("Error sending email>>>:", error);
-      throw error;
-    }
-  };
+  // const handleSendEmails = async () => {
+  //   try {
+  //     const response = await axios.post(`/api/sendmail`, formData);
+  //     console.log("Response send email>>>:", response);
+  //     return response;
+  //   } catch (error) {
+  //     console.error("Error sending email>>>:", error);
+  //     throw error;
+  //   }
+  // };
 
   return (
     <>
