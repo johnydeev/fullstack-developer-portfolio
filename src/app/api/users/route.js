@@ -15,11 +15,10 @@ export async function POST(request){
     try {
         console.log("POST /api/users")
         const data = await request.json()
-        const saveData = [data.name,data.email]
-        console.log("saveData>>>", saveData);
-        const { email } = saveData;
+        const saveData = { name: data.name, email: data.email }; 
+        console.log("saveData>>>", saveData);        
         
-        const existingUser = await usersModel.findOne({ email: email });
+        const existingUser = await usersModel.findOne({ email: saveData.email });
         console.log("Usuario a validar>>", existingUser)
 
         if (existingUser) {
