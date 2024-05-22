@@ -14,10 +14,8 @@ export async function connectDB(){
         return conn
     } catch (error) {
         return console.log(error)
-    }
-    
+    }    
 }
-
 connection.on('connected', ()=>{
     console.log('mongoose connection established')
 })
