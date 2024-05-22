@@ -26,13 +26,13 @@ const Contact = () => {
     console.log("resSaveData>>>", resSaveData);
     
 
-    if (resSaveData.data === "successful shipment") {
+    if (resSendMail.data === "successful shipment") {
       Swal.fire({
         title: "Envio Exitoso!",
         text: "Gracias por contactarte, en breve estare respondiendo tu email.",
         icon: "success",
         confirmButtonText: "OK",
-      });
+      })
       setFormData({
         name: " ",
         email: " ",
