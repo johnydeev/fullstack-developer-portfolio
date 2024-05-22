@@ -7,8 +7,8 @@ const transporter = createTransport(
     port: 465,
     secure: true,
     auth: {
-      user: process.env.USER,
-      pass: process.env.PASS,
+      user: process.env.NEXT_USER,
+      pass: process.env.NEXT_PASS,
     },
   })
 );
