@@ -53,7 +53,7 @@ const Contact = () => {
   const handleSaveData = async () => {
     try {
       const response = await axios.post(`/api/users`, formData, {
-        timeout: 10000,
+        timeout: 30000,
       });
       console.log("Response save data>>", response)
       return response
