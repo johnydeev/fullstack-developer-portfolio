@@ -19,10 +19,10 @@ const Contact = () => {
   const handleSubmit = async () => {
     console.log("formDataEnSubmit>>", formData);
 
-    // const resSendMail = await handleSendEmails();
+    const resSendMail = await handleSendEmails();
     const resSaveData = await handleSaveData();
 
-    // console.log("resSendMail>>>", resSendMail.data);
+    console.log("resSendMail>>>", resSendMail.data);
     console.log("resSaveData>>>", resSaveData);
     
 
@@ -60,16 +60,16 @@ const Contact = () => {
     }
   };
 
-  // const handleSendEmails = async () => {
-  //   try {
-  //     const response = await axios.post(`/api/sendmail`, formData);
-  //     console.log("Response send email>>>:", response);
-  //     return response;
-  //   } catch (error) {
-  //     console.error("Error sending email>>>:", error);
-  //     throw error;
-  //   }
-  // };
+  const handleSendEmails = async () => {
+    try {
+      const response = await axios.post(`/api/sendmail`, formData);
+      console.log("Response send email>>>:", response);
+      return response;
+    } catch (error) {
+      console.error("Error sending email>>>:", error);
+      throw error;
+    }
+  };
 
   return (
     <>
