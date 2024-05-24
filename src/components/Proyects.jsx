@@ -4,7 +4,7 @@ import React from 'react'
 
 const Proyects = () => {
     return (
-      <div id="proyectos" className="text-gray-600 dark:bg-gray-600 dark:text-white pb-10">
+      <div id="proyectos" className="text-gray-600 dark:text-white pb-10">
         <h1 className="container px-5 pt-16 mx-auto text-3xl font-bold m-2 text-center">
           Proyectos
         </h1>
@@ -38,7 +38,7 @@ const Proyects = () => {
                       rel="noopener noreferrer"
                     >
                       <Image
-                        className="rounded-full w-15 h-15 dark:bg-gray-200"
+                        className="rounded-full w-15 h-15 dark:bg-gray-100"
                         width={600}
                         height={100}
                         src="/github-mark.svg"

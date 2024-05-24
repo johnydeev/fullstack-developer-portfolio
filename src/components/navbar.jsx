@@ -5,9 +5,7 @@ import React, { useState,useEffect } from 'react'
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [theme, setTheme] = useState("ligth");
-  // const changeTheme = () => {
-  //   setTheme(!theme);
-  // };
+  
     useEffect(() => {
       if (theme == "dark") {
         document.querySelector("html").classList.add("dark");
@@ -20,7 +18,10 @@ const Navbar = () => {
       setTheme((prevTheme) => (prevTheme === "ligth" ? "dark" : "ligth"));
     };
   return (
-    <nav id="nav" className="bg-gray-800 text-white px-4 h-auto dark:bg-gray-600 dark:text-white">
+    <nav
+      id="nav"
+      className="bg-gray-800 text-gray-200 px-4 h-auto dark:bg-gray-600 dark:text-white"
+    >
       <div className="container mx-auto flex justify-between items-center p-4">
         <span className="text-xl font-bold">Castro Jonathan</span>
 
@@ -69,17 +70,16 @@ const Navbar = () => {
         </div>
 
         <button
-          id="theme"
           onClick={changeTheme}
-          className={`mr-4 text-lg rounded-full p-3 bg-gray-500 
-          ${theme ? "" : "!bg-white"}`}
+          className={`mr-4 text-lg rounded-full p-3 
+          ${theme == "dark" ? "bg-white" : "!bg-gray-600"}`}
         >
           <picture>
             <img
               width={30}
               height={30}
-              src={theme== "dark" ? "/moon-stars-svgrepo-com2.svg" : "/sun-black.svg"}
-              alt={theme ? "dark" : "light"}
+              src={theme == "dark" ? "/sun-black.svg" : "/moon-white2.svg"}
+              alt={theme == "dark" ? "Dark" : "Light"}
             />
           </picture>
         </button>

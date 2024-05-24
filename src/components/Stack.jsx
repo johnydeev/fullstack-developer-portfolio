@@ -8,7 +8,7 @@ const Stack = () => {
         <h2 className="text-3xl font-bold m-2 px-5 pt-10 text-center ">
           Stack Tecnológico
         </h2>
-        <section className="p-5 mt-8 bg-gray-200 text-center dark:bg-gray-600 ">
+        <section className="p-5 mt-8 bg-gray-200 text-center dark:bg-gray-600">
           <div className="container mx-auto">
             <span className="block w-full h-px bg-gray-600 my-8 dark:bg-gray-100"></span>
             <h2 className="text-2xl font-bold mb-8 text-center">Frontend</h2>
