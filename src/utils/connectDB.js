@@ -7,7 +7,7 @@ const conn = {
 export async function connectDB(){    
     if(conn.isConnected) return
     try {
-        const db = await connect(process.env.NEXT_PUBLIC_DATABASE_URL);
+        const db = await connect(process.env.NEXT_PUBLIC_DATABASE_URL)
         console.log("Nombre Base de Datos: ",db.connection.db.databaseName)
         conn.isConnected = db.connections[0].readyState
         
