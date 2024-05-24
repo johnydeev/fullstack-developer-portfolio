@@ -4,11 +4,11 @@ import React from 'react'
 
 const Proyects = () => {
     return (
-      <div id="proyectos">
+      <div id="proyectos" className="text-gray-600 dark:bg-gray-600 dark:text-white pb-10">
         <h1 className="container px-5 pt-16 mx-auto text-3xl font-bold m-2 text-center">
           Proyectos
         </h1>
-        <section className="text-gray-600 body-font">
+        <section className=" body-font">
           <div className="container px-5 pt-8 mx-auto">
             <div className="flex flex-wrap -mx-4 -mb-10 text-center">
               <div className="sm:w-1/2 mb-10 px-4">
@@ -38,7 +38,7 @@ const Proyects = () => {
                       rel="noopener noreferrer"
                     >
                       <Image
-                        className="rounded-full w-15 h-15"
+                        className="rounded-full w-15 h-15 dark:bg-gray-200"
                         width={600}
                         height={100}
                         src="/github-mark.svg"
@@ -76,7 +76,7 @@ const Proyects = () => {
                       rel="noopener noreferrer"
                     >
                       <Image
-                        className="rounded-full w-15 h-15"
+                        className="rounded-full w-15 h-15 dark:bg-gray-200"
                         width={100}
                         height={100}
                         src="/github-mark.svg"

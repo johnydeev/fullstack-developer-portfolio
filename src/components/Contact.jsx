@@ -125,10 +125,10 @@ const Contact = () => {
   return (
     <>
       <div id="contacto">
-        <section className="text-gray-600 body-font relative">
+        <section className="text-gray-600 dark:text-white body-font relative ">
           <div className="container px-5 py-16 my-4 mx-auto">
             <div className="flex flex-col text-center w-full mb-12">
-              <h1 className="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">
+              <h1 className="sm:text-3xl text-2xl font-medium title-font mb-2">
                 Contáctame!
               </h1>
             </div>
@@ -136,10 +136,7 @@ const Contact = () => {
               <div className="flex flex-wrap -m-2">
                 <div className="p-2 w-1/2">
                   <div className="relative">
-                    <label
-                      htmlFor="name"
-                      className="leading-7 text-sm text-gray-600"
-                    >
+                    <label htmlFor="name" className="leading-7 text-sm">
                       Nombre
                     </label>
                     <input
@@ -159,10 +156,7 @@ const Contact = () => {
                 </div>
                 <div className="p-2 w-1/2">
                   <div className="relative">
-                    <label
-                      htmlFor="email"
-                      className="leading-7 text-sm text-gray-600"
-                    >
+                    <label htmlFor="email" className="leading-7 text-sm">
                       Email
                     </label>
                     <input
@@ -182,10 +176,7 @@ const Contact = () => {
                 </div>
                 <div className="p-2 w-full">
                   <div className="relative">
-                    <label
-                      htmlFor="message"
-                      className="leading-7 text-sm text-gray-600"
-                    >
+                    <label htmlFor="message" className="leading-7 text-sm">
                       Mensaje
                     </label>
                     <textarea

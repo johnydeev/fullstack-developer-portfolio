@@ -1,15 +1,26 @@
 "use client"
 import Link from 'next/link';
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const[theme,setTheme] = useState(false)
-  const changeTheme=()=>{
-    setTheme(!theme)
-  }  
+  const [theme, setTheme] = useState("ligth");
+  // const changeTheme = () => {
+  //   setTheme(!theme);
+  // };
+    useEffect(() => {
+      if (theme == "dark") {
+        document.querySelector("html").classList.add("dark");
+      } else {
+        document.querySelector("html").classList.remove("dark");
+      }
+    }, [theme]);
+
+    const changeTheme = () => {
+      setTheme((prevTheme) => (prevTheme === "ligth" ? "dark" : "ligth"));
+    };
   return (
-    <nav id="nav" className="bg-gray-800 text-white px-4 h-auto">
+    <nav id="nav" className="bg-gray-800 text-white px-4 h-auto dark:bg-gray-600 dark:text-white">
       <div className="container mx-auto flex justify-between items-center p-4">
         <span className="text-xl font-bold">Castro Jonathan</span>
 
@@ -57,7 +68,6 @@ const Navbar = () => {
           <span></span>
         </div>
 
-
         <button
           id="theme"
           onClick={changeTheme}
@@ -69,7 +79,7 @@ const Navbar = () => {
               width={30}
               height={30}
               src={theme ? "/moon-stars-svgrepo-com2.svg" : "/sun-black.svg"}
-              alt={theme ? "Dark" : "Light"}
+              alt={theme ? "dark" : "light"}
             />
           </picture>
         </button>

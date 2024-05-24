@@ -5,12 +5,12 @@ const Stack = () => {
   return (
     <>
       <div id="stack">
-        <h2 className="text-3xl font-bold m-2 px-5 pt-16 text-center ">
+        <h2 className="text-3xl font-bold m-2 px-5 pt-10 text-center ">
           Stack Tecnológico
         </h2>
-        <section className="p-5 mt-8 bg-gray-200 text-center">
+        <section className="p-5 mt-8 bg-gray-200 text-center dark:bg-gray-600 ">
           <div className="container mx-auto">
-            <span className="block w-full h-px bg-gray-600 my-8"></span>
+            <span className="block w-full h-px bg-gray-600 my-8 dark:bg-gray-100"></span>
             <h2 className="text-2xl font-bold mb-8 text-center">Frontend</h2>
             <div className="flex justify-evenly items-center min-w-full gap-4 group">
               <div className="flex flex-col items-center">
@@ -52,13 +52,13 @@ const Stack = () => {
                   alt="react"
                   className="transition hover:scale-110"
                 />
-                <span className="mt-2">React js</span>
+                <span className="mt-2 ">React js</span>
               </div>
             </div>
 
             <div className="flex flex-wrap justify-center text-center mx-auto">
               <section className="w-full sm:w-1/2 flex flex-col">
-                <span className="block w-full h-px bg-gray-600 my-8"></span>
+                <span className="block w-full h-px bg-gray-600 my-8 dark:bg-gray-100"></span>
                 <h2 className="text-2xl font-bold mb-8 text-center">Backend</h2>
                 <div className="flex flex-wrap:wrap justify-evenly min-w-full gap-4">
                   <div className="flex flex-col items-center">
@@ -95,7 +95,7 @@ const Stack = () => {
               </section>
 
               <section className="w-full sm:w-1/2 flex flex-col">
-                <span className="block w-full h-px bg-gray-600 my-8"></span>
+                <span className="block w-full h-px bg-gray-600 my-8 dark:bg-gray-100"></span>
                 <h2 className="text-2xl font-bold mb-8 text-center">
                   Databases
                 </h2>
@@ -124,7 +124,7 @@ const Stack = () => {
               </section>
             </div>
 
-            <span className="block w-full h-px bg-gray-600 my-8"></span>
+            <span className="block w-full h-px bg-gray-600 my-8 dark:bg-gray-100"></span>
             <h2 className="text-2xl font-bold mb-8 text-center">Frameworks</h2>
             <div className="flex flex-wrap:wrap justify-evenly items-center min-w-full gap-4">
               <div className="flex flex-col items-center pt-3">
@@ -161,7 +161,7 @@ const Stack = () => {
               </div>
             </div>
           </div>
-          <span className="block w-full h-px bg-gray-600 my-8"></span>
+          <span className="block w-full h-px bg-gray-600 my-8 dark:bg-gray-100"></span>
         </section>
       </div>
     </>

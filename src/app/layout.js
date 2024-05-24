@@ -13,8 +13,7 @@ export default function RootLayout({ children }) {
   
   return (
     <html lang="en" suppressHydrationWarning={true}>
-      <body className="dark:text-white dark:bg-gray-900" suppressHydrationWarning={true}>
-        
+      <body className="dark:text-white dark:bg-slate-900" suppressHydrationWarning={true}>        
         <Navbar/>      
         <Cv/>
         {children}

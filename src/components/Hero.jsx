@@ -5,8 +5,8 @@ import Image from "next/image";
 
 const Hero = () => {
 		return (
-      <div>
-        <section className="text-gray-600 body-font text-center p-5 mt-5">
+      <div className="text-gray-600 dark:text-white">
+        <section className="body-font text-center p-5 mt-5">
           <h1 className="text-4xl font-bold sm:px-20 py-2">
             ¡Hola! Mi nombre es Jonathan
           </h1>
@@ -23,7 +23,7 @@ const Hero = () => {
                     rel="noopener noreferrer"
                   >
                     <img
-                      className="rounded-full w-15 h-15"
+                      className="rounded-full w-15 h-15 dark:bg-gray-200 dark:border-slate-400"
                       src="/github-mark.svg"
                       alt="Github"
                     />
