@@ -39,14 +39,27 @@ const Contact = () => {
 
   const handleSubmit = async () => {
     console.log("formDataEnSubmit>>", formData)
+    const isFormEmpty =
+      !formData.name.trim() ||
+      !formData.email.trim() ||
+      !formData.message.trim()
 
+    if (isFormEmpty) {
+      Swal.fire({
+        title: "Error!",
+        text: "Por favor, complete todos los campos del formulario.",
+        icon: "error",
+        confirmButtonText: "OK",
+      });
+      return
+    }
     if (errors.name || errors.email) {
       Swal.fire({
         title: "Error!",
         text: "Por favor, corrige los errores en el formulario.",
         icon: "error",
         confirmButtonText: "OK",
-      })
+      });
       return
     }
 
@@ -62,7 +75,7 @@ const Contact = () => {
         text: "Gracias por contactarte, en breve estaré respondiendo tu email.",
         icon: "success",
         confirmButtonText: "OK",
-      });
+      })
       setFormData({
         name: "",
         email: "",
@@ -80,23 +93,21 @@ const Contact = () => {
 
   const handleSaveData = async () => {
     try {
-      const response = await axios.post(`/api/users`, formData, {
-        timeout: 30000,
-      })
-      console.log("Response save data>>", response);
-      return response;
+      const response = await axios.post(`/api/users`, formData)
+      console.log("Response save data>>", response)
+      return response
     } catch (error) {
-      console.log("Error save data.", error);
+      console.log("Error save data.", error)
       if (error.response) {
-        console.log("Error response data:", error.response.data);
-        console.log("Error response status:", error.response.status);
-        console.log("Error response headers:", error.response.headers);
+        console.log("Error response data:", error.response.data)
+        console.log("Error response status:", error.response.status)
+        console.log("Error response headers:", error.response.headers)
       } else if (error.request) {
-        console.log("Error request:", error.request);
+        console.log("Error request:", error.request)
       } else {
-        console.log("Error message:", error.message);
+        console.log("Error message:", error.message)
       }
-      return error;
+      return error
     }
   }
 
@@ -204,4 +215,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default Contact
