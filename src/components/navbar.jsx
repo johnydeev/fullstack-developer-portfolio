@@ -78,7 +78,7 @@ const Navbar = () => {
             <img
               width={30}
               height={30}
-              src={theme ? "/moon-stars-svgrepo-com2.svg" : "/sun-black.svg"}
+              src={theme== "dark" ? "/moon-stars-svgrepo-com2.svg" : "/sun-black.svg"}
               alt={theme ? "dark" : "light"}
             />
           </picture>
