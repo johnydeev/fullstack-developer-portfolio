@@ -3,24 +3,24 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
 const Cv = () => {
-  const [isFixed, setIsFixed] = useState(false);
+  const [isFixed, setIsFixed] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition =
-        window.scrollY || document.documentElement.scrollTop;
-      const stopPosition = 2700;
+        window.scrollY || document.documentElement.scrollTop
+      const stopPosition = 2700
 
       // console.log("scroll>>", scrollPosition);
-      setIsFixed(scrollPosition > stopPosition);
+      setIsFixed(scrollPosition > stopPosition)
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll)
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", handleScroll)
     };
-  }, []);
+  }, [])
 
   return (
     <div className="relative ">
@@ -56,4 +56,4 @@ const Cv = () => {
   );
 };
 
-export default Cv;
+export default Cv

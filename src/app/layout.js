@@ -10,15 +10,17 @@ export const metadata = {
   description: 'Portfolio Castro Jonathan',}
 
 export default function RootLayout({ children }) {
+  
   return (
     <html lang="en" suppressHydrationWarning={true}>
-      <body className="" suppressHydrationWarning={true}>
-        <Navbar/>
-      
+      <body className="dark:text-white dark:bg-gray-900" suppressHydrationWarning={true}>
+        
+        <Navbar/>      
         <Cv/>
         {children}
         <Footer/>
       </body>
     </html>
-  );
+    
+  )
 }
