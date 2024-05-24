@@ -1,9 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
-import React from "react";
-import AboutMe from "./AboutMe";
-import Image from "next/image";
+import React from "react"
+import AboutMe from "./AboutMe"
+import Image from "next/image"
+import { useTheme } from "./Context"
 
 const Hero = () => {
+  const { theme } = useTheme()
+  console.log("theme>>>", theme)
 		return (
       <div className="text-gray-600 dark:text-white">
         <section className="body-font text-center p-5 mt-5">
@@ -23,8 +26,8 @@ const Hero = () => {
                     rel="noopener noreferrer"
                   >
                     <img
-                      className="rounded-full w-15 h-15 dark:bg-gray-200 dark:border-slate-400"
-                      src="/github-mark.svg"
+                      className="rounded-full w-15 h-15 dark:bg-gray-900 dark:border-slate-400"
+                      src={`${theme == "dark" ? "/github-white.svg" : "/github-mark.svg"}`}
                       alt="Github"
                     />
                   </a>

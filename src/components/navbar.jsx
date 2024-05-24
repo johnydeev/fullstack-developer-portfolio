@@ -1,26 +1,45 @@
 "use client"
 import Link from 'next/link';
 import React, { useState,useEffect } from 'react'
+import { useTheme } from "./Context"
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [theme, setTheme] = useState("ligth");
+  const [isOpen, setIsOpen] = useState(false)
+  const { theme, toggleTheme } = useTheme();
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setIsScrolled(true)
+      } else {
+        setIsScrolled(false)
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll)
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+    }
+  }, [])
   
     useEffect(() => {
       if (theme == "dark") {
-        document.querySelector("html").classList.add("dark");
+        document.querySelector("html").classList.add("dark")
       } else {
-        document.querySelector("html").classList.remove("dark");
+        document.querySelector("html").classList.remove("dark")
       }
-    }, [theme]);
-
-    const changeTheme = () => {
-      setTheme((prevTheme) => (prevTheme === "ligth" ? "dark" : "ligth"));
-    };
+    }, [theme])
+    
   return (
     <nav
       id="nav"
-      className="bg-gray-800 text-gray-200 px-4 h-auto dark:bg-gray-600 dark:text-white"
+      className={`fixed top-0 w-full px-4 h-auto z-50 transition-opacity duration-300 ${
+        isScrolled
+          ? "bg-gray-800 dark:bg-gray-600 bg-opacity-90"
+          : "bg-gray-800 dark:bg-gray-600"
+      } text-gray-200 dark:text-white`}
     >
       <div className="container mx-auto flex justify-between items-center p-4">
         <span className="text-xl font-bold">Castro Jonathan</span>
@@ -70,7 +89,7 @@ const Navbar = () => {
         </div>
 
         <button
-          onClick={changeTheme}
+          onClick={toggleTheme}
           className={`mr-4 text-lg rounded-full p-3 
           ${theme == "dark" ? "bg-white" : "!bg-gray-600"}`}
         >
