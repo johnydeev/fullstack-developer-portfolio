@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { Suspense, useState } from "react";
+import React, { useState } from "react";
 import Swal from "sweetalert2";
 import Loading from "./Loading";
 
@@ -64,18 +64,31 @@ const Contact = () => {
       });
       return;
     }
+
     setLoading(true);
     try {
-      const resSendMail = await handleSendEmails();
+      
       const resSaveData = await handleSaveData();
-
-      console.log("resSendMail>>>", resSendMail.data);
-      console.log("resSaveData>>>", resSaveData);
-
-      if (resSendMail.data === "successful shipment") {
-        Swal.fire({
-          title: "Envio Exitoso!",
-          text: "Gracias por contactarte, en breve estaré respondiendo tu email.",
+      
+      const resSendMail = await handleSendEmails();
+      
+      if (resSendMail.status === 200) { 
+        if(resSaveData.status === 202){
+          Swal.fire({
+            title: "Me alegra que hayas vuelto!",
+            text: resSaveData.data.message,
+            icon: "success",
+            confirmButtonText: "OK",
+          });
+        setFormData({
+          name: "",
+          email: "",
+          message: "",
+        });
+        } else{
+          Swal.fire({
+          title: "Gracias por contactarte!",
+          text: "En breve estaré respondiendo tu email.",
           icon: "success",
           confirmButtonText: "OK",
         });
@@ -84,7 +97,8 @@ const Contact = () => {
           email: "",
           message: "",
         });
-      }
+        }
+      }    
     } catch (error) {
       Swal.fire({
         title: "Error!",
@@ -92,7 +106,7 @@ const Contact = () => {
         icon: "error",
         confirmButtonText: "OK",
       });
-    }finally{
+    } finally {
       setLoading(false);
     }
   };
@@ -113,7 +127,7 @@ const Contact = () => {
       } else {
         console.log("Error message:", error.message);
       }
-      return error;
+      throw error;
     }
   };
 
@@ -122,7 +136,6 @@ const Contact = () => {
       const response = await axios.post(`/api/sendmail`, formData);
       console.log("Response send email>>>:", response);
       return response;
-      Suspense.end();
     } catch (error) {
       console.error("Error sending email>>>:", error);
       throw error;
