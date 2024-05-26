@@ -7,7 +7,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const { theme,setTheme } = useTheme()
   const [isScrolled, setIsScrolled] = useState(false)
-  
+
   useEffect(() => {
 
     const handleScroll = () => {
@@ -63,38 +63,40 @@ const Navbar = () => {
       } text-gray-200 dark:text-white`}
     >
       <div className="container mx-auto flex justify-between items-center p-4">
-        <span className="text-xl font-bold">Castro Jonathan</span>
+        <span id="desktop" className="text-xl font-bold">
+          Castro Jonathan
+        </span>
 
         <div
           className={`link ${
             isOpen ? "open" : "close"
-          } text-center flex space-x-7`}
+          } text-start flex hover:text-gray-300 dark:bg-gray-600`}
         >
           <Link
             onClick={() => setIsOpen(!isOpen)}
             href="#inicio"
-            className="hover:text-gray-300"
+            className="ml-32 underline hover:underline-offset-2"
           >
             Inicio
           </Link>
           <Link
             onClick={() => setIsOpen(!isOpen)}
             href="#stack"
-            className="hover:text-gray-300"
+            className="ml-32 underline hover:underline-offset-2"
           >
             Stack
           </Link>
           <Link
             onClick={() => setIsOpen(!isOpen)}
             href="#proyectos"
-            className="hover:text-gray-300"
+            className="ml-32 underline hover:underline-offset-2"
           >
             Proyectos
           </Link>
           <Link
             onClick={() => setIsOpen(!isOpen)}
             href="#contacto"
-            className="hover:text-gray-300"
+            className="ml-32 underline hover:underline-offset-2"
           >
             Contacto
           </Link>
@@ -110,6 +112,7 @@ const Navbar = () => {
         </div>
 
         <button
+        id="btn-theme"
           onClick={toggleTheme}
           className={`mr-4 text-lg rounded-full p-3 ${
             theme === "dark" ? "bg-white" : "bg-gray-600"
@@ -126,7 +129,7 @@ const Navbar = () => {
         </button>
       </div>
     </nav>
-  )
+  );
 }
 
 export default Navbar
