@@ -68,13 +68,14 @@ const Contact = () => {
     setLoading(true);
     try {
       
-      const resSaveData = await handleSaveData();
-      
+      const resSaveData = await handleSaveData();      
       const resSendMail = await handleSendEmails();
+
       console.log("resSendMail>>>",resSendMail)
       console.log("resSaveData>>>",resSaveData)
       console.log("reSendMail Status>>>",resSendMail.status)
-      console.log("resSaveData Status>>>",resSaveData.status) 
+      console.log("resSaveData Status>>>",resSaveData.status)
+
       if (resSendMail.status === 200) { 
         if(resSaveData.status === 202){
           Swal.fire({
