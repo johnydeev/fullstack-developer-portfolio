@@ -5,8 +5,7 @@ import Image from "next/image"
 import { useTheme } from "./Context"
 
 const Hero = () => {
-  const { theme } = useTheme()
-  console.log("theme>>>", theme)
+  const { theme } = useTheme() 
 		return (
       <div className="text-gray-600 dark:text-white">
         <section className="body-font text-center p-5 mt-5">

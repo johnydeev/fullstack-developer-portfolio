@@ -1,48 +1,50 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { Suspense, useState } from "react";
 import Swal from "sweetalert2";
+import Loading from "./Loading";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
-  })
+  });
 
   const [errors, setErrors] = useState({
     name: "",
     email: "",
-  })
+  });
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
-    const { name, value } = e.target
+    const { name, value } = e.target;
     setFormData({
       ...formData,
       [name]: value,
-    })
+    });
 
     if (name === "name") {
       setErrors({
         ...errors,
         name: value.trim() === "" ? "El nombre es requerido." : "",
-      })
+      });
     } else if (name === "email") {
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       setErrors({
         ...errors,
         email: emailRegex.test(value)
           ? ""
           : "El correo electrónico no es válido.",
-      })
+      });
     }
-  }
+  };
 
   const handleSubmit = async () => {
-    console.log("formDataEnSubmit>>", formData)
+    console.log("formDataEnSubmit>>", formData);
     const isFormEmpty =
       !formData.name.trim() ||
       !formData.email.trim() ||
-      !formData.message.trim()
+      !formData.message.trim();
 
     if (isFormEmpty) {
       Swal.fire({
@@ -51,7 +53,7 @@ const Contact = () => {
         icon: "error",
         confirmButtonText: "OK",
       });
-      return
+      return;
     }
     if (errors.name || errors.email) {
       Swal.fire({
@@ -60,71 +62,77 @@ const Contact = () => {
         icon: "error",
         confirmButtonText: "OK",
       });
-      return
+      return;
     }
+    setLoading(true);
+    try {
+      const resSendMail = await handleSendEmails();
+      const resSaveData = await handleSaveData();
 
-    const resSendMail = await handleSendEmails()
-    const resSaveData = await handleSaveData()
+      console.log("resSendMail>>>", resSendMail.data);
+      console.log("resSaveData>>>", resSaveData);
 
-    console.log("resSendMail>>>", resSendMail.data)
-    console.log("resSaveData>>>", resSaveData)
-
-    if (resSendMail.data === "successful shipment") {
+      if (resSendMail.data === "successful shipment") {
+        Swal.fire({
+          title: "Envio Exitoso!",
+          text: "Gracias por contactarte, en breve estaré respondiendo tu email.",
+          icon: "success",
+          confirmButtonText: "OK",
+        });
+        setFormData({
+          name: "",
+          email: "",
+          message: "",
+        });
+      }
+    } catch (error) {
       Swal.fire({
-        title: "Envio Exitoso!",
-        text: "Gracias por contactarte, en breve estaré respondiendo tu email.",
-        icon: "success",
-        confirmButtonText: "OK",
-      })
-      setFormData({
-        name: "",
-        email: "",
-        message: "",
-      })
-    } else {
-      Swal.fire({
-        title: `Error! \n ${resSendMail.data.response}`,
-        text: "¿Desea continuar?",
+        title: "Error!",
+        text: "Hubo un problema al enviar el correo.",
         icon: "error",
         confirmButtonText: "OK",
-      })
+      });
+    }finally{
+      setLoading(false);
     }
-  }
+  };
 
   const handleSaveData = async () => {
     try {
-      const response = await axios.post(`/api/users`, formData)
-      console.log("Response save data>>", response)
-      return response
+      const response = await axios.post(`/api/users`, formData);
+      console.log("Response save data>>", response);
+      return response;
     } catch (error) {
-      console.log("Error save data.", error)
+      console.log("Error save data.", error);
       if (error.response) {
-        console.log("Error response data:", error.response.data)
-        console.log("Error response status:", error.response.status)
-        console.log("Error response headers:", error.response.headers)
+        console.log("Error response data:", error.response.data);
+        console.log("Error response status:", error.response.status);
+        console.log("Error response headers:", error.response.headers);
       } else if (error.request) {
-        console.log("Error request:", error.request)
+        console.log("Error request:", error.request);
       } else {
-        console.log("Error message:", error.message)
+        console.log("Error message:", error.message);
       }
-      return error
+      return error;
     }
-  }
+  };
 
   const handleSendEmails = async () => {
     try {
-      const response = await axios.post(`/api/sendmail`, formData)
-      console.log("Response send email>>>:", response)
-      return response
+      const response = await axios.post(`/api/sendmail`, formData);
+      console.log("Response send email>>>:", response);
+      return response;
+      Suspense.end();
     } catch (error) {
-      console.error("Error sending email>>>:", error)
-      throw error
+      console.error("Error sending email>>>:", error);
+      throw error;
     }
-  }
+  };
 
   return (
     <>
       <div id="contacto">
+        <Loading loading={loading} />
         <section className="text-gray-600 dark:text-white body-font relative ">
           <div className="container px-5 py-16 my-4 mx-auto">
             <div className="flex flex-col text-center w-full mb-12">
@@ -206,4 +214,4 @@ const Contact = () => {
   );
 };
 
-export default Contact
+export default Contact;
