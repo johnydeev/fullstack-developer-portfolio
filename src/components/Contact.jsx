@@ -76,8 +76,10 @@ const Contact = () => {
       console.log("reSendMail Status>>>",resSendMail.status)
       console.log("resSaveData Status>>>",resSaveData.status)
 
-      if (resSendMail.status === 200) { 
+      if (resSendMail.status === 200) {
+        console.log("Se envio Mail...")
         if(resSaveData.status === 202){
+          console.log("Se guardo el usuario...")
           Swal.fire({
             title: "Me alegra que hayas vuelto!",
             text: resSaveData.data.message,
