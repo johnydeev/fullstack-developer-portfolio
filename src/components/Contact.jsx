@@ -68,8 +68,8 @@ const Contact = () => {
     setLoading(true);
     try {
       
-      const resSendMail = await handleSendEmails();
-      const resSaveData = await handleSaveData();      
+      const resSendMail = await handleSendEmails()
+      const resSaveData = await handleSaveData()
 
       console.log("resSendMail>>>",resSendMail)
       console.log("resSaveData>>>",resSaveData)
@@ -133,7 +133,7 @@ const Contact = () => {
       } else {
         console.log("Error message:", error.message);
       }
-      throw error;
+      return error
     }
   };
 
