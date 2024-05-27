@@ -12,8 +12,8 @@ export async function GET(){
 
 export async function POST(request){
     
-    await connectDB()
     try {
+        await connectDB()
         console.log("POST /api/users")
         const data = await request.json()
         const saveData = { name: data.name, email: data.email }
@@ -31,7 +31,7 @@ export async function POST(request){
         }
 
         const newUser = new usersModel(saveData);
-        console.log("newContact>>>",newUser)  
+        console.log("Nuevo Contacto>>>",newUser)  
     
         const saveUser = await newUser.save()
         console.log("Agregando nuevo contacto...")
