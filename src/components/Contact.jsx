@@ -68,8 +68,8 @@ const Contact = () => {
     setLoading(true);
     try {
       
-      const resSaveData = await handleSaveData();      
       const resSendMail = await handleSendEmails();
+      const resSaveData = await handleSaveData();      
 
       console.log("resSendMail>>>",resSendMail)
       console.log("resSaveData>>>",resSaveData)
