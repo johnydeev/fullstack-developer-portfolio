@@ -21,7 +21,7 @@ export async function GET() {
         const existingUser = await Contact.findOne({ email: saveData.email });
         console.log("Usuario a validar>>", existingUser);
 
-        const currentTime = new Date();
+        const currentTime = new Date()
         console.log("currentTime>>>", currentTime);
 
         if (existingUser) {

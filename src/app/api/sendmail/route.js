@@ -18,7 +18,7 @@ export async function POST(request) {
         "public",
         "CV Jonathan Castro - Desarrollador Full Stack.pdf"
         );
-        const response = await transporter.sendMail({
+        await transporter.sendMail({
             from: process.env.NEXT_PUBLIC_USER,
             to: email,
             subject: "Johnydeev",
@@ -28,14 +28,14 @@ export async function POST(request) {
                 contentType: "application/pdf",
             },
             });
-            const avisoDeContacto = await transporter.sendMail({
+        await transporter.sendMail({
             from: process.env.NEXT_PUBLIC_USER,
             to: process.env.NEXT_PUBLIC_USER,
             subject: `Te llego un mensaje de ${name} desde el mail:${email}`,
             text: message,
         });
-        console.log("envio exitoso", response);
-        console.log("AvisoDeContacto>>", avisoDeContacto);
+        // console.log("envio exitoso", response);
+        // console.log("AvisoDeContacto>>", avisoDeContacto);
         return NextResponse.json("successful shipment");
     } catch (error) {
         console.log("errorRouteSendEmail>>>", error);

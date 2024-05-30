@@ -67,11 +67,26 @@ const Contact = () => {
 
     setLoading(true);
     try {
-      const resSendMail = await handleSendEmails();
-      const resSaveData = await handleSaveData();
-
-      console.log("resSendMail>>>", resSendMail);
+      const resSaveData = await handleSaveData();      
       console.log("resSaveData>>>", resSaveData);
+      
+      if (resSaveData.response.status === 429) {
+        console.log("Usuario no puede enviar mas mails...");
+        Swal.fire({
+          title: "Limite de envios excedido",
+          text: "Por favor, vuelve a intentar en 5 minutos, Gracias.",
+          icon: "success",
+          confirmButtonText: "OK",
+        });
+        setFormData({
+          name: "",
+          email: "",
+          message: "",
+        });
+        return
+      }
+      const resSendMail = await handleSendEmails();
+      console.log("resSendMail>>>", resSendMail);
 
       if (resSendMail.status === 200) {
         console.log("Se envió Mail...");
@@ -103,21 +118,7 @@ const Contact = () => {
             email: "",
             message: "",
           });
-        }
-        if (resSaveData.status === 429) {
-          console.log("Usuario no puede enviar mas mails...");
-          Swal.fire({
-            title: "Limite de envios excedido",
-            text: "Por favor, vuelve a intentar en 5 minutos, Gracias.",
-            icon: "success",
-            confirmButtonText: "OK",
-          });
-          setFormData({
-            name: "",
-            email: "",
-            message: "",
-          });        
-        }
+        }        
       }
     } catch (error) {
       Swal.fire({
