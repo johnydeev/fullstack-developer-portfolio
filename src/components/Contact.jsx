@@ -67,44 +67,41 @@ const Contact = () => {
 
     setLoading(true);
     try {
-      
-      const resSendMail = await handleSendEmails()
-      const resSaveData = await handleSaveData()
+      const resSendMail = await handleSendEmails();
+      const resSaveData = await handleSaveData();
 
-      console.log("resSendMail>>>",resSendMail)
-      console.log("resSaveData>>>",resSaveData)
-      console.log("reSendMail Status>>>",resSendMail.status)
-      console.log("resSaveData Status>>>",resSaveData.status)
+      console.log("resSendMail>>>", resSendMail);
+      console.log("resSaveData>>>", resSaveData);
 
       if (resSendMail.status === 200) {
-        console.log("Se envio Mail...")
-        if(resSaveData.status === 202){
-          console.log("Se guardo el usuario...")
+        console.log("Se envió Mail...");
+        if (resSaveData.status === 202) {
+          console.log("Se guardó el usuario...");
           Swal.fire({
             title: "Me alegra que hayas vuelto!",
             text: resSaveData.data.message,
             icon: "success",
             confirmButtonText: "OK",
           });
-        setFormData({
-          name: "",
-          email: "",
-          message: "",
-        });
-        } else{
+          setFormData({
+            name: "",
+            email: "",
+            message: "",
+          });
+        } else {
           Swal.fire({
-          title: "Gracias por contactarte!",
-          text: "En breve estaré respondiendo tu email.",
-          icon: "success",
-          confirmButtonText: "OK",
-        });
-        setFormData({
-          name: "",
-          email: "",
-          message: "",
-        });
+            title: "Gracias por contactarte!",
+            text: "En breve estaré respondiendo tu email.",
+            icon: "success",
+            confirmButtonText: "OK",
+          });
+          setFormData({
+            name: "",
+            email: "",
+            message: "",
+          });
         }
-      }    
+      }
     } catch (error) {
       Swal.fire({
         title: "Error!",
@@ -133,7 +130,7 @@ const Contact = () => {
       } else {
         console.log("Error message:", error.message);
       }
-      return error
+      return error;
     }
   };
 

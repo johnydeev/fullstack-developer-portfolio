@@ -1,48 +1,71 @@
-import {NextResponse} from 'next/server'
-import usersModel from '@/models/users'
-import {connectDB} from '@/utils/connectDB'
+import { NextResponse } from "next/server";
+import Contact from "@/models/users";
+import { connectDB } from "@/utils/connectDB";
 
+export async function GET() {
+    console.log("Obteniendo todos los Contactos...");
+    await connectDB();
+    const allUsers = await Contact.find();
+    return NextResponse.json(allUsers);
+    }
 
-export async function GET(){
-    console.log("Obteniendo todos los Contactos...")
-    const allUsers = await usersModel.find()
-    return NextResponse.json(allUsers)
-}
+    export async function POST(request) {
+    await connectDB();
 
-
-export async function POST(request){
-    
     try {
-        await connectDB()
-        console.log("POST /api/users")
-        const data = await request.json()
-        const saveData = { name: data.name, email: data.email }
-        console.log("saveData>>>", saveData)
-        
-        const existingUser = await usersModel.findOne({ email: saveData.email })
-        console.log("Usuario a validar>>", existingUser)
+        console.log("POST /api/users");
+        const data = await request.json();
+        const saveData = { name: data.name, email: data.email };
+        console.log("saveData>>>", saveData);
 
+        const existingUser = await Contact.findOne({ email: saveData.email });
+        console.log("Usuario a validar>>", existingUser);
+
+        const currentTime = new Date().toLocaleDateString();
+        console.log("currentTime>>>", currentTime);
         if (existingUser) {
-            console.log("Mail existente>>>",existingUser.email)            
+        console.log("Mail existente>>>", existingUser.email);
+
+        const timeDifference =
+            (currentTime - existingUser.lastAttempt) / (1000 * 60); // Diferencia en minutos
+
+        if (timeDifference < 5) {
             return NextResponse.json(
-                { message: "En breve estaré respondiendo tu email." },
-                { status: 202 }
-            );
+            { message: "Por favor, espera antes de intentar enviar nuevamente." },
+            { status: 429 }
+            )
         }
 
-        const newUser = new usersModel(saveData);
-        console.log("Nuevo Contacto>>>",newUser)  
-    
-        const saveUser = await newUser.save()
-        console.log("Agregando nuevo contacto...")
-        console.log(saveUser)
-        return NextResponse.json(saveUser, { status: 201 })
-        
-    } catch (error) {
-        console.error("Error en la función POST:", error)
+        existingUser.emailAttempts += 1;
+        existingUser.lastAttempt = currentTime;
+        await existingUser.save();
+
         return NextResponse.json(
-            { message: "Error interno del servidor" },
-            { status: 500 }
+            {
+            message:
+                "Ya existe el email en la base de datos. Intentos de envío actualizados.",
+            },
+            { status: 202 }
         );
-    }    
+        }
+
+        const newUser = new Contact({
+        ...saveData,
+        isNewUser: true,
+        emailAttempts: 1,
+        lastAttempt: currentTime,
+        });
+        console.log("Nuevo usuario>>>", newUser);
+
+        const saveUser = await newUser.save();
+        console.log("Agregando nuevo contacto...");
+        console.log(saveUser);
+        return NextResponse.json(saveUser, { status: 201 });
+    } catch (error) {
+        console.error("Error en la función POST:", error);
+        return NextResponse.json(
+        { message: "Error interno del servidor" },
+        { status: 500 }
+        );
+    }
 }

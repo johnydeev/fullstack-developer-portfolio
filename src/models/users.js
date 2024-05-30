@@ -12,8 +12,18 @@ const contactsSchema = new Schema(
         required: true,
         unique: true,
         trim: true,
-        }
-
+        },
+        isNewUser: {
+        type: Boolean,
+        default: true,
+        },
+        emailAttempts: {
+        type: Number,
+        default: 0,
+        },
+        lastAttempt: {
+        type: Date,
+        },
     },
     {
         timestamps: true,
