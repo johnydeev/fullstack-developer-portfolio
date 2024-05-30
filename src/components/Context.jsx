@@ -1,6 +1,6 @@
 "use client"
 import { set } from "mongoose";
-import React, { createContext, useContext, useState, useEffect } from "react"
+import React, { createContext, useContext, useState } from "react"
 const GlobalContext = createContext()
 
 export const Context = ({ children }) => {
