@@ -75,20 +75,9 @@ const Contact = () => {
 
       if (resSendMail.status === 200) {
         console.log("Se envió Mail...");
-        if (resSaveData.status === 202) {
+        //Utilizo -Guard clauses- para enviar un mensaje para cada caso al enviar el mail
+        if (resSaveData.status === 201) {
           console.log("Se guardó el usuario...");
-          Swal.fire({
-            title: "Me alegra que hayas vuelto!",
-            text: resSaveData.data.message,
-            icon: "success",
-            confirmButtonText: "OK",
-          });
-          setFormData({
-            name: "",
-            email: "",
-            message: "",
-          });
-        } else {
           Swal.fire({
             title: "Gracias por contactarte!",
             text: "En breve estaré respondiendo tu email.",
@@ -100,6 +89,34 @@ const Contact = () => {
             email: "",
             message: "",
           });
+        }
+        if (resSaveData.status === 202) {
+          console.log("Usuario existente...");
+          Swal.fire({
+            title: "Me alegra que hayas vuelto!",
+            text: resSaveData.data.message,
+            icon: "success",
+            confirmButtonText: "OK",
+          });
+          setFormData({
+            name: "",
+            email: "",
+            message: "",
+          });
+        }
+        if (resSaveData.status === 429) {
+          console.log("Usuario no puede enviar mas mails...");
+          Swal.fire({
+            title: "Limite de envios excedido",
+            text: "Por favor, vuelve a intentar en 5 minutos, Gracias.",
+            icon: "success",
+            confirmButtonText: "OK",
+          });
+          setFormData({
+            name: "",
+            email: "",
+            message: "",
+          });        
         }
       }
     } catch (error) {

@@ -21,8 +21,9 @@ export async function GET() {
         const existingUser = await Contact.findOne({ email: saveData.email });
         console.log("Usuario a validar>>", existingUser);
 
-        const currentTime = new Date().toLocaleDateString();
+        const currentTime = new Date();
         console.log("currentTime>>>", currentTime);
+
         if (existingUser) {
         console.log("Mail existente>>>", existingUser.email);
 
@@ -33,11 +34,12 @@ export async function GET() {
             return NextResponse.json(
             { message: "Por favor, espera antes de intentar enviar nuevamente." },
             { status: 429 }
-            )
+            );
         }
 
         existingUser.emailAttempts += 1;
         existingUser.lastAttempt = currentTime;
+        existingUser.isNewUser = false;
         await existingUser.save();
 
         return NextResponse.json(
