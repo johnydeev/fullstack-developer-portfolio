@@ -67,13 +67,15 @@ const Contact = () => {
 
     setLoading(true);
     try {
-      const resSaveData = await handleSaveData();      
+      const resSaveData = await handleSaveData();
       console.log("resSaveData>>>", resSaveData);
       
       if (resSaveData.response.status === 429) {
-        console.log("Usuario no puede enviar mas mails...");
+        console.log("resSaveData.response.status>>>", resSaveData.response.status);
+        
+        console.log("Usuario no puede enviar más mails...");
         Swal.fire({
-          title: "Limite de envios excedido",
+          title: "Límite de envíos excedido",
           text: "Por favor, vuelve a intentar en 5 minutos, Gracias.",
           icon: "success",
           confirmButtonText: "OK",
@@ -83,16 +85,15 @@ const Contact = () => {
           email: "",
           message: "",
         });
-        return
+        return;
       }
       const resSendMail = await handleSendEmails();
-      console.log("resSendMail>>>", resSendMail);
+      console.log("resSendMail>>>", resSendMail);  
 
       if (resSendMail.status === 200) {
         console.log("Se envió Mail...");
-        //Utilizo -Guard clauses- para enviar un mensaje para cada caso al enviar el mail
         if (resSaveData.status === 201) {
-          console.log("Se guardó el usuario...");
+          console.log("Usuario nuevo...");
           Swal.fire({
             title: "Gracias por contactarte!",
             text: "En breve estaré respondiendo tu email.",
@@ -104,8 +105,9 @@ const Contact = () => {
             email: "",
             message: "",
           });
+          return;
         }
-        if (resSaveData.status === 202) {
+        if (resSaveData.status === 202) {          
           console.log("Usuario existente...");
           Swal.fire({
             title: "Me alegra que hayas vuelto!",
@@ -118,7 +120,8 @@ const Contact = () => {
             email: "",
             message: "",
           });
-        }        
+          return;
+        }
       }
     } catch (error) {
       Swal.fire({
@@ -132,10 +135,10 @@ const Contact = () => {
     }
   };
 
-  const handleSaveData = async () => {
+const handleSaveData = async () => {
     try {
       const response = await axios.post(`/api/users`, formData);
-      console.log("Response save data>>", response);
+      
       return response;
     } catch (error) {
       console.log("Error save data.", error);
@@ -148,18 +151,19 @@ const Contact = () => {
       } else {
         console.log("Error message:", error.message);
       }
-      return error;
+      return error; // Asegúrate de lanzar el error para que sea capturado en el catch de handleSubmit
     }
-  };
+}; 
+
 
   const handleSendEmails = async () => {
     try {
       const response = await axios.post(`/api/sendmail`, formData);
-      console.log("Response send email>>>:", response);
+      
       return response;
     } catch (error) {
       console.error("Error sending email>>>:", error);
-      throw error;
+      return error;
     }
   };
 
