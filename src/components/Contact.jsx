@@ -88,7 +88,7 @@ const Contact = () => {
         return;
       }
       const resSendMail = await handleSendEmails();
-      console.log("resSendMail>>>", resSendMail);  
+      console.log("resSendMail>>>", resSendMail);
 
       if (resSendMail.status === 200) {
         console.log("Se envió Mail...");
