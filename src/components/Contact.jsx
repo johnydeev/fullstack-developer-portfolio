@@ -39,44 +39,62 @@ const Contact = () => {
     }
   };
 
-  const handleSubmit = async () => {
-    console.log("formDataEnSubmit>>", formData);
-    const isFormEmpty =
-      !formData.name.trim() ||
-      !formData.email.trim() ||
-      !formData.message.trim();
+const handleSubmit = async () => {
+  console.log("formDataEnSubmit>>", formData);
+  const isFormEmpty =
+    !formData.name.trim() || !formData.email.trim() || !formData.message.trim();
 
-    if (isFormEmpty) {
+  if (isFormEmpty) {
+    Swal.fire({
+      title: "Error!",
+      text: "Por favor, complete todos los campos del formulario.",
+      icon: "error",
+      confirmButtonText: "OK",
+    });
+    return;
+  }
+  if (errors.name || errors.email) {
+    Swal.fire({
+      title: "Error!",
+      text: "Por favor, corrige los errores en el formulario.",
+      icon: "error",
+      confirmButtonText: "OK",
+    });
+    return;
+  }
+
+  setLoading(true);
+  try {
+    const resSaveData = await handleSaveData();
+    console.log("resSaveData>>>", resSaveData);
+
+    if (resSaveData.status === 429) {
+      console.log("Usuario no puede enviar más mails...");
       Swal.fire({
-        title: "Error!",
-        text: "Por favor, complete todos los campos del formulario.",
-        icon: "error",
+        title: "Límite de envíos excedido",
+        text: "Por favor, vuelve a intentar en 5 minutos, Gracias.",
+        icon: "success",
         confirmButtonText: "OK",
+      });
+      setFormData({
+        name: "",
+        email: "",
+        message: "",
       });
       return;
     }
-    if (errors.name || errors.email) {
-      Swal.fire({
-        title: "Error!",
-        text: "Por favor, corrige los errores en el formulario.",
-        icon: "error",
-        confirmButtonText: "OK",
-      });
-      return;
-    }
 
-    setLoading(true);
-    try {
-      const resSaveData = await handleSaveData();
-      console.log("resSaveData>>>", resSaveData);
-      
-      if (resSaveData.response.status === 429) {
-        console.log("resSaveData.response.status>>>", resSaveData.response.status);
-        
-        console.log("Usuario no puede enviar más mails...");
+    console.log("inicio segundo try");
+    const resSendMail = await handleSendEmails();
+    console.log("resSendMail>>>", resSendMail);
+
+    if (resSendMail.status === 200) {
+      console.log("Mails enviados...");
+      if (resSaveData.status === 201) {
+        console.log("Usuario nuevo...");
         Swal.fire({
-          title: "Límite de envíos excedido",
-          text: "Por favor, vuelve a intentar en 5 minutos, Gracias.",
+          title: "Gracias por contactarte!",
+          text: "En breve estaré respondiendo tu email.",
           icon: "success",
           confirmButtonText: "OK",
         });
@@ -85,60 +103,38 @@ const Contact = () => {
           email: "",
           message: "",
         });
-        return;
+      } else if (resSaveData.status === 202) {
+        console.log("Usuario existente...");
+        Swal.fire({
+          title: "Me alegra que hayas vuelto!",
+          text: resSaveData.data.message,
+          icon: "success",
+          confirmButtonText: "OK",
+        });
+        setFormData({
+          name: "",
+          email: "",
+          message: "",
+        });
       }
-      const resSendMail = await handleSendEmails();
-      console.log("resSendMail>>>", resSendMail);
-
-      if (resSendMail.status === 200) {
-        console.log("Se envió Mail...");
-        if (resSaveData.status === 201) {
-          console.log("Usuario nuevo...");
-          Swal.fire({
-            title: "Gracias por contactarte!",
-            text: "En breve estaré respondiendo tu email.",
-            icon: "success",
-            confirmButtonText: "OK",
-          });
-          setFormData({
-            name: "",
-            email: "",
-            message: "",
-          });
-          return;
-        }
-        if (resSaveData.status === 202) {          
-          console.log("Usuario existente...");
-          Swal.fire({
-            title: "Me alegra que hayas vuelto!",
-            text: resSaveData.data.message,
-            icon: "success",
-            confirmButtonText: "OK",
-          });
-          setFormData({
-            name: "",
-            email: "",
-            message: "",
-          });
-          return;
-        }
-      }
-    } catch (error) {
-      Swal.fire({
-        title: "Error!",
-        text: "Hubo un problema al enviar el correo.",
-        icon: "error",
-        confirmButtonText: "OK",
-      });
-    } finally {
-      setLoading(false);
     }
-  };
+  } catch (error) {
+    console.error("ERROR AL GUARDAR LOS DATOS O ENVIAR EL CORREO:", error);
+    Swal.fire({
+      title: "Error!",
+      text: "Hubo un problema al guardar los datos o enviar el correo.",
+      icon: "error",
+      confirmButtonText: "OK",
+    });
+  } finally {
+    setLoading(false);
+  }
+};
 
-const handleSaveData = async () => {
+  const handleSaveData = async () => {
     try {
       const response = await axios.post(`/api/users`, formData);
-      
+
       return response;
     } catch (error) {
       console.log("Error save data.", error);
@@ -153,13 +149,12 @@ const handleSaveData = async () => {
       }
       return error; // Asegúrate de lanzar el error para que sea capturado en el catch de handleSubmit
     }
-}; 
-
+  };
 
   const handleSendEmails = async () => {
     try {
       const response = await axios.post(`/api/sendmail`, formData);
-      
+
       return response;
     } catch (error) {
       console.error("Error sending email>>>:", error);
