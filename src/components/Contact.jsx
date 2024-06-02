@@ -90,7 +90,7 @@ const handleSubmit = async () => {
         console.log("Usuario existente...");
         Swal.fire({
           title: "Me alegra que hayas vuelto!",
-          text: resSaveData.data.message,
+          text: "En breve estaré respondiendo tu email.",
           icon: "success",
           confirmButtonText: "OK",
         });
