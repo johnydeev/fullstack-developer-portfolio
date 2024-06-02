@@ -7,14 +7,16 @@ const conn = {
 export async function connectDB(){    
     if(conn.isConnected) return
     try {
-        const db = await connect(process.env.MONGODB_URI);
+        const db = await connect(process.env.MONGODB_URI,{
+            useNewUrlParser:true
+        });
         console.log("Nombre Base de Datos: ",db.connection.db.databaseName)
         conn.isConnected = db.connections[0].readyState
         
         return conn
     } catch (error) {
         return console.log(error)
-    }    
+    }
 }
 connection.on('connected', ()=>{
     console.log('mongoose connection established')
