@@ -10,7 +10,7 @@ export async function GET() {
 }
 
 export async function POST(request) {
-  connectDB();
+  await connectDB();
 
   try {
     console.log("POST /api/users");
