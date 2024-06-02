@@ -104,7 +104,7 @@ const handleSubmit = async () => {
   } catch (error) {
     if (error.response && error.response.status === 429) {
       Swal.fire({
-        title: "Límite de envíos excedido",
+        title: "Límite de envíos",
         text: "Por favor, vuelve a intentar en 1 minuto, Gracias.",
         icon: "error",
         confirmButtonText: "OK",
