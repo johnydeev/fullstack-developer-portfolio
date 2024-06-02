@@ -15,6 +15,10 @@ body {
   #mobile {
     display: flex;
   }
+  #theme-img {
+    width: 20px;
+    height: 20px;
+  }
   btn-theme {
     width: 5px;
     height: 5px;

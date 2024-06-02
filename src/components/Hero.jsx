@@ -26,7 +26,11 @@ const Hero = () => {
                   >
                     <img
                       className="rounded-full w-15 h-15 dark:bg-gray-900 dark:border-slate-400"
-                      src={`${theme == "dark" ? "/github-white.svg" : "/github-mark.svg"}`}
+                      src={`${
+                        theme == "dark"
+                          ? "/github-white.svg"
+                          : "/github-mark.svg"
+                      }`}
                       alt="Github"
                     />
                   </a>
@@ -54,6 +58,8 @@ const Hero = () => {
                   className="rounded-full"
                   src="/Jonathan-pic.jpg"
                   alt="Castro-Jonathan"
+                  style={{ width: "auto", height: "auto" }}
+                  priority
                 ></Image>
               </picture>
             </div>

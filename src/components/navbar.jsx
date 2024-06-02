@@ -120,6 +120,7 @@ const Navbar = () => {
         >
           <picture>
             <img
+            id="theme-img"
               width={30}
               height={30}
               src={theme === "dark" ? "/sun-black.svg" : "/moon-white2.svg"}
