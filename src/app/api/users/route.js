@@ -29,16 +29,17 @@ export async function POST(request) {
       const timeDifference =
         (currentTime - existingUser.lastAttempt) / (1000 * 60); // Diferencia en minutos
 
-      if (timeDifference < 5) {
+      if (timeDifference < 1) {
+        console.log("timeDifference>>>", timeDifference);
         return NextResponse.json(
           { message: "Por favor, espera antes de intentar enviar nuevamente." },
           { status: 429 }
         );
       }
 
+      existingUser.isNewUser = false;
       existingUser.emailAttempts += 1;
       existingUser.lastAttempt = currentTime;
-      existingUser.isNewUser = false;
       await existingUser.save();
 
       return NextResponse.json(
@@ -51,10 +52,11 @@ export async function POST(request) {
     }
 
     const newUser = new Contact({
-      ...saveData,
+      name: saveData.name,
+      email: saveData.email,
       isNewUser: true,
       emailAttempts: 1,
-      lastAttempt: currentTime,
+      lastAttempt: new Date(),
     });
     console.log("Nuevo usuario>>>", newUser);
 

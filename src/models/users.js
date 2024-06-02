@@ -23,6 +23,7 @@ const contactsSchema = new Schema(
     },
     lastAttempt: {
       type: Date,
+      default: Date.now,
     },
   },
   {
