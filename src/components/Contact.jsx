@@ -67,24 +67,7 @@ const handleSubmit = async () => {
   try {
     const resSaveData = await handleSaveData();
     console.log("resSaveData>>>", resSaveData);
-
-    if (resSaveData.status === 429) {
-      console.log("Usuario no puede enviar más mails...");
-      Swal.fire({
-        title: "Límite de envíos excedido",
-        text: "Por favor, vuelve a intentar en 5 minutos, Gracias.",
-        icon: "success",
-        confirmButtonText: "OK",
-      });
-      setFormData({
-        name: "",
-        email: "",
-        message: "",
-      });
-      return;
-    }
-
-    console.log("inicio segundo try");
+    
     const resSendMail = await handleSendEmails();
     console.log("resSendMail>>>", resSendMail);
 
@@ -119,48 +102,57 @@ const handleSubmit = async () => {
       }
     }
   } catch (error) {
-    console.error("ERROR AL GUARDAR LOS DATOS O ENVIAR EL CORREO:", error);
-    Swal.fire({
-      title: "Error!",
-      text: "Hubo un problema al guardar los datos o enviar el correo.",
-      icon: "error",
-      confirmButtonText: "OK",
-    });
+    if (error.response && error.response.status === 429) {
+      Swal.fire({
+        title: "Límite de envíos excedido",
+        text: "Por favor, vuelve a intentar en 1 minuto, Gracias.",
+        icon: "error",
+        confirmButtonText: "OK",
+      });
+    } else {
+      console.error("ERROR AL ENVIAR EL MENSAJE:", error);
+      Swal.fire({
+        title: "Error!",
+        text: "Hubo un problema al enviar el correo.",
+        icon: "error",
+        confirmButtonText: "OK",
+      });
+    }
   } finally {
     setLoading(false);
   }
 };
 
-  const handleSaveData = async () => {
-    try {
-      const response = await axios.post(`/api/users`, formData);
-
-      return response;
-    } catch (error) {
-      console.log("Error save data.", error);
-      if (error.response) {
-        console.log("Error response data:", error.response.data);
-        console.log("Error response status:", error.response.status);
-        console.log("Error response headers:", error.response.headers);
-      } else if (error.request) {
-        console.log("Error request:", error.request);
-      } else {
-        console.log("Error message:", error.message);
-      }
-      return error; // Asegúrate de lanzar el error para que sea capturado en el catch de handleSubmit
+const handleSaveData = async () => {
+  try {
+    const response = await axios.post(`/api/users`, formData);
+    console.log("response en handleSaveData>>>", response);
+    return response;
+  } catch (error) {
+    console.log("Error save data.", error);
+    if (error.response) {
+      console.log("Error response data:", error.response.data);
+      console.log("Error response status:", error.response.status);
+      console.log("Error response headers:", error.response.headers);
+    } else if (error.request) {
+      console.log("Error request:", error.request);
+    } else {
+      console.log("Error message:", error.message);
     }
-  };
+    throw error; // Asegúrate de lanzar el error para que sea capturado en el catch de handleSubmit
+  }
+};
 
-  const handleSendEmails = async () => {
-    try {
-      const response = await axios.post(`/api/sendmail`, formData);
+const handleSendEmails = async () => {
+  try {
+    const response = await axios.post(`/api/sendmail`, formData);
+    return response;
+  } catch (error) {
+    console.error("Error sending email>>>:", error);
+    throw error;
+  }
+};
 
-      return response;
-    } catch (error) {
-      console.error("Error sending email>>>:", error);
-      return error;
-    }
-  };
 
   return (
     <>
