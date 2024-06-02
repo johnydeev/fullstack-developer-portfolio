@@ -8,13 +8,7 @@ body {
 .hamburg {
   display: none;
 }
-@media (max-width: 400px) {
 
-  #theme-img {
-    width: 20px;
-    height: 20px;
-  }
-}
 @media (max-width: 1024px) {
 
   #desktop {
@@ -22,6 +16,10 @@ body {
   }
   #mobile {
     display: flex;
+  }
+  #theme-img {
+    width: 20px;
+    height: 20px;
   }
   btn-theme {
     width: 5px;
