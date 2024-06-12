@@ -12,5 +12,5 @@
 - [x] Dark Mode 
 - [x] Menu hamburger personalized
 - [x] Database on **MongoDB**
-- [ ] Send email with **Nodemailer**
+- [x] Send email with **Nodemailer**
 
