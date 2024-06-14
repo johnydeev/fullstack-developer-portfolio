@@ -14,7 +14,7 @@ const Proyects = () => {
         <div className="container px-5 pt-8 mx-auto">
           <div className="flex flex-wrap -mx-4 -mb-10 text-center">
             <div className="sm:w-1/2 mb-10 px-4">
-              <div className="border-2 transition inline-block hover:scale-110 h-auto">
+              <div className="border-2 transition inline-block hover:scale-[1.07] h-auto">
                 <picture>
                   <Image
                     width={600}
@@ -55,10 +55,10 @@ const Proyects = () => {
               </div>
             </div>
             <div className="sm:w-1/2 mb-10 px-4">
-              <div className="border-2 transition inline-block hover:scale-110 h-auto">
+              <div className="border-2 transition inline-block scale-[1.03] mt-1 hover:scale-110 h-auto">
                 <picture>
                   <Image
-                    className="object-cover object-center w-full "
+                    className="object-cover object-center w-full"
                     width={600}
                     height={213}
                     alt="Project Dentist Card image"
@@ -82,7 +82,7 @@ const Proyects = () => {
                     rel="noopener noreferrer"
                   >
                     <Image
-                      className="rounded-full w-15 h-15 dark:bg-gray-900 dark:border-slate-400"
+                      className="rounded-full w-15 h-15 dark:bg-gray-900 dark:border-slate-400 "
                       width={100}
                       height={100}
                       src={
