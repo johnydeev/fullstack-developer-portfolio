@@ -13,5 +13,5 @@
 - [x] Menu hamburger personalized
 - [x] Database on **MongoDB**
 - [x] Send email with **Nodemailer**
-- [x] logical backend for send mails.
+- [x] backend lógico for sending emails.
 
