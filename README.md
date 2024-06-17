@@ -6,11 +6,12 @@
 - **Styling:** [Tailwind CSS](https://tailwindcss.com)
 - **Email:** [Nodemailer](https://nodemailer.com/)
 
-## Features to be implemented 
+## Features to be implemented
 
 - [x] Responsive 
 - [x] Dark Mode 
 - [x] Menu hamburger personalized
 - [x] Database on **MongoDB**
 - [x] Send email with **Nodemailer**
+- [x] logical backend for send mails.
 
