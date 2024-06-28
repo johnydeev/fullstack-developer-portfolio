@@ -4,7 +4,7 @@ const AboutMe = () => {
   return (
     <>
     <div className="dark:text-white">
-        <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-600 dark:text-slate-400">
+        <h1 id="gradient"  className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-600 dark:text-slate-400">
           Full Stack Developer
         </h1>
         <div className="mb-6 leading-relaxed">
@@ -24,7 +24,7 @@ const AboutMe = () => {
               rel="noopener noreferrer"
             >
               <strong>
-                <i className=" text-blue-600">aqui.</i>
+                <i className=" text-sky-500">aquí.</i>
               </strong>
             </a>{" "}
             Trabajo día a día para ser un mejor profesional y espero algun dia ser

@@ -8,6 +8,14 @@ body {
 .hamburg {
   display: none;
 }
+#gradient {
+      font-size: 48px;
+      font-weight: bold;
+      background: linear-gradient(to right, #14a0cf, #ea72f9);
+      -webkit-background-clip: text;
+      color: transparent;
+      line-height: 1.2;
+}
 
 @media (max-width: 1024px) {
 
