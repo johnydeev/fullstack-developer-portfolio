@@ -26,7 +26,9 @@ const Contact = () => {
     if (name === "name") {
       setErrors({
         ...errors,
-        name: value.trim() === "" ? "El nombre es requerido." : "",
+        name: value.trim() === "" 
+          ? "El nombre es requerido." 
+          : "",
       });
     } else if (name === "email") {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
