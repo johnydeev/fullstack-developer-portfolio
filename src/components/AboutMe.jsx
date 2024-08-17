@@ -4,7 +4,7 @@ const AboutMe = () => {
   return (
     <>
     <div className="dark:text-white">
-        <h1 id="gradient"  className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-600 dark:text-slate-400">
+        <h1 id="gradient"  className="sm:text-4xlmb-4 text-gray-600 dark:text-slate-400 mb-3">
           Full Stack Developer
         </h1>
         <div className="mb-6 leading-relaxed">

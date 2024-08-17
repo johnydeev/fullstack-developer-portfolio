@@ -37,9 +37,9 @@ const Hero = () => {
                 </picture>
                 <picture className="transition-all duration-300 hover:-translate-y-2 w-20">
                   <a
+                    href="https://www.linkedin.com/in/johnydeev/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    href="https://www.linkedin.com/in/johnydeev/"
                   >
                     <img
                       className="rounded-full w-15 h-15"

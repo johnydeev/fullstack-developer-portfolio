@@ -1,7 +1,9 @@
+"use client";
 import axios from "axios";
 import React, { useState } from "react";
 import Swal from "sweetalert2";
 import Loading from "./Loading";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -152,6 +154,10 @@ const handleSendEmails = async () => {
     throw error;
   }
 };
+const handleCaptchaChange = (value) => {
+  console.log("Captcha value:", value);
+  setCaptchaValue(value);
+};
 
 
   return (
@@ -222,14 +228,22 @@ const handleSendEmails = async () => {
                     ></textarea>
                   </div>
                 </div>
-                <div className="p-2 w-full">
+                {/* <div>
+                  
+                </div> */}
+                <div className="flex p-2 w-full">
                   <button
                     onClick={handleSubmit}
                     type="submit"
-                    className="flex mx-auto text-white bg-gray-800 dark:bg-gray-600 border-0 py-2 px-8 focus:outline-none hover:bg-gray-700 dark:hover:bg-gray-500 rounded text-lg"
+                    className="flex mx-auto text-white bg-gray-800 dark:bg-gray-600 border-0 py-2 px-8 focus:outline-none hover:bg-gray-700 dark:hover:bg-gray-500 rounded text-lg my-3 pt-3"  
                   >
                     Enviar
                   </button>
+                  <ReCAPTCHA
+                    className="flex mx-auto justify-center"
+                    sitekey="6Le4RicqAAAAABzPfvrSLw42Ll8sYDHZ_0NNYk49"
+                    onChange={handleCaptchaChange}
+                  />
                 </div>
               </div>
             </div>
