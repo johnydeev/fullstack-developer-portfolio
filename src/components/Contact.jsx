@@ -239,7 +239,7 @@ const handleCaptchaChange = (value) => {
                   >
                     Enviar
                   </button>
-                  <div className="sm:w-1/3">
+                  <div className="sm:w-[100px]">
                     <ReCAPTCHA
                       className="flex mx-auto justify-center"
                       sitekey="6Le4RicqAAAAABzPfvrSLw42Ll8sYDHZ_0NNYk49"
