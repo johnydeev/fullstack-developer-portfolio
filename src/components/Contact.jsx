@@ -10,41 +10,41 @@ const Contact = () => {
     name: "",
     email: "",
     message: "",
-  });
+  })
 
   const [errors, setErrors] = useState({
     name: "",
     email: "",
-  });
-  const [loading, setLoading] = useState(false);
+  })
+  const [loading, setLoading] = useState(false)
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value } = e.target
     setFormData({
       ...formData,
       [name]: value,
-    });
+    })
 
     if (name === "name") {
       setErrors({
         ...errors,
         name: value.trim() === "" ? "El nombre es requerido." : "",
-      });
+      })
     } else if (name === "email") {
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
       setErrors({
         ...errors,
         email: emailRegex.test(value)
           ? ""
           : "El correo electrónico no es válido.",
-      });
+      })
     }
-  };
+  }
 
 const handleSubmit = async () => {
-  console.log("formDataEnSubmit>>", formData);
+  console.log("formDataEnSubmit>>", formData)
   const isFormEmpty =
-    !formData.name.trim() || !formData.email.trim() || !formData.message.trim();
+    !formData.name.trim() || !formData.email.trim() || !formData.message.trim()
 
   if (isFormEmpty) {
     Swal.fire({
@@ -52,8 +52,8 @@ const handleSubmit = async () => {
       text: "Por favor, complete todos los campos del formulario.",
       icon: "error",
       confirmButtonText: "OK",
-    });
-    return;
+    })
+    return
   }
   if (errors.name || errors.email) {
     Swal.fire({
@@ -61,35 +61,35 @@ const handleSubmit = async () => {
       text: "Por favor, corrige los errores en el formulario.",
       icon: "error",
       confirmButtonText: "OK",
-    });
-    return;
+    })
+    return
   }
 
-  setLoading(true);
+  setLoading(true)
   try {
-    const resSaveData = await handleSaveData();
-    console.log("resSaveData>>>", resSaveData);
+    const resSaveData = await handleSaveData()
+    console.log("resSaveData>>>", resSaveData)
     
-    const resSendMail = await handleSendEmails();
-    console.log("resSendMail>>>", resSendMail);
+    const resSendMail = await handleSendEmails()
+    console.log("resSendMail>>>", resSendMail)
 
     if (resSendMail.status === 200) {
-      console.log("Mails enviados...");
+      console.log("Mails enviados...")
       if (resSaveData.status === 201) {
-        console.log("Usuario nuevo...");
+        console.log("Usuario nuevo...")
         Swal.fire({
           title: "Gracias por contactarte!",
           text: "En breve estaré respondiendo tu email.",
           icon: "success",
           confirmButtonText: "OK",
-        });
+        })
         setFormData({
           name: "",
           email: "",
           message: "",
-        });
+        })
       } else if (resSaveData.status === 202) {
-        console.log("Usuario existente...");
+        console.log("Usuario existente...")
         Swal.fire({
           title: "Me alegra que hayas vuelto!",
           text: "En breve estaré respondiendo tu email.",
@@ -100,7 +100,7 @@ const handleSubmit = async () => {
           name: "",
           email: "",
           message: "",
-        });
+        })
       }
     }
   } catch (error) {
@@ -110,7 +110,7 @@ const handleSubmit = async () => {
         text: "Por favor, vuelve a intentar en 1 minuto, Gracias.",
         icon: "error",
         confirmButtonText: "OK",
-      });
+      })
     } else {
       console.error("ERROR AL ENVIAR EL MENSAJE:", error);
       Swal.fire({
@@ -118,46 +118,46 @@ const handleSubmit = async () => {
         text: "Hubo un problema al enviar el correo.",
         icon: "error",
         confirmButtonText: "OK",
-      });
+      })
     }
   } finally {
-    setLoading(false);
+    setLoading(false)
   }
-};
+}
 
 const handleSaveData = async () => {
   try {
-    const response = await axios.post(`/api/users`, formData);
-    console.log("response en handleSaveData>>>", response);
-    return response;
+    const response = await axios.post(`/api/users`, formData)
+    console.log("response en handleSaveData>>>", response)
+    return response
   } catch (error) {
-    console.log("Error save data.", error);
+    console.log("Error save data.", error)
     if (error.response) {
-      console.log("Error response data:", error.response.data);
-      console.log("Error response status:", error.response.status);
-      console.log("Error response headers:", error.response.headers);
+      console.log("Error response data:", error.response.data)
+      console.log("Error response status:", error.response.status)
+      console.log("Error response headers:", error.response.headers)
     } else if (error.request) {
-      console.log("Error request:", error.request);
+      console.log("Error request:", error.request)
     } else {
-      console.log("Error message:", error.message);
+      console.log("Error message:", error.message)
     }
     throw error; // Asegúrate de lanzar el error para que sea capturado en el catch de handleSubmit
   }
-};
+}
 
 const handleSendEmails = async () => {
   try {
-    const response = await axios.post(`/api/sendmail`, formData);
-    return response;
+    const response = await axios.post(`/api/sendmail`, formData)
+    return response
   } catch (error) {
-    console.error("Error sending email>>>:", error);
-    throw error;
+    console.error("Error sending email>>>:", error)
+    throw error
   }
-};
+}
 const handleCaptchaChange = (value) => {
-  console.log("Captcha value:", value);
-  setCaptchaValue(value);
-};
+  console.log("Captcha value:", value)
+  setCaptchaValue(value)
+}
 
 
   return (
@@ -231,19 +231,21 @@ const handleCaptchaChange = (value) => {
                 {/* <div>
                   
                 </div> */}
-                <div className="flex p-2 w-full">
+                <div className="flex p-2 w-full gap-3">
                   <button
                     onClick={handleSubmit}
                     type="submit"
-                    className="flex mx-auto text-white bg-gray-800 dark:bg-gray-600 border-0 py-2 px-8 focus:outline-none hover:bg-gray-700 dark:hover:bg-gray-500 rounded text-lg my-3 pt-3"  
+                    className="flex mx-auto text-white bg-gray-800 dark:bg-gray-600 border-0 py-2 px-8 focus:outline-none hover:bg-gray-700 dark:hover:bg-gray-500 rounded text-lg my-3 pt-3"
                   >
                     Enviar
                   </button>
-                  <ReCAPTCHA
-                    className="flex mx-auto justify-center"
-                    sitekey="6Le4RicqAAAAABzPfvrSLw42Ll8sYDHZ_0NNYk49"
-                    onChange={handleCaptchaChange}
-                  />
+                  <div className="sm:w-1/3">
+                    <ReCAPTCHA
+                      className="flex mx-auto justify-center"
+                      sitekey="6Le4RicqAAAAABzPfvrSLw42Ll8sYDHZ_0NNYk49"
+                      onChange={handleCaptchaChange}
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -254,4 +256,4 @@ const handleCaptchaChange = (value) => {
   );
 };
 
-export default Contact;
+export default Contact
