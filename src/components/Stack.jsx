@@ -67,11 +67,21 @@ const Stack = () => {
                       height={100}
                       src="/nodejs.svg"
                       alt="nodejs"
-                      className="transition hover:scale-125"
+                      className="transition hover:scale-110"
                     />
                     <span className="mt-2">Node js</span>
                   </div>
                   <div className="flex flex-col items-center">
+                    <Image
+                      width={110}
+                      height={100}
+                      src="/expressjs.svg"
+                      alt="express"
+                      className="transition hover:scale-125"
+                    />
+                    <span className="mt-2">Express</span>
+                  </div>
+                  {/* <div className="flex flex-col items-center">
                     <Image
                       width={85}
                       height={100}
@@ -80,8 +90,8 @@ const Stack = () => {
                       className="transition hover:scale-125"
                     />
                     <span className="mt-2">JAVA</span>
-                  </div>
-                  <div className="flex flex-col items-center pt-2">
+                  </div> */}
+                  {/* <div className="flex flex-col items-center pt-2">
                     <Image
                       width={100}
                       height={100}
@@ -90,7 +100,7 @@ const Stack = () => {
                       className="transition hover:scale-125"
                     />
                     <span className="mt-3">Spring</span>
-                  </div>
+                  </div> */}
                 </div>
               </section>
 
@@ -136,17 +146,6 @@ const Stack = () => {
                   className="transition hover:scale-125 my-5"
                 />
                 <span className="mt-5">NEXT js</span>
-              </div>
-
-              <div className="flex flex-col items-center">
-                <Image
-                  width={90}
-                  height={100}
-                  src="/expressjs.svg"
-                  alt="express"
-                  className="transition hover:scale-125"
-                />
-                <span className="mt-2">Express</span>
               </div>
 
               <div className="flex flex-col items-center pt-3">
