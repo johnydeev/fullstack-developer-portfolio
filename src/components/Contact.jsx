@@ -3,7 +3,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import Swal from "sweetalert2";
 import Loading from "./Loading";
-import ReCAPTCHA from "react-google-recaptcha";
+// import ReCAPTCHA from "react-google-recaptcha";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
