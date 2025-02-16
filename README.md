@@ -1,6 +1,6 @@
-# [See profile here!](https://www.canva.com/design/DAFzzQFCcw8/rBsNw4PGy58Au-ydFsta1A/view?utm_content=DAFzzQFCcw8&utm_campaign=designshare&utm_medium=link&utm_source=editor)
- 
-## Tech Stack
+# [Echale un vistaso a mi CV!](https://www.canva.com/design/DAF9w7cVdGc/bpaAAi5T8U3fnWKw2dolsg/view?utm_content=DAF9w7cVdGc&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h00fcdf725c)
+
+## Tech Stack del portfolio
 
 - **Framework:** [Next.js](https://nextjs.org)
 - **Styling:** [Tailwind CSS](https://tailwindcss.com)
