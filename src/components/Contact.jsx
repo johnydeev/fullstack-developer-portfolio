@@ -44,7 +44,7 @@ const Contact = () => {
 const handleSubmit = async () => {
   console.log("formDataEnSubmit>>", formData)
   const isFormEmpty =
-    !formData.name.trim() || !formData.email.trim() || !formData.message.trim()
+    !formData.name.trim() || !formData.name.length > 3 || !formData.email.trim() || !formData.message.trim()
 
   if (isFormEmpty) {
     Swal.fire({
