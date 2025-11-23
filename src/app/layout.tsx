@@ -1,16 +1,18 @@
 
 import './globals.css'
-import Footer from '@/components/footer'
+import Footer from '@/components/Footer'
 import Cv from '@/components/Cv'
 import Navbar from '@/components/Navbar';
 import { Context } from '@/components/Context';
+import type { ReactNode } from "react";
+
 
 
 export const metadata = {
   title: '👨‍💻Portfolio Castro Jonathan',
   description: 'Portfolio Castro Jonathan',}
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   
   return (
     <html lang="en" suppressHydrationWarning={true}>

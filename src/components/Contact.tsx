@@ -1,12 +1,18 @@
 "use client";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import React, { useState } from "react";
 import Swal from "sweetalert2";
-import Loading from "./Loading";
+import Loading from "@/components/Loading";
 // import ReCAPTCHA from "react-google-recaptcha";
 
+interface FormData {
+  name: string;
+  email: string;
+  message: string;
+}
+
 const Contact = () => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
     message: "",
@@ -18,7 +24,7 @@ const Contact = () => {
   })
   const [loading, setLoading] = useState(false)
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
     setFormData({
       ...formData,
@@ -41,123 +47,125 @@ const Contact = () => {
     }
   }
 
-const handleSubmit = async () => {
-  console.log("formDataEnSubmit>>", formData)
-  const isFormEmpty =
-    !formData.name.trim() || !formData.email.trim() || !formData.message.trim()
+  const handleSubmit = async () => {
+    console.log("formDataEnSubmit>>", formData)
+    const isFormEmpty =
+      !formData.name.trim() || !formData.email.trim() || !formData.message.trim()
 
-  if (isFormEmpty) {
-    Swal.fire({
-      title: "Error!",
-      text: "Por favor, complete todos los campos del formulario.",
-      icon: "error",
-      confirmButtonText: "OK",
-    })
-    return
-  }
-  if (errors.name || errors.email) {
-    Swal.fire({
-      title: "Error!",
-      text: "Por favor, corrige los errores en el formulario.",
-      icon: "error",
-      confirmButtonText: "OK",
-    })
-    return
-  }
-
-  setLoading(true)
-  try {
-    const resSaveData = await handleSaveData()
-    console.log("resSaveData>>>", resSaveData)
-    
-    const resSendMail = await handleSendEmails()
-    console.log("resSendMail>>>", resSendMail)
-
-    if (resSendMail.status === 200) {
-      console.log("Mails enviados...")
-      if (resSaveData.status === 201) {
-        console.log("Usuario nuevo...")
-        Swal.fire({
-          title: "Gracias por contactarte!",
-          text: "En breve estaré respondiendo tu email.",
-          icon: "success",
-          confirmButtonText: "OK",
-        })
-        setFormData({
-          name: "",
-          email: "",
-          message: "",
-        })
-      } else if (resSaveData.status === 202) {
-        console.log("Usuario existente...")
-        Swal.fire({
-          title: "Me alegra que hayas vuelto!",
-          text: "En breve estaré respondiendo tu email.",
-          icon: "success",
-          confirmButtonText: "OK",
-        });
-        setFormData({
-          name: "",
-          email: "",
-          message: "",
-        })
-      }
-    }
-  } catch (error) {
-    if (error.response && error.response.status === 429) {
-      Swal.fire({
-        title: "Límite de envíos",
-        text: "Por favor, vuelve a intentar en 1 minuto, Gracias.",
-        icon: "error",
-        confirmButtonText: "OK",
-      })
-    } else {
-      console.error("ERROR AL ENVIAR EL MENSAJE:", error);
+    if (isFormEmpty) {
       Swal.fire({
         title: "Error!",
-        text: "Hubo un problema al enviar el correo.",
+        text: "Por favor, complete todos los campos del formulario.",
         icon: "error",
         confirmButtonText: "OK",
       })
+      return
     }
-  } finally {
-    setLoading(false)
-  }
-}
-
-const handleSaveData = async () => {
-  try {
-    const response = await axios.post(`/api/users`, formData)
-    console.log("response en handleSaveData>>>", response)
-    return response
-  } catch (error) {
-    console.log("Error save data.", error)
-    if (error.response) {
-      console.log("Error response data:", error.response.data)
-      console.log("Error response status:", error.response.status)
-      console.log("Error response headers:", error.response.headers)
-    } else if (error.request) {
-      console.log("Error request:", error.request)
-    } else {
-      console.log("Error message:", error.message)
+    if (errors.name || errors.email) {
+      Swal.fire({
+        title: "Error!",
+        text: "Por favor, corrige los errores en el formulario.",
+        icon: "error",
+        confirmButtonText: "OK",
+      })
+      return
     }
-    throw error; // Asegúrate de lanzar el error para que sea capturado en el catch de handleSubmit
-  }
-}
 
-const handleSendEmails = async () => {
-  try {
-    const response = await axios.post(`/api/sendmail`, formData)
-    return response
-  } catch (error) {
-    console.error("Error sending email>>>:", error)
-    throw error
+    setLoading(true)
+    try {
+      const resSaveData = await handleSaveData()
+      console.log("resSaveData>>>", resSaveData)
+
+      const resSendMail = await handleSendEmails()
+      console.log("resSendMail>>>", resSendMail)
+
+      if (resSendMail.status === 200) {
+        console.log("Mails enviados...")
+        if (resSaveData.status === 201) {
+          console.log("Usuario nuevo...")
+          Swal.fire({
+            title: "Gracias por contactarte!",
+            text: "En breve estaré respondiendo tu email.",
+            icon: "success",
+            confirmButtonText: "OK",
+          })
+          setFormData({
+            name: "",
+            email: "",
+            message: "",
+          })
+        } else if (resSaveData.status === 202) {
+          console.log("Usuario existente...")
+          Swal.fire({
+            title: "Me alegra que hayas vuelto!",
+            text: "En breve estaré respondiendo tu email.",
+            icon: "success",
+            confirmButtonText: "OK",
+          });
+          setFormData({
+            name: "",
+            email: "",
+            message: "",
+          })
+        }
+      }
+    } catch (e) {
+      const error = e as AxiosError;
+      if (error.response && error.response.status === 429) {
+        Swal.fire({
+          title: "Límite de envíos",
+          text: "Por favor, vuelve a intentar en 1 minuto, Gracias.",
+          icon: "error",
+          confirmButtonText: "OK",
+        })
+      } else {
+        console.error("ERROR AL ENVIAR EL MENSAJE:", error);
+        Swal.fire({
+          title: "Error!",
+          text: "Hubo un problema al enviar el correo.",
+          icon: "error",
+          confirmButtonText: "OK",
+        })
+      }
+    } finally {
+      setLoading(false)
+    }
   }
-}
-const handleCaptchaChange = (value) => {
-  console.log("Captcha value:", value)
-  setCaptchaValue(value)
-}
+
+  const handleSaveData = async () => {
+    try {
+      const response = await axios.post(`/api/users`, formData)
+      console.log("response en handleSaveData>>>", response)
+      return response
+    } catch (e) {
+      const error = e as AxiosError;
+      console.log("Error save data.", error)
+      if (error.response) {
+        console.log("Error response data:", error.response.data)
+        console.log("Error response status:", error.response.status)
+        console.log("Error response headers:", error.response.headers)
+      } else if (error.request) {
+        console.log("Error request:", error.request)
+      } else {
+        console.log("Error message:", error.message)
+      }
+      throw error; // Asegúrate de lanzar el error para que sea capturado en el catch de handleSubmit
+    }
+  }
+
+  const handleSendEmails = async () => {
+    try {
+      const response = await axios.post(`/api/sendmail`, formData)
+      return response
+    } catch (error) {
+      console.error("Error sending email>>>:", error)
+      throw error
+    }
+  }
+  // const handleCaptchaChange = (value) => {
+  //   console.log("Captcha value:", value)
+  //   setCaptchaValue(value)
+  // }
 
 
   return (
@@ -185,9 +193,8 @@ const handleCaptchaChange = (value) => {
                       type="text"
                       id="name"
                       name="name"
-                      className={`w-full rounded border ${
-                        errors.name ? "border-red-500" : "border-gray-300"
-                      } focus:border-blue-500 bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out`}
+                      className={`w-full rounded border ${errors.name ? "border-red-500" : "border-gray-300"
+                        } focus:border-blue-500 bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out`}
                     />
                     {errors.name && (
                       <p className="text-red-500 text-sm">{errors.name}</p>
@@ -205,9 +212,8 @@ const handleCaptchaChange = (value) => {
                       type="email"
                       id="email"
                       name="email"
-                      className={`w-full rounded border ${
-                        errors.email ? "border-red-500" : "border-gray-300"
-                      } focus:border-blue-500 bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out`}
+                      className={`w-full rounded border ${errors.email ? "border-red-500" : "border-gray-300"
+                        } focus:border-blue-500 bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out`}
                     />
                     {errors.email && (
                       <p className="text-red-500 text-sm">{errors.email}</p>

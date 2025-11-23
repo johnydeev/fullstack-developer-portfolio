@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import {connectDB} from "src/utils/connectDB";
+import {connectDB} from "@/utils/connectDB";
 
 connectDB()
 

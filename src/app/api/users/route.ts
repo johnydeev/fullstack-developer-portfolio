@@ -2,20 +2,38 @@ import { NextResponse } from "next/server";
 import Contact from "@/models/users";
 import { connectDB } from "@/utils/connectDB";
 
-export async function GET() {
-  console.log("Obteniendo todos los Contactos...");
-  await connectDB();
-  const allUsers = await Contact.find();
-  return NextResponse.json(allUsers);
+
+interface ContactRequest {
+  name: string;
+  email: string;
 }
 
-export async function POST(request) {
+export async function GET() {
+  try {
+    console.log("Obteniendo todos los Contactos...");
+    await connectDB();
+
+    const allUsers = await Contact.find();
+    return NextResponse.json(allUsers, { status: 200 });
+  } catch (error) {
+    console.error("Error en GET /api/users:", error);
+    return NextResponse.json(
+      { message: "Error interno del servidor" },
+      { status: 500 }
+    );
+  }
+}
+
+// POST: Crear o actualizar usuario
+export async function POST(request: Request) {
   await connectDB();
 
   try {
     console.log("POST /api/users");
-    const data = await request.json();
+
+    const data = (await request.json()) as ContactRequest;
     const saveData = { name: data.name, email: data.email };
+
     console.log("saveData>>>", saveData);
 
     const existingUser = await Contact.findOne({ email: saveData.email });
@@ -23,11 +41,10 @@ export async function POST(request) {
 
     if (existingUser) {
       const currentTime = new Date();
-      console.log("currentTime>>>", currentTime);
-      console.log("Mail existente>>>", existingUser.email);
+      const lastAttempt = new Date(existingUser.lastAttempt ?? 0);
 
       const timeDifference =
-        (currentTime - existingUser.lastAttempt) / (1000 * 60); // Diferencia en minutos
+        (currentTime.getTime() - lastAttempt.getTime()) / (1000 * 60); // Diferencia en minutos
 
       if (timeDifference < 1) {
         console.log("timeDifference>>>", timeDifference);
@@ -38,8 +55,9 @@ export async function POST(request) {
       }
 
       existingUser.isNewUser = false;
-      existingUser.emailAttempts += 1;
+      existingUser.emailAttempts = (existingUser.emailAttempts ?? 0) + 1;
       existingUser.lastAttempt = currentTime;
+
       await existingUser.save();
 
       return NextResponse.json(
@@ -58,17 +76,18 @@ export async function POST(request) {
       emailAttempts: 1,
       lastAttempt: new Date(),
     });
+
     console.log("Nuevo usuario>>>", newUser);
 
     const saveUser = await newUser.save();
-    console.log("Agregando nuevo contacto...");
-    console.log(saveUser);
+
     return NextResponse.json(saveUser, { status: 201 });
   } catch (error) {
-    console.error("Error en la función POST:", error);
+    console.error("Error en POST /api/users:", error);
     return NextResponse.json(
       { message: "Error interno del servidor" },
       { status: 500 }
     );
   }
 }
+

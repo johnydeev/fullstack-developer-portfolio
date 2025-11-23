@@ -3,8 +3,12 @@ import Image from 'next/image'
 import React from 'react'
 import { useTheme } from "./Context"
 
-const Proyects = () => {
-  const { theme } = useTheme()
+const Proyects: React.FC = () => {
+  const themeContext = useTheme();
+  if (!themeContext) return null;
+
+  const { theme } = themeContext;
+
   return (
     <div id="proyectos" className="text-gray-600 dark:text-white pb-10">
       <h1 className="container px-5 pt-16 mx-auto text-3xl font-bold m-2 text-center">

@@ -1,6 +1,16 @@
-import { Schema, models, model } from "mongoose";
+import { Schema, model, models, Document, Model } from "mongoose";
 
-const contactsSchema = new Schema(
+export interface IContact {
+  name: string;
+  email: string;
+  isNewUser?: boolean;
+  emailAttempts?: number;
+  lastAttempt?: Date;
+}
+
+export interface IContactDocument extends IContact, Document { }
+
+const contactSchema = new Schema<IContactDocument>(
   {
     name: {
       type: String,
@@ -31,6 +41,9 @@ const contactsSchema = new Schema(
   }
 );
 
-const Contact = models.contact || model("contact", contactsSchema);
+const Contact =
+  (models.Contact as Model<IContactDocument>) ||
+  model<IContactDocument>("Contact", contactSchema);
 
 export default Contact;
+
