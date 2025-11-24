@@ -68,32 +68,32 @@ const Navbar: React.FC = () => {
 
     return (
         <nav
-            className={`fixed top-0 w-full z-50 px-4 transition-all duration-300 
+            className={`fixed top-0 w-full z-50 px-4 transition-all duration-300 shadow-lg text-gray-200 dark:text-white
                 ${
                     isScrolled
-                        ? "bg-gray-800/90 dark:bg-gray-600/90 shadow-md backdrop-blur"
+                        ? "bg-gray-300 dark:bg-gray-600/90 shadow-md backdrop-blur"
                         : "bg-transparent"
                 }
-                text-gray-200 dark:text-white`}
+            `}
         >
             <div className="container mx-auto flex justify-between items-center p-4">
-                <span className="text-xl font-bold">Castro Jonathan</span>
+                <span className="text-xl font-bold text-gray-600 dark:text-gray-300">Castro Jonathan</span>
 
                 <div
                     className={`link ${
                         isOpen ? "open" : "close"
-                    } flex gap-10 items-center`}
+                    } flex gap-10 items-center text-gray-600 dark:text-gray-300`}
                 >
-                    <Link onClick={() => setIsOpen(false)} href="#inicio">
+                    <Link onClick={() => setIsOpen(false)} href="#inicio" className="hover:underline underline-offset-4 decoration-current">
                         Inicio
                     </Link>
-                    <Link onClick={() => setIsOpen(false)} href="#stack">
+                    <Link onClick={() => setIsOpen(false)} href="#stack" className="hover:underline underline-offset-4 decoration-current">
                         Stack
                     </Link>
-                    <Link onClick={() => setIsOpen(false)} href="#proyectos">
+                    <Link onClick={() => setIsOpen(false)} href="#proyectos" className="hover:underline underline-offset-4 decoration-current">
                         Proyectos
                     </Link>
-                    <Link onClick={() => setIsOpen(false)} href="#contacto">
+                    <Link onClick={() => setIsOpen(false)} href="#contacto" className="hover:underline underline-offset-4 decoration-current">
                         Contacto
                     </Link>
                 </div>

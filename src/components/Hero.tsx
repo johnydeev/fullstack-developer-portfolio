@@ -9,7 +9,7 @@ const Hero = () => {
     const { theme } = useTheme();
 
     return (
-        <div className="text-gray-600 dark:text-white">
+        <div className="text-gray-600 dark:text-white my-10">
             <section className="body-font text-center p-5 mt-5">
                 <h1 className="text-4xl font-bold sm:px-20 py-2">
                     ¡Hola! Mi nombre es Jonathan
