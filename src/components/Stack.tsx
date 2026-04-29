@@ -8,17 +8,17 @@ interface TechItem {
 }
 
 const TextBadge: React.FC<{ name: string }> = ({ name }) => (
-    <div className="flex flex-col items-center gap-2">
-        <div className="w-14 h-14 flex items-center justify-center rounded-xl bg-gray-300 dark:bg-gray-700 border border-gray-400 dark:border-gray-600 text-xs font-bold text-gray-700 dark:text-gray-200 text-center leading-tight px-1 font-mono transition hover:scale-110">
+    <div className="flex flex-col items-center gap-3">
+        <div className="w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center rounded-2xl bg-gray-300 dark:bg-gray-700 border border-gray-400 dark:border-gray-600 text-sm font-bold text-gray-700 dark:text-gray-200 text-center leading-tight px-2 font-mono transition hover:scale-110">
             {name}
         </div>
-        <span className="text-xs text-gray-600 dark:text-gray-400">{name}</span>
+        <span className="text-sm text-gray-600 dark:text-gray-400">{name}</span>
     </div>
 );
 
-const ImgBadge: React.FC<TechItem> = ({ name, src, width = 52 }) => (
-    <div className="flex flex-col items-center gap-2">
-        <div className="w-14 h-14 flex items-center justify-center transition hover:scale-110">
+const ImgBadge: React.FC<TechItem> = ({ name, src, width = 72 }) => (
+    <div className="flex flex-col items-center gap-3">
+        <div className="w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center transition hover:scale-110">
             <Image
                 width={width}
                 height={width}
@@ -27,7 +27,7 @@ const ImgBadge: React.FC<TechItem> = ({ name, src, width = 52 }) => (
                 className="object-contain"
             />
         </div>
-        <span className="text-xs text-gray-600 dark:text-gray-400">{name}</span>
+        <span className="text-sm text-gray-600 dark:text-gray-400">{name}</span>
     </div>
 );
 
@@ -35,16 +35,16 @@ const CategorySection: React.FC<{
     title: string;
     children: React.ReactNode;
 }> = ({ title, children }) => (
-    <div className="mb-8">
-        <h3 className="text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-5 font-mono">
+    <div className="mb-10">
+        <h3 className="text-sm font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-6 font-mono">
             {title}
         </h3>
-        <div className="flex flex-wrap gap-6 items-end">{children}</div>
+        <div className="flex flex-wrap gap-x-10 gap-y-8 items-end">{children}</div>
     </div>
 );
 
 const PracticePill: React.FC<{ label: string }> = ({ label }) => (
-    <span className="px-3 py-1.5 rounded-full text-xs font-medium font-mono bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600">
+    <span className="px-4 py-2 rounded-full text-sm font-medium font-mono bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600">
         {label}
     </span>
 );
@@ -56,52 +56,52 @@ const Stack: React.FC = () => {
                 Stack Tecnológico
             </h2>
 
-            <section className="px-5 py-10 bg-gray-100 dark:bg-gray-800 rounded-2xl">
-                <div className="container mx-auto max-w-4xl">
+            <section className="px-6 sm:px-10 py-14 bg-gray-100 dark:bg-gray-800 rounded-2xl">
+                <div className="container mx-auto max-w-5xl">
 
                     <CategorySection title="Frontend">
-                        <ImgBadge name="React" src="/react.svg" width={56} />
-                        <ImgBadge name="TypeScript" src="/typescript.png" width={52} />
-                        <ImgBadge name="JavaScript" src="/javascript.svg" width={52} />
-                        <ImgBadge name="Next.js" src="/next.svg" width={64} />
-                        <ImgBadge name="HTML5" src="/html5.svg" />
-                        <ImgBadge name="CSS3" src="/css.svg" />
-                        <ImgBadge name="Tailwind" src="/tailwindcss.svg" width={58} />
+                        <ImgBadge name="React" src="/react.svg" width={76} />
+                        <ImgBadge name="TypeScript" src="/typescript.png" width={72} />
+                        <ImgBadge name="JavaScript" src="/javascript.svg" width={72} />
+                        <ImgBadge name="Next.js" src="/next.svg" width={88} />
+                        <ImgBadge name="HTML5" src="/html5.svg" width={72} />
+                        <ImgBadge name="CSS3" src="/css.svg" width={72} />
+                        <ImgBadge name="Tailwind" src="/tailwindcss.svg" width={80} />
                     </CategorySection>
 
-                    <div className="border-t border-gray-300 dark:border-gray-700 mb-8" />
+                    <div className="border-t border-gray-300 dark:border-gray-700 mb-10" />
 
                     <CategorySection title="Backend">
-                        <ImgBadge name="Node.js" src="/nodejs.svg" width={52} />
-                        <ImgBadge name="Express" src="/expressjs.svg" width={58} />
+                        <ImgBadge name="Node.js" src="/nodejs.svg" width={72} />
+                        <ImgBadge name="Express" src="/expressjs.svg" width={80} />
                         <TextBadge name="REST API" />
-                        <TextBadge name="Prisma ORM" />
+                        <ImgBadge name="Prisma ORM" src="/prisma.svg" width={64} />
                     </CategorySection>
 
-                    <div className="border-t border-gray-300 dark:border-gray-700 mb-8" />
+                    <div className="border-t border-gray-300 dark:border-gray-700 mb-10" />
 
                     <CategorySection title="Bases de datos">
-                        <ImgBadge name="PostgreSQL" src="/postgresql.svg" width={52} />
-                        <ImgBadge name="MongoDB" src="/mongodb.svg" width={44} />
+                        <ImgBadge name="PostgreSQL" src="/postgresql.svg" width={72} />
+                        <ImgBadge name="MongoDB" src="/mongodb.svg" width={64} />
                     </CategorySection>
 
-                    <div className="border-t border-gray-300 dark:border-gray-700 mb-8" />
+                    <div className="border-t border-gray-300 dark:border-gray-700 mb-10" />
 
                     <CategorySection title="DevOps & Tools">
-                        <ImgBadge name="Docker" src="/docker.svg" width={58} />
-                        <ImgBadge name="GitHub" src="/github-mark.svg" width={52} />
+                        <ImgBadge name="Docker" src="/docker.svg" width={80} />
+                        <ImgBadge name="GitHub" src="/github-mark.svg" width={72} />
                         <TextBadge name="CI/CD" />
-                        <ImgBadge name="GCP" src="/gcp.svg" width={52} />
-                        <ImgBadge name="Vercel" src="/vercel.svg" width={52} />
+                        <ImgBadge name="GCP" src="/gcp.svg" width={72} />
+                        <ImgBadge name="Vercel" src="/vercel.svg" width={72} />
                     </CategorySection>
 
-                    <div className="border-t border-gray-300 dark:border-gray-700 mb-8" />
+                    <div className="border-t border-gray-300 dark:border-gray-700 mb-10" />
 
                     <div>
-                        <h3 className="text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-4 font-mono">
+                        <h3 className="text-sm font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-5 font-mono">
                             Prácticas
                         </h3>
-                        <div className="flex flex-wrap gap-2">
+                        <div className="flex flex-wrap gap-3">
                             {[
                                 "Clean Architecture",
                                 "SOLID",

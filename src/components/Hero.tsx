@@ -61,7 +61,7 @@ const Hero = () => {
                             width={900}
                             height={900}
                             className="rounded-full"
-                            src="/Jonathan-pic.jpg"
+                            src="/jonathan-pic.jpg"
                             alt="Castro Jonathan"
                             priority
                         />
