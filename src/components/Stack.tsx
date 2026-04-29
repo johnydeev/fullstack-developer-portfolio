@@ -1,186 +1,124 @@
-import Image from 'next/image'
-import React from 'react'
+import Image from "next/image";
+import React from "react";
+
+interface TechItem {
+    name: string;
+    src: string;
+    width?: number;
+}
+
+const TextBadge: React.FC<{ name: string }> = ({ name }) => (
+    <div className="flex flex-col items-center gap-2">
+        <div className="w-14 h-14 flex items-center justify-center rounded-xl bg-gray-300 dark:bg-gray-700 border border-gray-400 dark:border-gray-600 text-xs font-bold text-gray-700 dark:text-gray-200 text-center leading-tight px-1 font-mono transition hover:scale-110">
+            {name}
+        </div>
+        <span className="text-xs text-gray-600 dark:text-gray-400">{name}</span>
+    </div>
+);
+
+const ImgBadge: React.FC<TechItem> = ({ name, src, width = 52 }) => (
+    <div className="flex flex-col items-center gap-2">
+        <div className="w-14 h-14 flex items-center justify-center transition hover:scale-110">
+            <Image
+                width={width}
+                height={width}
+                src={src}
+                alt={name}
+                className="object-contain"
+            />
+        </div>
+        <span className="text-xs text-gray-600 dark:text-gray-400">{name}</span>
+    </div>
+);
+
+const CategorySection: React.FC<{
+    title: string;
+    children: React.ReactNode;
+}> = ({ title, children }) => (
+    <div className="mb-8">
+        <h3 className="text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-5 font-mono">
+            {title}
+        </h3>
+        <div className="flex flex-wrap gap-6 items-end">{children}</div>
+    </div>
+);
+
+const PracticePill: React.FC<{ label: string }> = ({ label }) => (
+    <span className="px-3 py-1.5 rounded-full text-xs font-medium font-mono bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600">
+        {label}
+    </span>
+);
 
 const Stack: React.FC = () => {
     return (
-        <>
-            <div id="stack">
-                <h2 className="text-3xl font-bold m-2 px-5 pt-10 text-center ">
-                    Stack Tecnológico
-                </h2>
-                <section className="p-5 mt-8 bg-gray-200 text-center dark:bg-gray-600">
-                    <div className="container mx-auto">
-                        <span className="block w-full h-px bg-gray-600 my-8 dark:bg-gray-100"></span>
-                        <h2 className="text-2xl font-bold mb-8 text-center">
-                            Frontend
-                        </h2>
-                        <div className="flex justify-evenly items-center min-w-full gap-4 group">
-                            <div className="flex flex-col items-center">
-                                <Image
-                                    width={100}
-                                    height={100}
-                                    src="/html5.svg"
-                                    alt="html5"
-                                    className="transition hover:scale-125"
-                                />
-                                <span className="mt-2">HTML5</span>
-                            </div>
+        <div id="stack" className="text-gray-700 dark:text-white">
+            <h2 className="text-3xl font-bold px-5 pt-16 pb-10 text-center">
+                Stack Tecnológico
+            </h2>
 
-                            <div className="flex flex-col items-center">
-                                <Image
-                                    width={100}
-                                    height={100}
-                                    src="/css.svg"
-                                    alt="CSS"
-                                    className="transition hover:scale-125"
-                                />
-                                <span className="mt-2">CSS3</span>
-                            </div>
-                            <div className="flex flex-col items-center h-15 sm:w-40">
-                                <Image
-                                    width={110}
-                                    height={115}
-                                    src="/javascript.svg"
-                                    alt="javascript"
-                                    className="transition hover:scale-125"
-                                />
-                                <span className="mt-2">JavaScript</span>
-                            </div>
-                            <div className="flex flex-col items-center">
-                                <Image
-                                    width={120}
-                                    height={100}
-                                    src="/react.svg"
-                                    alt="react"
-                                    className="transition hover:scale-110"
-                                />
-                                <span className="mt-2 ">React js</span>
-                            </div>
-                        </div>
+            <section className="px-5 py-10 bg-gray-100 dark:bg-gray-800 rounded-2xl">
+                <div className="container mx-auto max-w-4xl">
 
-                        <div className="flex flex-wrap justify-center text-center mx-auto">
-                            <section className="w-full sm:w-1/2 flex flex-col">
-                                <span className="block w-full h-px bg-gray-600 my-8 dark:bg-gray-100"></span>
-                                <h2 className="text-2xl font-bold mb-8 text-center">
-                                    Backend
-                                </h2>
-                                <div className="flex flex-wrap justify-evenly min-w-full gap-4">
-                                    <div className="flex flex-col items-center">
-                                        <Image
-                                            width={100}
-                                            height={100}
-                                            src="/nodejs.svg"
-                                            alt="nodejs"
-                                            className="transition hover:scale-110"
-                                        />
-                                        <span className="mt-2">Node js</span>
-                                    </div>
-                                    <div className="flex flex-col items-center">
-                                        <Image
-                                            width={110}
-                                            height={100}
-                                            src="/expressjs.svg"
-                                            alt="express"
-                                            className="transition hover:scale-125"
-                                        />
-                                        <span className="mt-2">Express</span>
-                                    </div>
-                                    <div className="flex flex-col items-center">
-                                        <Image
-                                            width={110}
-                                            height={100}
-                                            src="/typescript.png"
-                                            alt="express"
-                                            className="transition hover:scale-125"
-                                        />
-                                        <span className="mt-2">TypeScript</span>
-                                    </div>
-                                    {/* <div className="flex flex-col items-center">
-                                        <Image
-                                        width={85}
-                                        height={100}
-                                        src="/java.svg"
-                                        alt="java"
-                                        className="transition hover:scale-125"
-                                        />
-                                        <span className="mt-2">JAVA</span>
-                                    </div> */}
-                                    {/* <div className="flex flex-col items-center pt-2">
-                                        <Image
-                                        width={100}
-                                        height={100}
-                                        src="/spring-svgrepo-com.svg"
-                                        alt="spring"
-                                        className="transition hover:scale-125"
-                                        />
-                                        <span className="mt-3">Spring</span>
-                                    </div> */}
-                                </div>
-                            </section>
+                    <CategorySection title="Frontend">
+                        <ImgBadge name="React" src="/react.svg" width={56} />
+                        <ImgBadge name="TypeScript" src="/typescript.png" width={52} />
+                        <ImgBadge name="JavaScript" src="/javascript.svg" width={52} />
+                        <ImgBadge name="Next.js" src="/next.svg" width={64} />
+                        <ImgBadge name="HTML5" src="/html5.svg" />
+                        <ImgBadge name="CSS3" src="/css.svg" />
+                        <ImgBadge name="Tailwind" src="/tailwindcss.svg" width={58} />
+                    </CategorySection>
 
-                            <section className="w-full sm:w-1/2 flex flex-col">
-                                <span className="block w-full h-px bg-gray-600 my-8 dark:bg-gray-100"></span>
-                                <h2 className="text-2xl font-bold mb-8 text-center">
-                                    Databases
-                                </h2>
-                                <div className="flex justify-evenly items-center min-w-full gap-4">
-                                    <div className="flex flex-col items-center">
-                                        <Image
-                                            width={53}
-                                            height={100}
-                                            src="/mongodb.svg"
-                                            alt="mongodb"
-                                            className="transition hover:scale-125"
-                                        />
-                                        <span className="mt-2">Mongo DB</span>
-                                    </div>
-                                    <div className="flex flex-col items-center">
-                                        <Image
-                                            width={115}
-                                            height={115}
-                                            src="/mysql.svg"
-                                            alt="mysql"
-                                            className="transition hover:scale-125"
-                                        />
-                                        <span className="mt-2">MySQL</span>
-                                    </div>
-                                </div>
-                            </section>
-                        </div>
+                    <div className="border-t border-gray-300 dark:border-gray-700 mb-8" />
 
-                        <span className="block w-full h-px bg-gray-600 my-8 dark:bg-gray-100"></span>
-                        <h2 className="text-2xl font-bold mb-8 text-center">
-                            Frameworks
-                        </h2>
-                        <div className="flex flex-wrap justify-evenly items-center min-w-full gap-4">
-                            <div className="flex flex-col items-center pt-3">
-                                <Image
-                                    width={130}
-                                    height={50}
-                                    src="/next.svg"
-                                    alt="nextjs"
-                                    className="transition hover:scale-125 my-5"
-                                />
-                                <span className="mt-5">NEXT js</span>
-                            </div>
+                    <CategorySection title="Backend">
+                        <ImgBadge name="Node.js" src="/nodejs.svg" width={52} />
+                        <ImgBadge name="Express" src="/expressjs.svg" width={58} />
+                        <TextBadge name="REST API" />
+                        <TextBadge name="Prisma ORM" />
+                    </CategorySection>
 
-                            <div className="flex flex-col items-center pt-3">
-                                <Image
-                                    width={110}
-                                    height={115}
-                                    src="/tailwindcss.svg"
-                                    alt="tailwindcss"
-                                    className="transition hover:scale-125"
-                                />
-                                <span className="mt-5">Tailwind CSS</span>
-                            </div>
+                    <div className="border-t border-gray-300 dark:border-gray-700 mb-8" />
+
+                    <CategorySection title="Bases de datos">
+                        <ImgBadge name="PostgreSQL" src="/postgresql.svg" width={52} />
+                        <ImgBadge name="MongoDB" src="/mongodb.svg" width={44} />
+                    </CategorySection>
+
+                    <div className="border-t border-gray-300 dark:border-gray-700 mb-8" />
+
+                    <CategorySection title="DevOps & Tools">
+                        <ImgBadge name="Docker" src="/docker.svg" width={58} />
+                        <ImgBadge name="GitHub" src="/github-mark.svg" width={52} />
+                        <TextBadge name="CI/CD" />
+                        <ImgBadge name="GCP" src="/gcp.svg" width={52} />
+                        <ImgBadge name="Vercel" src="/vercel.svg" width={52} />
+                    </CategorySection>
+
+                    <div className="border-t border-gray-300 dark:border-gray-700 mb-8" />
+
+                    <div>
+                        <h3 className="text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-4 font-mono">
+                            Prácticas
+                        </h3>
+                        <div className="flex flex-wrap gap-2">
+                            {[
+                                "Clean Architecture",
+                                "SOLID",
+                                "Design Patterns",
+                                "Agile / Scrum",
+                                "TDD",
+                                "RESTful APIs",
+                                "Git Flow",
+                            ].map((p) => (
+                                <PracticePill key={p} label={p} />
+                            ))}
                         </div>
                     </div>
-                    <span className="block w-full h-px bg-gray-600 my-8 dark:bg-gray-100"></span>
-                </section>
-            </div>
-        </>
+                </div>
+            </section>
+        </div>
     );
 };
 
-export default Stack
+export default Stack;
