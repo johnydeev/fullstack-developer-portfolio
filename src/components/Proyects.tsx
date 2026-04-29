@@ -100,6 +100,50 @@ const Proyects: React.FC = () => {
                 </picture>
               </div>
             </div>
+            <div className="sm:w-1/2 mb-10 px-4">
+              <div className="border-2 transition inline-block hover:scale-[1.07] h-auto w-full">
+                <div className="flex items-center justify-center w-full aspect-[3/1] bg-gradient-to-br from-gray-800 via-gray-900 to-black text-white font-mono">
+                  <span className="text-lg sm:text-xl tracking-wide">
+                    drive-doc-processor
+                  </span>
+                </div>
+              </div>
+              <h2 className="title-font text-2xl font-medium text-gray-900 mt-6 mb-3 dark:text-white">
+                drive-doc-processor
+              </h2>
+              <div className="flex justify-center mb-3">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-400 border border-green-200 dark:border-green-800">
+                  <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
+                  En desarrollo activo
+                </span>
+              </div>
+              <p className="leading-relaxed text-base">
+                Sistema SaaS multi-tenant de procesamiento de facturas. Extrae
+                datos estructurados desde PDFs con OCR (Tesseract) e IA.
+                Desarrollado con Node.js, PostgreSQL y Docker.
+              </p>
+              <div className="flex justify-center">
+                <picture className="transition-all duration-300 hover:-translate-y-2 w-20 p-3">
+                  <a
+                    href="https://github.com/johnydeev"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Image
+                      className="rounded-full w-15 h-15 dark:bg-gray-900 dark:border-slate-400"
+                      width={600}
+                      height={100}
+                      src={
+                        theme == "dark"
+                          ? "/github-white.svg"
+                          : "/github-mark.svg"
+                      }
+                      alt="Github"
+                    />
+                  </a>
+                </picture>
+              </div>
+            </div>
           </div>
         </div>
       </section>

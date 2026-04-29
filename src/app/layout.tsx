@@ -9,8 +9,9 @@ import type { ReactNode } from "react";
 
 
 export const metadata = {
-  title: '👨‍💻Portfolio Castro Jonathan',
-  description: 'Portfolio Castro Jonathan',}
+  title: 'Jonathan Castro | Full Stack Developer',
+  description: 'Full Stack Developer con más de 2 años de experiencia en React, Node.js y TypeScript. Disponible para roles remotos desde Buenos Aires, Argentina.',
+}
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   
