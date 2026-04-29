@@ -35,11 +35,11 @@ const CategorySection: React.FC<{
     title: string;
     children: React.ReactNode;
 }> = ({ title, children }) => (
-    <div className="mb-10">
-        <h3 className="text-sm font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-6 font-mono">
+    <div className="mb-10 text-center">
+        <h3 className="text-base sm:text-lg font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-6 font-mono">
             {title}
         </h3>
-        <div className="flex flex-wrap gap-x-10 gap-y-8 items-end">{children}</div>
+        <div className="flex flex-wrap justify-center gap-x-10 gap-y-8 items-end">{children}</div>
     </div>
 );
 
@@ -71,18 +71,18 @@ const Stack: React.FC = () => {
 
                     <div className="border-t border-gray-300 dark:border-gray-700 mb-10" />
 
-                    <CategorySection title="Backend">
-                        <ImgBadge name="Node.js" src="/nodejs.svg" width={72} />
-                        <ImgBadge name="Express" src="/expressjs.svg" width={80} />
-                        <ImgBadge name="Prisma ORM" src="/prisma.svg" width={64} />
-                    </CategorySection>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 mb-10">
+                        <CategorySection title="Backend">
+                            <ImgBadge name="Node.js" src="/nodejs.svg" width={72} />
+                            <ImgBadge name="Express" src="/expressjs.svg" width={80} />
+                            <ImgBadge name="Prisma ORM" src="/prisma.svg" width={64} />
+                        </CategorySection>
 
-                    <div className="border-t border-gray-300 dark:border-gray-700 mb-10" />
-
-                    <CategorySection title="Bases de datos">
-                        <ImgBadge name="PostgreSQL" src="/postgresql.svg" width={72} />
-                        <ImgBadge name="MongoDB" src="/mongodb.svg" width={64} />
-                    </CategorySection>
+                        <CategorySection title="Bases de datos">
+                            <ImgBadge name="PostgreSQL" src="/postgresql.svg" width={72} />
+                            <ImgBadge name="MongoDB" src="/mongodb.svg" width={56} />
+                        </CategorySection>
+                    </div>
 
                     <div className="border-t border-gray-300 dark:border-gray-700 mb-10" />
 
@@ -96,11 +96,11 @@ const Stack: React.FC = () => {
 
                     <div className="border-t border-gray-300 dark:border-gray-700 mb-10" />
 
-                    <div>
-                        <h3 className="text-sm font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-5 font-mono">
+                    <div className="text-center">
+                        <h3 className="text-base sm:text-lg font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-5 font-mono">
                             Prácticas
                         </h3>
-                        <div className="flex flex-wrap gap-3">
+                        <div className="flex flex-wrap justify-center gap-3">
                             {[
                                 "Clean Architecture",
                                 "SOLID",
