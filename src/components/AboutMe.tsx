@@ -10,7 +10,7 @@ const AboutMe: React.FC = () => {
             </h1>
 
             <p className="text-sky-500 dark:text-sky-400 font-mono text-sm mb-5 tracking-widest uppercase">
-                React · Node.js · TypeScript · Clean Architecture
+                React · Node.js · TypeScript · Clean Architecture · LLM Integration
             </p>
 
             <div className="mb-6 leading-relaxed space-y-3 text-gray-600 dark:text-gray-300 text-base">
