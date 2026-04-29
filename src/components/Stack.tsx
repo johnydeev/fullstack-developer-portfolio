@@ -74,7 +74,6 @@ const Stack: React.FC = () => {
                     <CategorySection title="Backend">
                         <ImgBadge name="Node.js" src="/nodejs.svg" width={72} />
                         <ImgBadge name="Express" src="/expressjs.svg" width={80} />
-                        <TextBadge name="REST API" />
                         <ImgBadge name="Prisma ORM" src="/prisma.svg" width={64} />
                     </CategorySection>
 
@@ -90,7 +89,7 @@ const Stack: React.FC = () => {
                     <CategorySection title="DevOps & Tools">
                         <ImgBadge name="Docker" src="/docker.svg" width={80} />
                         <ImgBadge name="GitHub" src="/github-mark.svg" width={72} />
-                        <TextBadge name="CI/CD" />
+                        <ImgBadge name="CI/CD" src="/ci-cd.png" width={80} />
                         <ImgBadge name="GCP" src="/gcp.svg" width={72} />
                         <ImgBadge name="Vercel" src="/vercel.svg" width={72} />
                     </CategorySection>
