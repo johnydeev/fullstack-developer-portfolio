@@ -18,7 +18,10 @@ const TextBadge: React.FC<{ name: string }> = ({ name }) => (
 
 const ImgBadge: React.FC<TechItem> = ({ name, src, width = 72 }) => (
     <div className="flex flex-col items-center gap-3">
-        <div className="w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center transition hover:scale-110">
+        <div
+            className="flex items-center justify-center transition hover:scale-110"
+            style={{ width }}
+        >
             <Image
                 width={width}
                 height={width}
@@ -89,7 +92,7 @@ const Stack: React.FC = () => {
                     <CategorySection title="DevOps & Tools">
                         <ImgBadge name="Docker" src="/docker.svg" width={80} />
                         <ImgBadge name="GitHub" src="/github-mark.svg" width={72} />
-                        <ImgBadge name="CI/CD" src="/ci-cd.png" width={80} />
+                        <ImgBadge name="CI/CD" src="/ci-cd.png" width={144} />
                         <ImgBadge name="GCP" src="/gcp.svg" width={72} />
                         <ImgBadge name="Vercel" src="/vercel.svg" width={72} />
                     </CategorySection>

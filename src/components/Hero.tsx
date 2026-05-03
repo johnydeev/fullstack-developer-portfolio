@@ -9,8 +9,8 @@ const Hero = () => {
     const { theme } = useTheme();
 
     return (
-        <div className="text-gray-600 dark:text-white my-10">
-            <section className="body-font text-center p-5 mt-5">
+        <div className="text-gray-600 dark:text-white mt-10 mb-2">
+            <section className="body-font text-center px-5 pt-5 pb-4 mt-5">
                 <h1 className="text-4xl font-bold sm:px-20 py-2">
                     ¡Hola! Mi nombre es Jonathan
                 </h1>
@@ -36,12 +36,12 @@ const Hero = () => {
                 </div>
 
                 {/* SOCIAL ICONS */}
-                <div className="container mx-auto flex justify-center md:justify-start sm:px-16 md:px-8 lg:px-4 xl:px-14 mt-4 gap-4 max-w-6xl">
+                <div className="container mx-auto flex justify-center md:justify-start sm:px-16 md:px-8 lg:px-4 xl:px-14 mt-2 gap-4 max-w-6xl">
                     <a
                         href="https://github.com/johnydeev"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="transition-all duration-300 hover:-translate-y-2 w-20 p-2"
+                        className="transition-all duration-300 hover:-translate-y-2 w-14 p-1"
                     >
                         <img
                             className="rounded-full dark:bg-gray-900 dark:border-slate-400"
@@ -58,7 +58,7 @@ const Hero = () => {
                         href="https://www.linkedin.com/in/johnydeev/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="transition-all duration-300 hover:-translate-y-2 w-20 p-2"
+                        className="transition-all duration-300 hover:-translate-y-2 w-14 p-1"
                     >
                         <img
                             className="rounded-full"

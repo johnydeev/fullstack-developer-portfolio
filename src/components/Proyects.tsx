@@ -37,7 +37,7 @@ const Proyects: React.FC = () => {
                 un automovil segun las necesidades y ubicacion del usuario
               </p>
               <div className="flex justify-center">
-                <picture className="transition-all duration-300 hover:-translate-y-2 w-20 p-3">
+                <picture className="transition-all duration-300 hover:-translate-y-2 w-14 p-1">
                   <a
                     href="https://infinit-ecommerce.vercel.app/"
                     target="_blank"
@@ -79,7 +79,7 @@ const Proyects: React.FC = () => {
                 adaptativo
               </p>
               <div className="flex justify-center">
-                <picture className="transition-all duration-300 hover:-translate-y-2 w-20 p-3">
+                <picture className="transition-all duration-300 hover:-translate-y-2 w-14 p-1">
                   <a
                     href="https://aws-reactjs-castro-jonathan.s3.amazonaws.com/index.html"
                     target="_blank"
@@ -123,7 +123,7 @@ const Proyects: React.FC = () => {
                 Desarrollado con Node.js, PostgreSQL y Docker.
               </p>
               <div className="flex justify-center">
-                <picture className="transition-all duration-300 hover:-translate-y-2 w-20 p-3">
+                <picture className="transition-all duration-300 hover:-translate-y-2 w-14 p-1">
                   <a
                     href="https://github.com/johnydeev"
                     target="_blank"
