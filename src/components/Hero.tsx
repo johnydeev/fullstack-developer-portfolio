@@ -16,47 +16,14 @@ const Hero = () => {
                 </h1>
                 <h2 className="text-xl pb-8">Bienvenid@ a mi portfolio</h2>
 
-                <div className="container mx-auto flex justify-between sm:px-16 md:px-8 md:flex-row lg:px-4 xl:px-14 flex-col items-center gap-4 max-w-6xl">
+                <div className="container mx-auto flex justify-between sm:px-16 md:px-8 md:flex-row lg:px-4 xl:px-14 flex-col items-start gap-4 max-w-6xl">
                     {/* LEFT SIDE */}
                     <div className="xl:pr-14 lg:flex-grow md:w-2/3 md:text-left md:pr-5 mb-6 md:mb-0 flex flex-col items-center md:items-start text-center">
                         <AboutMe />
-
-                        {/* SOCIAL ICONS */}
-                        <div className="flex justify-center md:justify-start mt-4 gap-4">
-                            <a
-                                href="https://github.com/johnydeev"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="transition-all duration-300 hover:-translate-y-2 w-20 p-2"
-                            >
-                                <img
-                                    className="rounded-full dark:bg-gray-900 dark:border-slate-400"
-                                    src={
-                                        theme === "dark"
-                                            ? "/github-white.svg"
-                                            : "/github-mark.svg"
-                                    }
-                                    alt="Github"
-                                />
-                            </a>
-
-                            <a
-                                href="https://www.linkedin.com/in/johnydeev/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="transition-all duration-300 hover:-translate-y-2 w-20 p-2"
-                            >
-                                <img
-                                    className="rounded-full"
-                                    src="/linkedin.svg"
-                                    alt="LinkedIn"
-                                />
-                            </a>
-                        </div>
                     </div>
 
                     {/* RIGHT SIDE (PROFILE IMAGE) */}
-                    <div className="lg:max-w-xs lg:w-full md:w-1/2 w-3/4">
+                    <div className="lg:max-w-[18rem] lg:w-full md:w-[45%] w-[70%] md:mt-6">
                         <Image
                             width={900}
                             height={900}
@@ -66,6 +33,39 @@ const Hero = () => {
                             priority
                         />
                     </div>
+                </div>
+
+                {/* SOCIAL ICONS */}
+                <div className="container mx-auto flex justify-center md:justify-start sm:px-16 md:px-8 lg:px-4 xl:px-14 mt-4 gap-4 max-w-6xl">
+                    <a
+                        href="https://github.com/johnydeev"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="transition-all duration-300 hover:-translate-y-2 w-20 p-2"
+                    >
+                        <img
+                            className="rounded-full dark:bg-gray-900 dark:border-slate-400"
+                            src={
+                                theme === "dark"
+                                    ? "/github-white.svg"
+                                    : "/github-mark.svg"
+                            }
+                            alt="Github"
+                        />
+                    </a>
+
+                    <a
+                        href="https://www.linkedin.com/in/johnydeev/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="transition-all duration-300 hover:-translate-y-2 w-20 p-2"
+                    >
+                        <img
+                            className="rounded-full"
+                            src="/linkedin.svg"
+                            alt="LinkedIn"
+                        />
+                    </a>
                 </div>
             </section>
         </div>

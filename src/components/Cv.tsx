@@ -40,7 +40,7 @@ const Cv: React.FC = () => {
 
                 <div className="py-2 px-4 transition-transform transform hover:-translate-y-1">
                     <a
-                        href="/CV Castro Jonathan FullStack Developer.pdf"
+                        href="/CV Castro Jonathan Desarrollador Full Stack.pdf"
                         download="CV - Castro Jonathan - Full Stack"
                     >
                         <div className="flex items-center justify-center rounded-full bg-gray-800 shadow-black dark:shadow-gray-600 w-16 h-16 hover:bg-gray-700 shadow-lg dark:bg-gray-600">
