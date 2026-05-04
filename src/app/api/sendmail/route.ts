@@ -28,7 +28,7 @@ export async function POST(request: Request) {
     const attachmentPath = path.join(
       process.cwd(),
       "public",
-      "CV Castro Jonathan FullStack Developer.pdf"
+      "CV Castro Jonathan Desarrollador Full Stack.pdf"
     );
 
     // Enviar al usuario
