@@ -16,7 +16,7 @@ const Hero = () => {
                 </h1>
                 <h2 className="text-xl pb-8">Bienvenid@ a mi portfolio</h2>
 
-                <div className="container mx-auto flex justify-between sm:px-16 md:px-8 md:flex-row lg:px-4 xl:px-14 flex-col items-start gap-4 max-w-6xl">
+                <div className="container mx-auto flex justify-between sm:px-16 md:px-8 md:flex-row lg:px-4 xl:px-14 flex-col items-center md:items-start gap-4 max-w-6xl">
                     {/* LEFT SIDE */}
                     <div className="xl:pr-14 lg:flex-grow md:w-2/3 md:text-left md:pr-5 mb-6 md:mb-0 flex flex-col items-center md:items-start text-center">
                         <AboutMe />
