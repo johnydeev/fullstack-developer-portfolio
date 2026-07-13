@@ -10,7 +10,6 @@ interface ContactRequest {
 
 export async function GET() {
   try {
-    console.log("Obteniendo todos los Contactos...");
     await connectDB();
 
     const allUsers = await Contact.find();
@@ -29,15 +28,10 @@ export async function POST(request: Request) {
   await connectDB();
 
   try {
-    console.log("POST /api/users");
-
     const data = (await request.json()) as ContactRequest;
     const saveData = { name: data.name, email: data.email };
 
-    console.log("saveData>>>", saveData);
-
     const existingUser = await Contact.findOne({ email: saveData.email });
-    console.log("Usuario a validar>>", existingUser);
 
     if (existingUser) {
       const currentTime = new Date();
@@ -47,7 +41,6 @@ export async function POST(request: Request) {
         (currentTime.getTime() - lastAttempt.getTime()) / (1000 * 60); // Diferencia en minutos
 
       if (timeDifference < 1) {
-        console.log("timeDifference>>>", timeDifference);
         return NextResponse.json(
           { message: "Por favor, espera antes de intentar enviar nuevamente." },
           { status: 429 }
@@ -76,8 +69,6 @@ export async function POST(request: Request) {
       emailAttempts: 1,
       lastAttempt: new Date(),
     });
-
-    console.log("Nuevo usuario>>>", newUser);
 
     const saveUser = await newUser.save();
 

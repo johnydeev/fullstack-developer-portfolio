@@ -1,9 +1,9 @@
 "use client";
 import axios, { AxiosError } from "axios";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import Swal from "sweetalert2";
 import Loading from "@/components/Loading";
-// import ReCAPTCHA from "react-google-recaptcha";
+import ReCAPTCHA from "react-google-recaptcha";
 
 interface FormData {
   name: string;
@@ -23,6 +23,8 @@ const Contact = () => {
     email: "",
   })
   const [loading, setLoading] = useState(false)
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null)
+  const recaptchaRef = useRef<ReCAPTCHA>(null)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -48,7 +50,6 @@ const Contact = () => {
   }
 
   const handleSubmit = async () => {
-    console.log("formDataEnSubmit>>", formData)
     const isFormEmpty =
       !formData.name.trim() || !formData.email.trim() || !formData.message.trim()
 
@@ -71,18 +72,23 @@ const Contact = () => {
       return
     }
 
+    if (!captchaToken) {
+      Swal.fire({
+        title: "Error!",
+        text: "Por favor, confirma que no sos un robot.",
+        icon: "error",
+        confirmButtonText: "OK",
+      })
+      return
+    }
+
     setLoading(true)
     try {
       const resSaveData = await handleSaveData()
-      console.log("resSaveData>>>", resSaveData)
-
       const resSendMail = await handleSendEmails()
-      console.log("resSendMail>>>", resSendMail)
 
       if (resSendMail.status === 200) {
-        console.log("Mails enviados...")
         if (resSaveData.status === 201) {
-          console.log("Usuario nuevo...")
           Swal.fire({
             title: "Gracias por contactarte!",
             text: "En breve estaré respondiendo tu email.",
@@ -95,7 +101,6 @@ const Contact = () => {
             message: "",
           })
         } else if (resSaveData.status === 202) {
-          console.log("Usuario existente...")
           Swal.fire({
             title: "Me alegra que hayas vuelto!",
             text: "En breve estaré respondiendo tu email.",
@@ -129,43 +134,38 @@ const Contact = () => {
       }
     } finally {
       setLoading(false)
+      recaptchaRef.current?.reset()
+      setCaptchaToken(null)
     }
   }
 
   const handleSaveData = async () => {
     try {
       const response = await axios.post(`/api/users`, formData)
-      console.log("response en handleSaveData>>>", response)
       return response
     } catch (e) {
       const error = e as AxiosError;
-      console.log("Error save data.", error)
-      if (error.response) {
-        console.log("Error response data:", error.response.data)
-        console.log("Error response status:", error.response.status)
-        console.log("Error response headers:", error.response.headers)
-      } else if (error.request) {
-        console.log("Error request:", error.request)
-      } else {
-        console.log("Error message:", error.message)
-      }
-      throw error; // Asegúrate de lanzar el error para que sea capturado en el catch de handleSubmit
+      console.error("Error al guardar los datos del contacto:", error)
+      throw error
     }
   }
 
   const handleSendEmails = async () => {
     try {
-      const response = await axios.post(`/api/sendmail`, formData)
+      const response = await axios.post(`/api/sendmail`, {
+        ...formData,
+        recaptchaToken: captchaToken,
+      })
       return response
     } catch (error) {
       console.error("Error sending email>>>:", error)
       throw error
     }
   }
-  // const handleCaptchaChange = (value) => {
-  //   console.log("Captcha value:", value)
-  //   setCaptchaValue(value)
-  // }
+
+  const handleCaptchaChange = (value: string | null) => {
+    setCaptchaToken(value)
+  }
 
 
   return (
@@ -234,9 +234,13 @@ const Contact = () => {
                     ></textarea>
                   </div>
                 </div>
-                {/* <div>
-                  
-                </div> */}
+                <div className="p-2 w-full flex justify-center">
+                  <ReCAPTCHA
+                    ref={recaptchaRef}
+                    sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ?? ""}
+                    onChange={handleCaptchaChange}
+                  />
+                </div>
                 <div className="flex p-2 w-full gap-3">
                   <button
                     onClick={handleSubmit}
@@ -245,13 +249,6 @@ const Contact = () => {
                   >
                     Enviar
                   </button>
-                  {/* <div className="sm:w-[100px]">
-                    <ReCAPTCHA
-                      className="flex mx-auto justify-center"
-                      sitekey="6Le4RicqAAAAABzPfvrSLw42Ll8sYDHZ_0NNYk49"
-                      onChange={handleCaptchaChange}
-                    />
-                  </div> */}
                 </div>
               </div>
             </div>
