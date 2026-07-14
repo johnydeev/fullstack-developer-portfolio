@@ -11,7 +11,7 @@
 - [x] Responsive 
 - [x] Dark Mode 
 - [x] Menu hamburger personalized
-- [x] Database on **MongoDB**
 - [x] Send email with **Nodemailer**
 - [x] backend lógico for sending emails.
+- [x] reCAPTCHA v2 en el formulario de contacto
 

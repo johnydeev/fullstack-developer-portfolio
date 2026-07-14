@@ -1,7 +1,4 @@
 import { NextResponse } from "next/server";
-import {connectDB} from "@/utils/connectDB";
-
-connectDB()
 
 export function GET() {
 
@@ -9,4 +6,4 @@ export function GET() {
         message: 'Hello from the API'
     })
 
-}   
+}
