@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import Image from "next/image";
@@ -28,7 +27,7 @@ const Hero = () => {
                             width={900}
                             height={900}
                             className="rounded-full"
-                            src="/Jonathan-pic.jpg"
+                            src="/jonathan-pic.jpg"
                             alt="Castro Jonathan"
                             priority
                         />
@@ -43,7 +42,9 @@ const Hero = () => {
                         rel="noopener noreferrer"
                         className="transition-all duration-300 hover:-translate-y-2 w-14 p-1"
                     >
-                        <img
+                        <Image
+                            width={56}
+                            height={56}
                             className="rounded-full dark:bg-gray-900 dark:border-slate-400"
                             src={
                                 theme === "dark"
@@ -60,7 +61,9 @@ const Hero = () => {
                         rel="noopener noreferrer"
                         className="transition-all duration-300 hover:-translate-y-2 w-14 p-1"
                     >
-                        <img
+                        <Image
+                            width={56}
+                            height={56}
                             className="rounded-full"
                             src="/linkedin.svg"
                             alt="LinkedIn"
