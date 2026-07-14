@@ -84,35 +84,32 @@ const Contact = () => {
 
     setLoading(true)
     try {
-      const resSaveData = await handleSaveData()
-      const resSendMail = await handleSendEmails()
+      const [resSaveData, resSendMail] = await Promise.all([
+        handleSaveData(),
+        handleSendEmails(),
+      ])
 
       if (resSendMail.status === 200) {
-        if (resSaveData.status === 201) {
-          Swal.fire({
-            title: "Gracias por contactarte!",
-            text: "En breve estaré respondiendo tu email.",
-            icon: "success",
-            confirmButtonText: "OK",
-          })
-          setFormData({
-            name: "",
-            email: "",
-            message: "",
-          })
-        } else if (resSaveData.status === 202) {
+        if (resSaveData?.status === 202) {
           Swal.fire({
             title: "Me alegra que hayas vuelto!",
             text: "En breve estaré respondiendo tu email.",
             icon: "success",
             confirmButtonText: "OK",
           });
-          setFormData({
-            name: "",
-            email: "",
-            message: "",
+        } else {
+          Swal.fire({
+            title: "Gracias por contactarte!",
+            text: "En breve estaré respondiendo tu email.",
+            icon: "success",
+            confirmButtonText: "OK",
           })
         }
+        setFormData({
+          name: "",
+          email: "",
+          message: "",
+        })
       }
     } catch (e) {
       const error = e as AxiosError;
@@ -144,9 +141,11 @@ const Contact = () => {
       const response = await axios.post(`/api/users`, formData)
       return response
     } catch (e) {
-      const error = e as AxiosError;
-      console.error("Error al guardar los datos del contacto:", error)
-      throw error
+      // El guardado en Mongo es best-effort: solo se usa para variar el mensaje
+      // de éxito. El rate limiting real lo hace /api/sendmail por IP, así que un
+      // fallo acá (ej. Mongo caído) nunca debe impedir que el email se envíe.
+      console.error("No se pudo guardar el contacto en la base de datos:", e)
+      return null
     }
   }
 
