@@ -84,27 +84,15 @@ const Contact = () => {
 
     setLoading(true)
     try {
-      const [resSaveData, resSendMail] = await Promise.all([
-        handleSaveData(),
-        handleSendEmails(),
-      ])
+      const resSendMail = await handleSendEmails()
 
       if (resSendMail.status === 200) {
-        if (resSaveData?.status === 202) {
-          Swal.fire({
-            title: "Me alegra que hayas vuelto!",
-            text: "En breve estaré respondiendo tu email.",
-            icon: "success",
-            confirmButtonText: "OK",
-          });
-        } else {
-          Swal.fire({
-            title: "Gracias por contactarte!",
-            text: "En breve estaré respondiendo tu email.",
-            icon: "success",
-            confirmButtonText: "OK",
-          })
-        }
+        Swal.fire({
+          title: "Gracias por contactarte!",
+          text: "En breve estaré respondiendo tu email.",
+          icon: "success",
+          confirmButtonText: "OK",
+        })
         setFormData({
           name: "",
           email: "",
@@ -133,19 +121,6 @@ const Contact = () => {
       setLoading(false)
       recaptchaRef.current?.reset()
       setCaptchaToken(null)
-    }
-  }
-
-  const handleSaveData = async () => {
-    try {
-      const response = await axios.post(`/api/users`, formData)
-      return response
-    } catch (e) {
-      // El guardado en Mongo es best-effort: solo se usa para variar el mensaje
-      // de éxito. El rate limiting real lo hace /api/sendmail por IP, así que un
-      // fallo acá (ej. Mongo caído) nunca debe impedir que el email se envíe.
-      console.error("No se pudo guardar el contacto en la base de datos:", e)
-      return null
     }
   }
 
