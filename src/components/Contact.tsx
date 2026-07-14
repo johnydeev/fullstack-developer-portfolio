@@ -49,7 +49,9 @@ const Contact = () => {
     }
   }
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+
     const isFormEmpty =
       !formData.name.trim() || !formData.email.trim() || !formData.message.trim()
 
@@ -155,7 +157,7 @@ const Contact = () => {
               <p></p>
             </div>
             <div className="lg:w-1/2 md:w-2/3 mx-auto">
-              <div className="flex flex-wrap -m-2">
+              <form onSubmit={handleSubmit} className="flex flex-wrap -m-2">
                 <div className="p-2 w-1/2">
                   <div className="relative">
                     <label htmlFor="name" className="leading-7 text-sm">
@@ -217,14 +219,13 @@ const Contact = () => {
                 </div>
                 <div className="flex p-2 w-full gap-3">
                   <button
-                    onClick={handleSubmit}
                     type="submit"
                     className="flex mx-auto text-white bg-gray-800 dark:bg-gray-600 border-0 py-2 px-8 focus:outline-none hover:bg-gray-700 dark:hover:bg-gray-500 rounded text-lg my-3 pt-3"
                   >
                     Enviar
                   </button>
                 </div>
-              </div>
+              </form>
             </div>
           </div>
         </section>
