@@ -15,7 +15,7 @@ const AboutMe: React.FC = () => {
 
             <div className="mb-6 leading-relaxed space-y-3 text-gray-600 dark:text-gray-300 text-base">
                 <p>
-                    Desarrollo aplicaciones web end-to-end con más de 2 años de
+                    Desarrollo aplicaciones web end-to-end con más de 3 años de
                     experiencia, gestionando el ciclo completo del proyecto de
                     forma autónoma: desde el relevamiento con el cliente hasta el
                     despliegue en producción.
@@ -27,20 +27,26 @@ const AboutMe: React.FC = () => {
                     <span className="font-semibold text-gray-800 dark:text-white">
                         50% en tiempos operativos
                     </span>{" "}
-                    en entornos reales.
+                    en procesos internos.
                 </p>
                 <p>
-                    Actualmente construyo{" "}
+                    Desarrollé{" "}
                     <a
-                        href="https://github.com/johnydeev"
+                        href="https://github.com/johnydeev/ia-drive-doc-processor"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-sky-500 hover:text-sky-400 underline underline-offset-4 transition-colors duration-200 font-medium"
                     >
-                        drive-doc-processor
+                        ia-drive-doc-processor
                     </a>
-                    , un sistema SaaS multi-tenant de procesamiento de facturas
-                    con OCR e IA. Disponible para roles remotos o en Buenos Aires.
+                    , un SaaS multi-tenant de procesamiento de facturas{" "}
+                    <span className="font-semibold text-gray-800 dark:text-white">
+                        ya monetizado
+                    </span>
+                    , con un pipeline multi-LLM (Cerebras → Gemini → GPT-4) y
+                    fallback a OCR, que procesa 500+ boletas/mes reduciendo el
+                    tiempo de procesamiento hasta un 90%. Disponible para roles
+                    remotos o en Buenos Aires.
                 </p>
             </div>
 
