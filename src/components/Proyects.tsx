@@ -18,11 +18,13 @@ const Proyects: React.FC = () => {
           <div className="flex flex-wrap -mx-4 -mb-10 text-center">
             <div className="sm:w-1/2 mb-10 px-4">
               <div className="border-2 transition inline-block hover:scale-[1.07] h-auto w-full">
-                <div className="flex items-center justify-center w-full aspect-[3/1] bg-gradient-to-br from-gray-800 via-gray-900 to-black text-white font-mono">
-                  <span className="text-lg sm:text-xl tracking-wide">
-                    ia-drive-doc-processor
-                  </span>
-                </div>
+                <Image
+                  width={1200}
+                  height={400}
+                  alt="ia-drive-doc-processor preview"
+                  className="object-cover object-center w-full"
+                  src="/ia-drive-doc-processor.png"
+                />
               </div>
               <h2 className="title-font text-2xl font-medium text-gray-900 mt-6 mb-3 dark:text-white">
                 ia-drive-doc-processor
@@ -62,11 +64,13 @@ const Proyects: React.FC = () => {
             </div>
             <div className="sm:w-1/2 mb-10 px-4">
               <div className="border-2 transition inline-block hover:scale-[1.07] h-auto w-full">
-                <div className="flex items-center justify-center w-full aspect-[3/1] bg-gradient-to-br from-slate-700 via-slate-800 to-gray-900 text-white font-mono">
-                  <span className="text-lg sm:text-xl tracking-wide">
-                    task-drive-manager
-                  </span>
-                </div>
+                <Image
+                  width={1200}
+                  height={400}
+                  alt="Task Drive Manager dashboard preview"
+                  className="object-cover object-center w-full"
+                  src="/task-drive-manager.png"
+                />
               </div>
               <h2 className="title-font text-2xl font-medium text-gray-900 mt-6 mb-3 dark:text-white">
                 task-drive-manager
