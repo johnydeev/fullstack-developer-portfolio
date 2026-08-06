@@ -17,11 +17,12 @@ const Proyects: React.FC = () => {
         <div className="container px-5 pt-8 mx-auto">
           <div className="flex flex-wrap -mx-4 -mb-10 text-center">
             <div className="sm:w-1/2 mb-10 px-4">
-              <div className="border-2 transition inline-block hover:scale-[1.07] w-full relative aspect-[5/2] overflow-hidden">
+              <div className="border-2 transition inline-block hover:scale-[1.07] h-auto w-full">
                 <Image
-                  fill
+                  width={1200}
+                  height={750}
                   alt="ia-drive-doc-processor preview"
-                  className="object-cover object-center"
+                  className="object-cover object-center w-full"
                   src="/ia-drive-doc-processor.png"
                 />
               </div>
@@ -62,11 +63,12 @@ const Proyects: React.FC = () => {
               </div>
             </div>
             <div className="sm:w-1/2 mb-10 px-4">
-              <div className="border-2 transition inline-block hover:scale-[1.07] w-full relative aspect-[5/2] overflow-hidden">
+              <div className="border-2 transition inline-block hover:scale-[1.07] h-auto w-full">
                 <Image
-                  fill
+                  width={1200}
+                  height={550}
                   alt="Task Drive Manager dashboard preview"
-                  className="object-cover object-center"
+                  className="object-cover object-center w-full"
                   src="/task-drive-manager.png"
                 />
               </div>

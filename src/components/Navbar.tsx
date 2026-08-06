@@ -24,43 +24,6 @@ const Navbar: React.FC = () => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, [isClient]);
 
-    // Cargar tema desde localStorage
-    useEffect(() => {
-        if (!isClient) return;
-
-        let storedTheme: string | null = null;
-
-        try {
-            storedTheme = localStorage.getItem("theme");
-        } catch {}
-
-        if (storedTheme) {
-            setTheme(storedTheme);
-        } else {
-            const prefersDark = window.matchMedia(
-                "(prefers-color-scheme: dark)"
-            ).matches;
-            setTheme(prefersDark ? "dark" : "light");
-        }
-    }, [isClient, setTheme]);
-
-    // Aplicar clase al <html>
-    useEffect(() => {
-        if (!isClient || !theme) return;
-
-        const html = document.documentElement;
-
-        try {
-            localStorage.setItem("theme", theme);
-        } catch {}
-
-        if (theme === "dark") {
-            html.classList.add("dark");
-        } else {
-            html.classList.remove("dark");
-        }
-    }, [theme, isClient]);
-
     // Toggle
     const toggleTheme = () => {
         setTheme((prev) => (prev === "dark" ? "light" : "dark"));

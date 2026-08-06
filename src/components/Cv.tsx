@@ -1,39 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 const Cv: React.FC = () => {
-    const [isFixed, setIsFixed] = useState(false);
-    const [scrollY, setScrollY] = useState(0);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            const y = window.scrollY || document.documentElement.scrollTop;
-            setScrollY(y);
-
-            const stopPosition = 2700;
-            setIsFixed(y > stopPosition);
-        };
-
-        window.addEventListener("scroll", handleScroll);
-        handleScroll(); 
-
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
-    }, []);
-
     return (
         <div className="relative">
-            <div
-                className={`transition-all duration-300 hover:-translate-y-1
-            ${isFixed
-                        ? "fixed top-0 right-0"
-                        : "fixed bottom-0 right-0 mr-2 mb-2 sm:mb-24 sm:mr-5 lg:mr-8"
-                    }
-            ${isFixed && scrollY > 2700 ? "translate-y-32" : ""}`}
-            >
+            <div className="fixed bottom-0 right-0 mr-2 mb-2 sm:mb-24 sm:mr-5 lg:mr-8 transition-all duration-300 hover:-translate-y-1">
                 <p id="desktop" className="font-bold">
                     Descargar CV
                 </p>
