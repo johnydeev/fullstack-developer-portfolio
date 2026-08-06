@@ -16,33 +16,56 @@ const TextBadge: React.FC<{ name: string }> = ({ name }) => (
     </div>
 );
 
-const ImgBadge: React.FC<TechItem> = ({ name, src, width = 72 }) => (
-    <div className="flex flex-col items-center gap-3">
+const ImgBadge: React.FC<TechItem & { size?: "md" | "lg" }> = ({
+    name,
+    src,
+    size = "md",
+}) => {
+    const isLg = size === "lg";
+    return (
         <div
-            className="flex items-center justify-center transition hover:scale-110"
-            style={{ width }}
+            className={`flex flex-col items-center justify-center gap-0.5 p-1.5 border border-gray-300 dark:border-gray-600 rounded-lg transition hover:scale-105 hover:border-sky-400 dark:hover:border-sky-500 ${
+                isLg ? "col-span-2 row-span-2" : ""
+            }`}
         >
-            <Image
-                width={width}
-                height={width}
-                src={src}
-                alt={name}
-                className="object-contain"
-            />
+            <div className="relative flex-1 w-full min-h-0">
+                <Image
+                    src={src}
+                    alt={name}
+                    fill
+                    className="object-contain"
+                />
+            </div>
+            <span
+                className={`text-gray-600 dark:text-gray-400 text-center leading-tight truncate w-full shrink-0 ${
+                    isLg ? "text-xs" : "text-[9px] sm:text-[10px]"
+                }`}
+            >
+                {name}
+            </span>
         </div>
-        <span className="text-sm text-gray-600 dark:text-gray-400">{name}</span>
-    </div>
-);
+    );
+};
 
 const CategorySection: React.FC<{
     title: string;
+    className?: string;
+    plain?: boolean;
     children: React.ReactNode;
-}> = ({ title, children }) => (
-    <div className="mb-10 text-center">
-        <h3 className="text-base sm:text-lg font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-6 font-mono">
+}> = ({ title, className = "", plain = false, children }) => (
+    <div
+        className={`rounded-3xl bg-white dark:bg-gray-900/60 border border-gray-200 dark:border-gray-700 p-3 sm:p-4 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 flex flex-col ${className}`}
+    >
+        <h3 className="text-base sm:text-lg font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-3 font-mono text-center">
             {title}
         </h3>
-        <div className="flex flex-wrap justify-center gap-x-10 gap-y-8 items-end">{children}</div>
+        {plain ? (
+            <div className="flex-1 flex items-center justify-center">{children}</div>
+        ) : (
+            <div className="grid grid-cols-[repeat(auto-fill,78px)] sm:grid-cols-[repeat(auto-fill,92px)] auto-rows-[78px] sm:auto-rows-[92px] gap-1.5 flex-1 content-center justify-center">
+                {children}
+            </div>
+        )}
     </div>
 );
 
@@ -59,50 +82,39 @@ const Stack: React.FC = () => {
                 Stack Tecnológico
             </h2>
 
-            <section className="px-6 sm:px-10 py-14 bg-gray-100 dark:bg-gray-800 rounded-2xl">
-                <div className="container mx-auto max-w-5xl">
+            <section className="px-6 sm:px-10 py-14">
+                <div className="container mx-auto max-w-5xl grid grid-cols-1 md:grid-cols-6 gap-4 sm:gap-5 auto-rows-[minmax(0,auto)]">
 
-                    <CategorySection title="Frontend">
-                        <ImgBadge name="React" src="/react.svg" width={76} />
+                    <CategorySection title="Frontend" className="md:col-span-4 md:row-span-2">
+                        <ImgBadge name="React" src="/react.svg" width={76} size="lg" />
                         <ImgBadge name="TypeScript" src="/typescript.png" width={72} />
                         <ImgBadge name="JavaScript" src="/javascript.svg" width={72} />
-                        <ImgBadge name="Next.js" src="/next.svg" width={88} />
+                        <ImgBadge name="Next.js" src="/next.svg" width={88} size="lg" />
                         <ImgBadge name="HTML5" src="/html5.svg" width={72} />
                         <ImgBadge name="CSS3" src="/css.svg" width={72} />
                         <ImgBadge name="Tailwind" src="/tailwindcss.svg" width={80} />
                     </CategorySection>
 
-                    <div className="border-t border-gray-300 dark:border-gray-700 mb-10" />
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 mb-10">
-                        <CategorySection title="Backend">
-                            <ImgBadge name="Node.js" src="/nodejs.svg" width={72} />
-                            <ImgBadge name="Express" src="/expressjs.svg" width={80} />
-                            <ImgBadge name="Prisma ORM" src="/prisma.svg" width={64} />
-                        </CategorySection>
-
-                        <CategorySection title="Bases de datos">
-                            <ImgBadge name="PostgreSQL" src="/postgresql.svg" width={72} />
-                            <ImgBadge name="MongoDB" src="/mongodb.svg" width={56} />
-                        </CategorySection>
-                    </div>
-
-                    <div className="border-t border-gray-300 dark:border-gray-700 mb-10" />
-
-                    <CategorySection title="DevOps & Tools">
-                        <ImgBadge name="Docker" src="/docker.svg" width={80} />
+                    <CategorySection title="DevOps & Tools" className="md:col-span-2 md:row-span-2">
+                        <ImgBadge name="Docker" src="/docker.svg" width={80} size="lg" />
                         <ImgBadge name="GitHub" src="/github-mark.svg" width={72} />
                         <ImgBadge name="CI/CD" src="/ci-cd.png" width={144} />
                         <ImgBadge name="GCP" src="/gcp.svg" width={72} />
                         <ImgBadge name="Vercel" src="/vercel.svg" width={72} />
                     </CategorySection>
 
-                    <div className="border-t border-gray-300 dark:border-gray-700 mb-10" />
+                    <CategorySection title="Backend" className="md:col-span-3">
+                        <ImgBadge name="Node.js" src="/nodejs.svg" width={72} size="lg" />
+                        <ImgBadge name="Express" src="/expressjs.svg" width={80} />
+                        <ImgBadge name="Prisma ORM" src="/prisma.svg" width={64} />
+                    </CategorySection>
 
-                    <div className="text-center">
-                        <h3 className="text-base sm:text-lg font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-5 font-mono">
-                            Prácticas
-                        </h3>
+                    <CategorySection title="Bases de datos" className="md:col-span-3">
+                        <ImgBadge name="PostgreSQL" src="/postgresql.svg" width={72} size="lg" />
+                        <ImgBadge name="MongoDB" src="/mongodb.svg" width={56} />
+                    </CategorySection>
+
+                    <CategorySection title="Prácticas" className="md:col-span-6" plain>
                         <div className="flex flex-wrap justify-center gap-3">
                             {[
                                 "Clean Architecture",
@@ -116,7 +128,7 @@ const Stack: React.FC = () => {
                                 <PracticePill key={p} label={p} />
                             ))}
                         </div>
-                    </div>
+                    </CategorySection>
                 </div>
             </section>
         </div>
